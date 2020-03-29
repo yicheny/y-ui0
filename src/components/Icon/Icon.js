@@ -4,9 +4,10 @@ import cls from 'clsx';
 function Icon(props) {
     let {name,size,style,className,color,...rest} = props;
 
-    style={...style,fontSize:size,color};
-    return (<i className={cls('iconfont',`icon-${name}`,className)} style={style} {...rest}>
-    </i>);
+    return <i className={cls('iconfont',`icon-${name}`,className)}
+               style={{...style,fontSize:size,color}}
+               {...rest}>
+    </i>;
 }
 Icon.defaultProps={
     name:'',

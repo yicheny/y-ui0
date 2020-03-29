@@ -1,26 +1,87 @@
-import React, {createContext, useContext} from 'react';
-import './Menu.scss';
+import React, {createContext, useContext, useState,useMemo, useRef, useLayoutEffect,useReducer} from 'react';
+import _ from 'lodash';
+import cls from 'clsx';
+import Icon from '../Icon';
 
 const MenuContext = createContext({});
 
 function MenuItem(props) {
-    const {data: {text, children}, level} = props;
-    const {indent} = useContext(MenuContext);
+    const {data, data: {text, children}, level, expands} = props;
+    const sub = useRef();
+    const container = useRef();
+    const {indent, action} = useContext(MenuContext);
+    const expanded = useMemo(() =>_.includes(expands, data), [data, expands]);
 
-    return <div className='y-Menu-item'>
-        <div className='y-Menu-item-main' style={{paddingLeft:level * indent}}>{text}</div>
-        {children && children.map((e, i) => <MenuItem key={i} data={e} level={level + 1}/>)}
+    useLayoutEffect(() => {
+        if(expanded && sub.current && container.current){
+            if(isInit()) sub.current.style.height='auto';//初始化时必须将高度设置为`auto`，否则父级将不能响应子级的高度变化
+            else sub.current.style.height = `${container.current.offsetHeight}px`;
+        }else{
+            if(sub.current){
+                if(isInit()) sub.current.style.height = '0px';//用于解决初始化页面闪烁的问题
+                setTimeout(()=>sub.current.style.height = '0px',0)
+            }
+        }
+
+        return ()=>{
+            if (expanded && sub.current && container.current) {
+                sub.current.style.height = `${container.current.offsetHeight}px`;
+            }
+        }
+    }, [expanded]);
+
+    return <div className='y-menu-item'>
+        <div className={cls('y-menu-item-header', {expanded})} style={{paddingLeft: level * indent}}
+             onClick={() => action(data)}>
+            <span className="y-menu-item-text">{text}</span>
+            {children && <Icon name='arrowDown' size={16}/>}
+        </div>
+        {children && <div className="y-menu-sub" ref={sub} onTransitionEnd={transitionEnd}>
+            <div className="y-menu-item-container" ref={container}>
+                {children.map((e, i) => <MenuItem key={i} data={e} level={level + 1} expands={expands}/>)}
+            </div>
+        </div>}
     </div>
+
+    function transitionEnd() {
+        if(expanded) sub.current.style.height = 'auto';//设置为`auto`的原因是需要保证子级菜单展开时，父级菜单的高度响应变化
+    }
+
+    function isInit() {
+        return sub.current.style.height==='';
+    }
 }
 
 function Menu(props) {
     const {option: {details, indent = 20}} = props;
-    const contextData = {indent};
+    const [expands,setExpands] = useState(findExpanded(details));
+    const contextData = {indent, action};
     return <MenuContext.Provider value={contextData}>
-        <div className="y-Menu">
-            {details.map((e, i) => <MenuItem key={i} data={e} level={1}/>)}
+        <div className="y-menu">
+            {details.map((e, i) => <MenuItem key={i} data={e} level={1} expands={expands}/>)}
         </div>
     </MenuContext.Provider>
+
+    function action(x) {
+        if (arrayHasData(x.children)) {
+            if (_.includes(expands, x)) _.pull(expands, x)
+            else expands.push(x);
+            setExpands([...expands]);
+        }
+    }
 }
 
 export default Menu;
+
+function findExpanded(data, array = []) {
+    if (!Array.isArray(array)) array = [];
+    _.forEach(data, o => {
+        if (o.expanded && arrayHasData(o.children)) array.push(o);
+        findExpanded(o.children, array);
+    })
+    return array;
+}
+
+function arrayHasData(x) {
+    return Array.isArray(x) && x.length > 0
+}
