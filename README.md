@@ -4,8 +4,6 @@
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
-Describe y-ui0 here.
-
 [build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
 [build]: https://travis-ci.org/user/repo
 
@@ -14,3 +12,9 @@ Describe y-ui0 here.
 
 [coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
 [coveralls]: https://coveralls.io/github/user/repo
+
+# 声明
+此组件库仅为个人使用开发。
+
+# 正在开发的组件
+- `Menu`：菜单
