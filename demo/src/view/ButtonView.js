@@ -2,7 +2,7 @@ import React from 'react';
 import {Button} from "../lib";
 
 function ButtonView(props) {
-    return <div>
+    return <div className='box'>
         <Button>标准按钮</Button>
         <Button primary>primary按钮</Button>
         <Button text>text按钮</Button>

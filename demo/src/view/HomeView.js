@@ -2,7 +2,7 @@ import React from 'react';
 
 function HomeView(props) {
     return (
-        <div>HomeView</div>
+        <div className='box'>HomeView</div>
     );
 }
 
