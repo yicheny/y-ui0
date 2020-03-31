@@ -58,9 +58,9 @@ function MenuItem(props) {
 }
 
 function Menu(props) {
-    const {option,option: {details, indent = 20},history} = props;
+    const {option: {details, indent = 20},history} = props;
     const [expands,setExpands] = useState(findExpanded(details));
-    const [path,setPath] = useState(option.path);
+    const [path,setPath] = useState(history.location.pathname);
     const contextData = {indent, action, path};
 
     useEffect(()=>{
