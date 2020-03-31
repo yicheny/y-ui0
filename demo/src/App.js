@@ -8,9 +8,8 @@ import ButtonView from "./view/ButtonView";
 import HomeView from "./view/HomeView";
 
 const Menu_option = {
-    path:'/',
     details:[
-        {text:'首页',to:'/'},
+        {text:'首页'},
         {
             text:'组件',
             expanded: true,

@@ -23,7 +23,6 @@
         - [x] `size`{Number}设置图标大小     
 2. `Menu`：菜单
     - API：
-        - `path`{String}:用于设置初始菜单项路径【高亮】
         - `option`{Object}:用于设置菜单配置
             - `details`{Array}：设置菜单展示内容
                 - [x] `text`{String}:菜单项文字
@@ -34,4 +33,12 @@
         - [x] 点击带有箭头图标的菜单，可以展开或缩放，附带动画效果
         - [x] 滑过显示背景色
         - [x] 不同层级设置相应`paddingLeft`以区分
+        - [x] 根据当前路由自动高亮对应菜单【依据`to`属性】
         - [x] 菜单展开时，当前菜单项高亮显示；菜单收缩时，包含当前菜单的父菜单项高亮
+3. `Button`：按钮
+    - API:
+        - [x] 默认模式【不进行任何设置】
+        - [x] `primary`{Boolean}：主要按钮
+        - [x] `cancel`{Boolean}：取消按钮
+        - [x] `text`{Boolean}：文字按钮
+        - [x] `disabled`{Boolean}：禁用按钮
