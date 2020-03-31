@@ -23,12 +23,15 @@
         - [x] `size`{Number}设置图标大小     
 2. `Menu`：菜单
     - API：
+        - `path`{String}:用于设置初始菜单项路径【高亮】
         - `option`{Object}:用于设置菜单配置
             - `details`{Array}：设置菜单展示内容
-                -  [x] `text`{String}:菜单项文字
-                -  [x] `children`{Array}:子菜单
-                -  [x] `expanded`{Boolean}:初始是否展开
+                - [x] `text`{String}:菜单项文字
+                - [x] `children`{Array}:子菜单
+                - [x] `expanded`{Boolean}:初始是否展开
+                - [x] `to`{String}:路由地址
     - 特性：
         - [x] 点击带有箭头图标的菜单，可以展开或缩放，附带动画效果
         - [x] 滑过显示背景色
         - [x] 不同层级设置相应`paddingLeft`以区分
+        - [x] 菜单展开时，当前菜单项高亮显示；菜单收缩时，包含当前菜单的父菜单项高亮

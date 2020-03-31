@@ -1,6 +1,6 @@
 {
   "name": "y-ui0",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "y-ui0 React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -11,7 +11,8 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
+    "upload": "npm publish --registry http://registry.npmjs.org",
+    "build": "nwb build-react-component && npx node-sass -r src -o lib --output-style compressed",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",

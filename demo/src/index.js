@@ -1,6 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
+import { HashRouter, Route } from "react-router-dom";
 import {render} from 'react-dom'
 import App from "./App";
 import './index.scss';
 
-render(<App/>, document.querySelector('#demo'))
+render(<HashRouter>
+    <Route component={App}/>
+</HashRouter>, document.querySelector('#demo'));

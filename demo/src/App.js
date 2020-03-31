@@ -1,78 +1,35 @@
 import React from 'react';
+import {Switch,Route} from 'react-router-dom';
 import {Menu} from './lib';
+// import {Menu_option} from './data/menuData';
 import './App.scss';
 import "../../src/style.scss";
+import ButtonView from "./view/ButtonView";
+import HomeView from "./view/HomeView";
 
 const Menu_option = {
-    details: [
-        {text: 'A'},
+    path:'/',
+    details:[
+        {text:'首页',to:'/'},
         {
-            text: 'B',
+            text:'组件',
             expanded: true,
-            children: [
-                {text: 'B-1'},
-                {text: 'B-2'},
-                {
-                    text: 'B-3',
-                    expanded: true,
-                    children:[
-                        {text:'B-3-1'},
-                        {
-                            text:'B-3-2',
-                            expanded: true,
-                            children:[
-                                {text:'B-3-2-1'},
-                                {text:'B-3-2-2'},
-                            ]
-                        },
-                        {text:'B-3-3'},
-                    ]
-                },
+            children:[
+                {text:'Button',to:'button'}
             ]
-        },
-        {
-            text: 'C',
-            children: [
-                {text: 'C-1'},
-                {
-                    text: 'C-2',
-                    children: [
-                        {text: 'C-2-1'},
-                        {text: 'C-2-2'}
-                    ]
-                }
-            ]
-        },
-        {
-            text: 'D',
-            expanded: true,
-            children: [
-                {text: 'D-1'},
-                {text: 'D-2'},
-                {
-                    text: 'D-3',
-                    // expanded: true,
-                    children:[
-                        {text:'D-3-1'},
-                        {
-                            text:'D-3-2',
-                            // expanded: true,
-                            children:[
-                                {text:'D-3-2-1'},
-                                {text:'D-3-2-2'},
-                            ]
-                        },
-                        {text:'D-3-3'},
-                    ]
-                },
-            ]
-        },
+        }
     ]
-}
+};
 
 function App(props) {
     return (<div className='app'>
         <Menu option={Menu_option}/>
+        <div className="app-content">
+            <Switch>
+                <Route path='/button' component={ButtonView}/>
+                <Route component={HomeView}/>
+            </Switch>
+        </div>
     </div>);
 }
 
