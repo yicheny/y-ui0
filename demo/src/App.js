@@ -6,6 +6,7 @@ import './App.scss';
 import "../../src/style.scss";
 import ButtonView from "./view/ButtonView";
 import HomeView from "./view/HomeView";
+import InputView from "./view/InputView";
 
 const Menu_option = {
     details:[
@@ -14,7 +15,8 @@ const Menu_option = {
             text:'组件',
             expanded: true,
             children:[
-                {text:'Button',to:'button'}
+                {text:'Button',to:'button'},
+                {text:'Input',to:'input'},
             ]
         }
     ]
@@ -26,6 +28,7 @@ function App(props) {
         <div className="app-content">
             <Switch>
                 <Route path='/button' component={ButtonView}/>
+                <Route path='/input' component={InputView}/>
                 <Route component={HomeView}/>
             </Switch>
         </div>

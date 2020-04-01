@@ -1,0 +1,42 @@
+.y-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 4px;
+  margin: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+  .y-card-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: none;
+    border-bottom: 1px solid rgb(225, 225, 225);
+    padding: 0 16px;
+    min-height: 40px;
+
+    > .title {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      &::before {
+        display: block;
+        content: "";
+        width: 2px;
+        height: 1em;
+        background-color: $primary-color;
+        box-shadow: 2px 0 3px 0 rgba(24, 144, 255, .42);
+        margin-right: 12px;
+      }
+    }
+  }
+
+  .y-card-content{
+    position: relative;
+    flex: 1;
+    overflow: auto;
+    padding:16px;
+  }
+}

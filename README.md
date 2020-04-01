@@ -42,3 +42,13 @@
         - [x] `cancel`{Boolean}：取消按钮
         - [x] `text`{Boolean}：文字按钮
         - [x] `disabled`{Boolean}：禁用按钮
+4. `Input`：输入框
+    - 未特殊说明，即表示原生`input`原生的属性可以被使用
+    - 自定义API：
+        - [X] `onEnter`{Function}：按下回车触发，回调参数为`e.target.value`
+    - 原生API变动：
+        - [X] `onChange`{Function}：回调参数为`e.target.value`
+        - [X] `onBlur`{Function}：回调参数为`e.target.value`
+5. `Card`：内容卡片【或许叫做内容盒子更合适一些】
+    - API：
+        - [X] `title`{String} 标题
