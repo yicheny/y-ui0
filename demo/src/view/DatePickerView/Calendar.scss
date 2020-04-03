@@ -1,4 +1,4 @@
-.y-date-picker-panel {
+.y-calendar-panel {
   width: 280px;
   font-size: 14px;
   background: #fff;
@@ -6,7 +6,7 @@
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, .12), 0 6px 16px 0 rgba(0, 0, 0, .08), 0 9px 28px 8px rgba(0, 0, 0, .05);
   user-select: none;
 
-  .y-picker-header {
+  .y-calendar-header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,20 +20,20 @@
     }
   }
 
-  .y-picker-body {
+  .y-calendar-body {
     box-sizing: border-box;
     padding: 8px 12px;
     height: 226px;
   }
 
-  .y-picker-footer {
+  .y-calendar-footer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 39px;
     border-top: 1px solid #f0f0f0;
 
-    .y-picker-today-btn {
+    .y-calendar-today-btn {
       &:hover {
         color:#40a9ff;
       }
@@ -51,7 +51,7 @@
   }
 }
 
-.y-date-picker-card{
+.y-calendar-card{
   display: flex;
   flex-direction: column;
   &-header{

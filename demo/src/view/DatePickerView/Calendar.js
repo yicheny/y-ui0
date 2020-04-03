@@ -1,5 +1,5 @@
 import React,{useMemo,useState} from 'react';
-import './DatePicker.scss';
+import './Calendar.scss';
 import clsx from "clsx";
 
 function daysFor(y,m) {
@@ -19,7 +19,7 @@ function prevDateFor(y,m) {
     return prevStartIndex ? daysFor(y,m-1).slice(prevStartIndex) : [];
 }
 
-function DatePickerCell(props) {
+function CalendarCell(props) {
     const {item,current,setDate} = props;
     const {y,m,d} = item;
     const currMonth = m === current.getMonth();
@@ -27,7 +27,7 @@ function DatePickerCell(props) {
     return <div className={clsx('cell',{currMonth, selected})} onClick={()=>setDate(new Date(y,m,d))}>{d}</div>;
 }
 
-function DatePickerCard(props) {
+function CalendarCard(props) {
     const {current,setDate} = props;
 
     const data = useMemo(()=>{
@@ -39,15 +39,15 @@ function DatePickerCard(props) {
         return prevDays.concat(currentDays,nextDays);
     },[current]);
 
-    return <div className="y-date-picker-card">
-        <div className="y-date-picker-card-header">
+    return <div className="y-calendar-card">
+        <div className="y-calendar-card-header">
             {['一','二','三','四','五','六','日'].map(x=><div key={x}>{x}</div>)}
         </div>
-        <div className="y-date-picker-card-content">
+        <div className="y-calendar-card-content">
             {
                 _.chunk(data,7).map((x,i)=>{
                     return <div key={i} className="week">
-                        {x.map((x2,i2)=><DatePickerCell key={i2} current={current} setDate={setDate} item={x2}/>)}
+                        {x.map((x2,i2)=><CalendarCell key={i2} current={current} setDate={setDate} item={x2}/>)}
                     </div>
                 })
             }
@@ -55,19 +55,19 @@ function DatePickerCard(props) {
     </div>
 }
 
-export function DatePickerMainPanel(props) {
+export function Calendar(props) {
     const [current,setCurrent] = useState(props.initValue);
-    return <div className='y-date-picker-panel'>
-        <div className="y-picker-header">
-            <div className="y-picker-header-view">
+    return <div className='y-calendar-panel'>
+        <div className="y-calendar-header">
+            <div className="y-calendar-header-view">
                 {[current.getFullYear(),current.getMonth()+1,current.getDate()].join('-')}
             </div>
         </div>
-        <div className="y-picker-body">
-            <DatePickerCard current={current} setDate={setCurrent}/>
+        <div className="y-calendar-body">
+            <CalendarCard current={current} setDate={setCurrent}/>
         </div>
-        <div className="y-picker-footer">
-            <a className='y-picker-today-btn' onClick={()=>setCurrent(new Date())}>今天</a>
+        <div className="y-calendar-footer">
+            <a className='y-calendar-today-btn' onClick={()=>setCurrent(new Date())}>今天</a>
         </div>
     </div>;
 }

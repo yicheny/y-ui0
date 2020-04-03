@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
-import {Button, Card} from '../../lib';
-import {DatePickerMainPanel} from "./DatePicker";
+import React from 'react';
+import {Card} from '../../lib';
+import {Calendar} from "./Calendar";
 
 function DatePickerView(props) {
     return <div>
         <Card title='日期面板'>
-            <DatePickerMainPanel initValue={new Date()}/>
+            <Calendar initValue={new Date()}/>
         </Card>
     </div>;
 }
