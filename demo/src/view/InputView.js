@@ -1,10 +1,6 @@
 import React,{useState} from 'react';
 import {Input,Card} from "../lib";
 
-function print(...x) {
-    console.log('print',...x);
-}
-
 function InputView(props) {
     const [list,setList] = useState([]);
     return <div>
