@@ -18,6 +18,7 @@
 
 # 正在开发的组件
 1. `Icon`：图标
+    - 声明:此组件图标均来自阿里巴巴iconfont库，自定义图标见`SvgIcon`组件【后期可能会统一】
     - API:
         - [x] `name`{String}设置对应图标，可以使用的图标名称见：[workIdea图标库](https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.db775f1f3&manage_type=myprojects&projectId=1256398&keyword=&project_type=&page=)
         - [x] `size`{Number}设置图标大小     
@@ -51,4 +52,11 @@
         - [X] `onBlur`{Function}：回调参数为`e.target.value`
 5. `Card`：内容卡片【或许叫做内容盒子更合适一些】
     - API：
-        - [X] `title`{String} 标题
+        - [X] `title`{String} 标题       
+6. `SvgIcon`: 自制图标【非文字】
+    - API:
+        - [x] `name`{String}：设置对应图标
+        - [x] `size`{Number}：图标大小
+        - [x] `rotate`{Number || String}：旋转角度
+        - [x] `color`{String}：图标颜色
+    

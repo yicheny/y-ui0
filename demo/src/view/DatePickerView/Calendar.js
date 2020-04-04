@@ -1,24 +1,9 @@
 import React,{useMemo,useState} from 'react';
-import './Calendar.scss';
 import clsx from "clsx";
+import './Calendar.scss';
+import {DateBtn} from "./utils";
 
-function daysFor(y,m) {
-    const normal_days = [31,28,31,30,31,30,31,31,30,31,30,31];
-    if(isLeap(y)) normal_days[1] = 29;
-    return Array.from(Array(normal_days[m]),(x,i)=>i+1);
-}
-
-function isLeap(y) {
-    if (!(y % 100)) return !(y % 400);
-    return !(y % 4);
-}
-
-function prevDateFor(y,m) {
-    let prevStartIndex = (new Date(y,m,1)).getDay() || 7;
-    prevStartIndex = (prevStartIndex-1)*-1; //减1是需要从周一开始计算，乘-1是为了截取尾数
-    return prevStartIndex ? daysFor(y,m-1).slice(prevStartIndex) : [];
-}
-
+//UI组件部分
 function CalendarCell(props) {
     const {item,current,setDate} = props;
     const {y,m,d} = item;
@@ -59,8 +44,16 @@ export function Calendar(props) {
     const [current,setCurrent] = useState(props.initValue);
     return <div className='y-calendar-panel'>
         <div className="y-calendar-header">
+            <div className="y-calendar-header-prev">
+                <DateBtn name='arrowDown2' rotate={90} onClick={()=>offsetClick(-12)}/>
+                <DateBtn name='arrowDown' rotate={90} onClick={()=>offsetClick(-1)}/>
+            </div>
             <div className="y-calendar-header-view">
                 {[current.getFullYear(),current.getMonth()+1,current.getDate()].join('-')}
+            </div>
+            <div className="y-calendar-header-next">
+                <DateBtn name='arrowDown' rotate={-90} onClick={()=>offsetClick(1)}/>
+                <DateBtn name='arrowDown2' rotate={-90} onClick={()=>offsetClick(12)}/>
             </div>
         </div>
         <div className="y-calendar-body">
@@ -70,8 +63,49 @@ export function Calendar(props) {
             <a className='y-calendar-today-btn' onClick={()=>setCurrent(new Date())}>今天</a>
         </div>
     </div>;
+
+    function offsetClick(offset) {
+        const [y,m] = setDateByMonth(current.getFullYear(),current.getMonth(),offset);
+        const d = lastDayFor(y,m,current.getDate());
+        setCurrent(new Date(y,m,d))
+    }
 }
 
-//new Date参数设置
-//2020-12-31
-//2020,11,31
+//逻辑函数部分
+function setDateByMonth(y,m,offset=0) {
+    m += offset;
+    if(m<=-1){
+        m+=12;
+        y--;
+    }
+    if(m>=12){
+        m-=12;
+        y++;
+    }
+    return [y,m];
+}
+
+function daysFor(y,m) {
+    return Array.from(Array(maxDaysFor(y,m)),(x,i)=>i+1);
+}
+
+function maxDaysFor(y,m) {
+    const normal_days = [31,28,31,30,31,30,31,31,30,31,30,31];
+    if(isLeap(y)) normal_days[1] = 29;
+    return normal_days[m];
+}
+
+function lastDayFor(y,m,d) {
+    return d>maxDaysFor(y,m) ? maxDaysFor(y,m) : d;
+}
+
+function isLeap(y) {
+    if (!(y % 100)) return !(y % 400);
+    return !(y % 4);
+}
+
+function prevDateFor(y,m) {
+    let prevStartIndex = (new Date(y,m,1)).getDay() || 7;
+    prevStartIndex = (prevStartIndex-1)*-1; //减1是需要从周一开始计算，乘-1是为了截取尾数
+    return prevStartIndex ? daysFor(...setDateByMonth(y,m)).slice(prevStartIndex) : [];
+}
