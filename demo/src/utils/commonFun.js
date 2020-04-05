@@ -1,3 +1,3 @@
-export function print(...x) {
-    console.log('print',...x);
+export function printCbParams(...x) {
+    console.log('printCbParams',...x);
 }

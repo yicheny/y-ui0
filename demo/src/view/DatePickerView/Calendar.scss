@@ -86,6 +86,9 @@
           color: #fff;
           background: #1890ff;
         }
+        &.isNow{
+          border:1px solid #1890ff;
+        }
         position: relative;
         z-index: 2;
         display: inline-flex;

@@ -1,29 +1,34 @@
 import React from 'react';
 import _ from 'lodash';
+import clsx from "clsx";
 
 function Input(props) {
-    const {type,defaultValue,onChange,onBlur,onEnter,...rest} = props;
+    const {type,defaultValue,className,onChange,onBlur,onEnter,onFocus,...rest} = props;
 
-    return <div className="y-input">
-        <input type={type} defaultValue={defaultValue}
-               onChange={(e)=>onChange(e.target.value)}
-               onBlur={(e)=>onBlur(e.target.value)}
-               onKeyDown={handleKeyDown}
-               {...rest}/>
-    </div>;
+    return <input type={type} defaultValue={defaultValue}
+                  className={clsx('y-input',className)}
+                  onChange={eventExecute(onChange)}
+                  onBlur={eventExecute(onBlur)}
+                  onFocus={eventExecute(onFocus)}
+                  onKeyDown={handleKeyDown}
+                  {...rest}/>;
 
     function handleKeyDown(e) {
         if(e.keyCode===13){//回车
-            console.log(e.target.value);
-            if(_.isFunction(onEnter)) onEnter(e.target.value);
+            eventExecute(onEnter)(e);
         }
+    }
+    
+    function eventExecute(cb) {
+        return e => _.isFunction(cb) && cb(e.target.value);
     }
 }
 Input.defaultProps = {
     type:"text",
     onChange:()=>{},
     onBlur:()=>{},
-    onEnter:()=>{}
+    onEnter:()=>{},
+    onFocus:()=>{}
 };
 
 export default Input;
