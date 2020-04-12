@@ -18,3 +18,30 @@ function isLeap(y) {
     if (!(y % 100)) return !(y % 400);
     return !(y % 4);
 }
+
+//搁置
+/*const root = document.querySelector("body");
+export function CalendarBox(props) {
+    const {pRef,children} = props;
+    const [,forceUpdate] = useReducer(x=>x+1,0);
+    const node = useRef(document.createElement('div'));
+
+    useEffect(()=>{
+        const {left,top} = pRef.current.getBoundingClientRect();
+        node.current.style=`position:absolute;top:${top+40}px;left:${left}px`;
+        forceUpdate();
+
+        // const event = ()=>{
+        //     const {left,top} = pRef.current.getBoundingClientRect();
+        //     node.current.style=`position:absolute;top:${top+40}px;left:${left}px`;
+        //     forceUpdate();
+        // };
+    },[pRef]);
+
+    useEffect(()=>{
+        root.appendChild(node.current);
+        return ()=>root.removeChild(node.current);
+    },[]);
+
+    return createPortal(children,node.current)
+}*/

@@ -82,7 +82,7 @@
         &.currMonth{
           color:rgba(0,0,0,.65);
         }
-        &.selected{
+        &.isSelected{
           color: #fff;
           background: #1890ff;
         }
@@ -94,6 +94,7 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
+        box-sizing: border-box;
         margin:3px 0;
         min-width: 24px;
         height: 24px;

@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
 
-function Input(props) {
+const Input = React.forwardRef((props,ref)=>{
     const {type,defaultValue,className,onChange,onBlur,onEnter,onFocus,...rest} = props;
 
     return <input type={type} defaultValue={defaultValue}
@@ -11,6 +11,7 @@ function Input(props) {
                   onBlur={eventExecute(onBlur)}
                   onFocus={eventExecute(onFocus)}
                   onKeyDown={handleKeyDown}
+                  ref={ref}
                   {...rest}/>;
 
     function handleKeyDown(e) {
@@ -18,11 +19,11 @@ function Input(props) {
             eventExecute(onEnter)(e);
         }
     }
-    
+
     function eventExecute(cb) {
         return e => _.isFunction(cb) && cb(e.target.value);
     }
-}
+});
 Input.defaultProps = {
     type:"text",
     onChange:()=>{},
