@@ -4,23 +4,45 @@ import clsx from "clsx";
 import {Calendar} from "./Calendar";
 import {maxDaysFor} from "./utils";
 import './DatePicker.scss';
+import {Icon} from "../../../../src";
 
 //UI组件部分
-const DateInput = React.forwardRef((props,ref)=>{
-    const {type,defaultValue,className,onChange,onBlur,onEnter,onFocus,...rest} = props;
+function DateInput(props) {
+    const {type,defaultValue,className,suffix,onChange,onBlur,onEnter,onFocus,...rest} = props;
+    const [focused,setFocused] = useState(false);
+    const containerRef = useRef();
+    const inputRef = useRef();
 
-    return <input type={type} defaultValue={defaultValue}
-                  className={clsx('y-date-input',className)}
-                  onChange={eventExecute(onChange)}
-                  onBlur={eventExecute(onBlur)}
-                  onFocus={eventExecute(onFocus)}
-                  ref={ref}
-                  {...rest}/>;
+    useOnClickOutside(containerRef,()=>{
+        if(focused){
+            setFocused(false);
+            return eventExecute(onBlur,inputRef.current)
+        }
+    });
 
-    function eventExecute(cb) {
-        return e => _.isFunction(cb) && cb(e.target.value);
+    return <div className={clsx('y-date-input',className)} ref={containerRef} onClick={handleClick}>
+        <input type={type} defaultValue={defaultValue}
+               ref={inputRef}
+               onChange={inputEventExecute(onChange)}
+               {...rest}/>
+        {suffix && <div className='suffix'>{suffix}</div>}
+    </div>;
+
+    function handleClick() {
+        if(!focused) {
+            setFocused(true);
+            return eventExecute(onFocus,inputRef.current);
+        }
     }
-});
+
+    function inputEventExecute(cb) {
+        return e => eventExecute(cb,e.target);
+    }
+
+    function eventExecute(cb,node) {
+        return _.isFunction(cb) && cb(_.get(node,'value'));
+    }
+}
 
 function DatePicker(props) {
     const {onChange,value} = props;
@@ -33,14 +55,16 @@ function DatePicker(props) {
 
     return <div className={clsx('y-date-picker',{focus})} ref={containerRef}>
         <DateInput placeholder='请选择日期'
+               className={clsx({isClear:!_.isNil(selected)})}
                defaultValue={dateFormat(selected,'-')}
                onBlur={()=>handleChange(selected)}
                onChange={inputChange}
                onFocus={()=>setFocus(true)}
+                suffix={[<Icon name='calendar'/>,<Icon name='cancel' size={10} onClick={()=>{setSelected(null);handleChange(null);setFocus(false);}}/>]}
                key={id}
         />
         <div className={"y-date-picker-panel"}>
-            <Calendar value={selected} onChange={d=>{setSelected(d);handleChange(d);}}/>
+            <Calendar value={selected} onChange={(d)=>{setSelected(d);handleChange(d);setFocus(false);}}/>
         </div>
     </div>;
 
@@ -79,7 +103,7 @@ function dateFormat(date,symbol) {
 function useOnClickOutside(ref,handler) {
     useEffect(()=>{
         function listen(e){
-            // console.log('useOnClickOutside',e.target,ref.current.contains(e.target));
+            // console.log('useOnClickOutside',e.target,ref.current,ref.current.contains(e.target));
             if(ref.current && e.target!==ref.current && !ref.current.contains(e.target)) handler();
         }
         document.addEventListener('click',listen);

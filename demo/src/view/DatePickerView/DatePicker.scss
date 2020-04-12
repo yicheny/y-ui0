@@ -2,7 +2,7 @@
   &.focus{
     .y-date-input{
       border-color: #40a9ff;
-      border-right-width: 1px !important;
+      border-right-width: 1px;
       outline: 0;
       box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
     }
@@ -15,12 +15,34 @@
   position:relative;
   width: 204px;
   .y-date-input{
-    outline: none;
-    width:180px;
-    height:24px;
-    padding:4px 11px;
-    border:1px solid #d9d9d9;
-    border-radius:4px;
+    &.isClear:hover{
+      >.suffix{
+        >.icon-calendar{
+            display: none;
+          }
+        >.icon-cancel{
+          &:hover{
+            background: rgba(0,0,0,.25);
+          }
+          display: block;
+        }
+      }
+    }
+    >.suffix{
+      cursor: pointer;
+      >.icon-calendar{
+        display: block;
+      }
+      >.icon-cancel{
+        display: none;
+        padding:6px;
+        border-radius: 50%;
+        color:#fff;
+        transform: scale(0.8);
+        background: rgba(0,0,0,.45);
+        transition: background .3s;
+      }
+    }
   }
   .y-date-picker-panel{
     position:absolute;
@@ -31,7 +53,32 @@
     .y-calendar-panel{
       overflow: hidden;
       height:0;
-      transition:height .2s;
+      transition:height .3s;
     }
+  }
+}
+
+.y-date-input{
+  &:hover{
+    border-color: #40a9ff;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:180px;
+  height:24px;
+  padding:4px 11px;
+  border:1px solid #d9d9d9;
+  border-radius:4px;
+  font-size: 14px;
+  color:rgba(0,0,0,.45);
+  transition: .3s;
+  >input{
+    width:150px;
+    outline: none;
+    border: none;
+  }
+  >.suffix{
+    cursor: default;
   }
 }
