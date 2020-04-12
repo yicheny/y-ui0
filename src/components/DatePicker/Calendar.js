@@ -81,6 +81,7 @@ export function Calendar(props) {
     }
 
     function dateClick(date) {
+        setCardDate(date);
         setSelected(date);
         if (_.isFunction(onChange)) onChange(date);
     }
