@@ -1,6 +1,5 @@
 import React from 'react';
-import {SvgIcon} from "../../lib";
-import './utils.scss';
+import {SvgIcon} from "../../index";
 
 //UI组件部分
 export function DateBtn(props) {

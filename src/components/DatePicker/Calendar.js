@@ -1,7 +1,6 @@
 import React, {useMemo, useState, useEffect} from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
-import './Calendar.scss';
 import {DateBtn, maxDaysFor} from "./utils";
 
 //UI组件部分

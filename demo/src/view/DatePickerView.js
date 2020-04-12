@@ -1,8 +1,6 @@
 import React from 'react';
-import {Card} from '../../lib';
-import {Calendar} from "./Calendar";
-import DatePicker from "./DatePicker";
-import {printCbParams} from "../../utils/commonFun";
+import {Card,Calendar,DatePicker} from '../lib';
+import {printCbParams} from "../utils/commonFun";
 
 function DatePickerView(props) {
     return <div>

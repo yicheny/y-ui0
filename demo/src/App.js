@@ -7,7 +7,7 @@ import "../../src/style.scss";
 import ButtonView from "./view/ButtonView";
 import HomeView from "./view/HomeView";
 import InputView from "./view/InputView";
-import DatePickerView from "./view/DatePickerView/DatePickerView";
+import DatePickerView from "./view/DatePickerView";
 
 const Menu_option = {
     details:[

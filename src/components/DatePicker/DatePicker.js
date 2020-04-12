@@ -3,8 +3,7 @@ import _ from 'lodash';
 import clsx from "clsx";
 import {Calendar} from "./Calendar";
 import {maxDaysFor} from "./utils";
-import './DatePicker.scss';
-import {Icon} from "../../../../src";
+import {Icon} from "../../index";
 
 //UI组件部分
 function DateInput(props) {
