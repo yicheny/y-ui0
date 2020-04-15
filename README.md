@@ -91,4 +91,14 @@
             4. 图标显示有动画过度效果
     - 后续更新内容：
         - [ ] 日历超越区域限制
-8. `Table`：表格
+8. `List`：列表
+    - API
+        - [x] `header`{String || React.Element || HtmlElement} : 标题
+        - [x] `footer`{String || React.Element || HtmlElement} : 腿部信息
+        - [x] `data`{Array},设置列表内容，形如：
+        ```
+        [
+            {title:'第x行标题',text:'第x行信息'}
+        ]
+        ```
+

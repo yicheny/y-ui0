@@ -9,6 +9,7 @@ import HomeView from "./view/HomeView";
 import InputView from "./view/InputView";
 import DatePickerView from "./view/DatePickerView";
 import TableView from "./view/TableView";
+import ListView from "./view/ListView";
 
 const Menu_option = {
     details:[
@@ -20,7 +21,8 @@ const Menu_option = {
                 {text:'Button',to:'button'},
                 {text:'Input',to:'input'},
                 {text:'DatePicker',to:'date_picker'},
-                {text:'Table',to:'table'}
+                {text:'Table',to:'table'},
+                {text:'List',to:'list'}
             ]
         }
     ]
@@ -35,6 +37,7 @@ function App(props) {
                 <Route path='/input' component={InputView}/>
                 <Route path='/date_picker' component={DatePickerView}/>
                 <Route path='/table' component={TableView}/>
+                <Route path='/list' component={ListView}/>
                 <Route component={HomeView}/>
             </Switch>
         </div>
