@@ -10,6 +10,7 @@ import InputView from "./view/InputView";
 import DatePickerView from "./view/DatePickerView";
 import TableView from "./view/TableView";
 import ListView from "./view/ListView";
+import ModalView from "./view/ModalView";
 
 const Menu_option = {
     details:[
@@ -22,7 +23,8 @@ const Menu_option = {
                 {text:'Input',to:'input'},
                 {text:'DatePicker',to:'date_picker'},
                 {text:'Table',to:'table'},
-                {text:'List',to:'list'}
+                {text:'List',to:'list'},
+                {text:'Modal',to:'modal'}
             ]
         }
     ]
@@ -38,6 +40,7 @@ function App(props) {
                 <Route path='/date_picker' component={DatePickerView}/>
                 <Route path='/table' component={TableView}/>
                 <Route path='/list' component={ListView}/>
+                <Route path='/modal' component={ModalView}/>
                 <Route component={HomeView}/>
             </Switch>
         </div>

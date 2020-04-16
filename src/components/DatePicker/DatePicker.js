@@ -2,7 +2,7 @@ import React,{useState,useEffect,useRef} from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
 import {Calendar} from "./Calendar";
-import {maxDaysFor} from "./utils";
+import {maxDaysFor,eventExecute} from "./utils";
 import {Icon} from "../../index";
 
 //UI组件部分
@@ -36,10 +36,6 @@ function DateInput(props) {
 
     function inputEventExecute(cb) {
         return e => eventExecute(cb,e.target);
-    }
-
-    function eventExecute(cb,node) {
-        return _.isFunction(cb) && cb(_.get(node,'value'));
     }
 }
 

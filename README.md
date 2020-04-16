@@ -101,4 +101,21 @@
             {title:'第x行标题',text:'第x行信息'}
         ]
         ```
+9. `Modal`：对话框
+    - API
+        - [x] `visible`{Boolean} 控制对话框显隐
+        - [x] `header`{String || React.Element || HtmlElement} 标题
+        - [x] `children`{String || React.Element || HtmlElement} 内容
+        - [x] `footerVisible`{Boolean} 控制底部显隐
+        - [x] `confirmVisible`{Boolean} 控制确认按钮显隐
+        - [x] `cancelVisible`{Boolean} 控制取消按钮显隐
+        - [X] `confirmText`{Boolean} 自定义确认按钮文字
+        - [x] `cancelText`{Boolean} 自定义取消按钮文字
+        - [x] `confirm`{Function} 确认按钮回调
+        - [x] `cancel`{Function} 取消及退出按钮回调
+        - [x] `className`{String} css类名
+        - [x] `style`{Object} 样式
+    - 后续更新内容
+        - [ ] 动画效果
+        - [ ] 对话框可移动
 

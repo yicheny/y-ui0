@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from "lodash";
 import {SvgIcon} from "../../index";
 
 //UI组件部分
@@ -14,8 +15,13 @@ export function maxDaysFor(y, m) {
 }
 
 function isLeap(y) {
-    if (!(y % 100)) return !(y % 400);
-    return !(y % 4);
+    if(_.isNumber(y)) return console.error('isLeap函数参数必须为Number');
+    if ((y % 100)===0) return (y % 400)===0;
+    return (y % 4)===0;
+}
+
+export function eventExecute(cb,node) {
+    return _.isFunction(cb) && cb(_.get(node,'value'));
 }
 
 //搁置
