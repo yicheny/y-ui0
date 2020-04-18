@@ -104,7 +104,7 @@
 9. `Modal`：对话框
     - API
         - [x] `visible`{Boolean} 控制对话框显隐
-        - [x] `canMove`{Boolean} 是否可移动【默认false】
+        - [x] `move`{Boolean} 是否可移动【默认false】
         - [x] `header`{String || React.Element || HtmlElement} 标题
         - [x] `children`{String || React.Element || HtmlElement} 内容
         - [x] `footerVisible`{Boolean} 控制底部显隐

@@ -55,7 +55,7 @@ function DatePicker(props) {
                onBlur={()=>handleChange(selected)}
                onChange={inputChange}
                onFocus={()=>setFocus(true)}
-                suffix={[<Icon name='calendar'/>,<Icon name='cancel' size={10} onClick={()=>{setSelected(null);handleChange(null);setFocus(false);}}/>]}
+               suffix={[<Icon name='calendar' key={0}/>,<Icon key={1} name='cancel' size={10} onClick={()=>{setSelected(null);handleChange(null);setFocus(false);}}/>]}
                key={id}
         />
         <div className={"y-date-picker-panel"}>

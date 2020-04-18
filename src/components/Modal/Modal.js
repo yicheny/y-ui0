@@ -1,12 +1,11 @@
 import React,{Fragment,useCallback,useRef} from 'react';
 import clsx from "clsx";
 import _ from "lodash";
-import {Icon,Button} from "../../lib";
-import './Modal.scss';
+import {Icon,Button} from "../../index";
 
 //UI组件
 function Modal(props) {
-    const {visible,canMove,children,header,footerVisible,confirm,cancel,confirmText,cancelText,confirmVisible,cancelVisible,className,style} = props;
+    const {visible,move,children,header,footerVisible,confirm,cancel,confirmText,cancelText,confirmVisible,cancelVisible,className,style} = props;
 
     let initialPosition = null;//移动开始的位置
     let saveOffset = {x:0,y:0};//移动停止时的位移数值
@@ -47,7 +46,7 @@ function Modal(props) {
     }
     
     function handleMouseMove(e) {
-        if(canMove && initialPosition){
+        if(move && initialPosition){
             const {x,y} = offsetFor(e);
             modalRef.current.style.transform = `translate(${x}px,${y}px)`
         }
@@ -66,7 +65,7 @@ function Modal(props) {
 }
 Modal.defaultProps = {
     visible:true,
-    canMove:false,
+    move:false,
     header: "默认标题",
     confirm: () => {},
     cancel: () => {},
