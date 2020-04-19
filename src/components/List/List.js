@@ -10,8 +10,8 @@ function List(props) {
         }
         <div className="y-list-content">
             {
-                _.map(data,(o)=>{
-                    return <div className="y-item">
+                _.map(data,(o,i)=>{
+                    return <div className="y-item" key={i}>
                         <span className="y-item-title">{o.title}</span>
                         <span className="y-item-text">{o.text}</span>
                     </div>
