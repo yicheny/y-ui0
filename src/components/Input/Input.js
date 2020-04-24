@@ -3,7 +3,7 @@ import _ from 'lodash';
 import clsx from "clsx";
 
 const Input = React.forwardRef((props,ref)=>{
-    const {type,defaultValue,className,onChange,onBlur,onEnter,onFocus,...rest} = props;
+    const {type,defaultValue,className,onChange,onBlur,onPressEnter,onFocus,...rest} = props;
 
     return <input type={type} defaultValue={defaultValue}
                   className={clsx('y-input',className)}
@@ -16,7 +16,7 @@ const Input = React.forwardRef((props,ref)=>{
 
     function handleKeyDown(e) {
         if(e.keyCode===13){//回车
-            eventExecute(onEnter)(e);
+            eventExecute(onPressEnter)(e);
         }
     }
 
@@ -28,7 +28,7 @@ Input.defaultProps = {
     type:"text",
     onChange:()=>{},
     onBlur:()=>{},
-    onEnter:()=>{},
+    onPressEnter:()=>{},
     onFocus:()=>{}
 };
 

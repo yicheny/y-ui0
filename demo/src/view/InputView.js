@@ -14,7 +14,7 @@ function InputView(props) {
         </Card>
 
         <Card title='这里展示自定义属性'>
-            <Input onEnter={addItem} placeholder='按下回车时触发'/>
+            <Input onPressEnter={addItem} placeholder='按下回车时触发'/>
         </Card>
 
         <Card title='列表展示'>

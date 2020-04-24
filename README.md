@@ -46,7 +46,7 @@
 4. `Input`：输入框
     - 未特殊说明，即表示原生`input`原生的属性可以被使用
     - 自定义API：
-        - [X] `onEnter`{Function}：按下回车触发，回调参数为`e.target.value`
+        - [X] `onPressEnter`{Function}：按下回车触发，回调参数为`e.target.value`
     - 原生API变动：
         - [X] `onChange`{Function}：回调参数为`e.target.value`
         - [X] `onBlur`{Function}：回调参数为`e.target.value`
