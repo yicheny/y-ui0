@@ -3,6 +3,7 @@ $active-back-color:#5477ff;
 .y-menu {
   position: relative;
   width: 300px;
+  min-width: 210px;
   border-right: 1px solid #e1e1e1;
   user-select: none;
   transition: width 350ms ease;

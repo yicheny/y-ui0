@@ -7,3 +7,4 @@ export { default as SvgIcon} from './components/SvgIcon';
 export { default as DatePicker,Calendar} from './components/DatePicker';
 export { default as List} from './components/List';
 export { default as Modal} from './components/Modal';
+export { default as Table} from './components/Table';
