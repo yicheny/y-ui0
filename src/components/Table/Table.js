@@ -1,5 +1,6 @@
-import React,{useRef,useEffect} from 'react';
+import React,{useRef,useState} from 'react';
 import _ from 'lodash';
+import clsx from "clsx";
 
 function Cell(props) {
     const {data, value} = props;
@@ -9,6 +10,7 @@ function Cell(props) {
 
 function Table(props) {
     const {columns, dataSource} = props;
+    const [hoverNode,setHoverNode] = useState();
     const headerRef = useRef();
     const InnerRef = useRef();
     const leftTableRef = useRef();
@@ -62,7 +64,7 @@ function Table(props) {
         return <div className="y-table-content" ref={isRef || undefined} style={{marginLeft:leftWidth}}>
             {
                 _.map(dataSource, (d, i) => {
-                    return <div className='y-table-row' key={i}>
+                    return <div className={clsx('y-table-row',{hover:d===hoverNode})} onMouseOver={()=>setHoverNode(d)} onMouseOut={()=>setHoverNode(null)} key={i}>
                         {
                             _.map(columns, (c, i2) => {
                                 const code = c.code;

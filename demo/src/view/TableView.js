@@ -3,7 +3,7 @@ import {Card,Table} from '../lib'
 import {N2} from '../utils/format';
 import {data} from '../data/tableData';
 
-const dataSource = data.slice(0,100);
+const dataSource = data.slice(0,40);
 const columns = [
     {name:'#',render:(v,o,i)=>i+1,width:40,align:'center',lock:true},
     {name:'名称',code:'productName',width:280,align:'left',lock:true},
