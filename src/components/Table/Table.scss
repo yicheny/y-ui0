@@ -1,45 +1,64 @@
-.y-table{
-  position:relative;
+.y-table {
+  position: relative;
   box-sizing: border-box;
-  border:1px solid #dfe3e8;
+  border: 1px solid #dfe3e8;
   font-size: 14px;
   overflow: hidden;
-  .y-table-inner{
-    max-height:960px;//临时
+
+  .y-table-inner {
+    max-height: 960px; //临时
     overflow: auto;
+    //overflow-y: auto;
+    //overflow-x: hidden;
   }
-  .y-table-header{
+
+  .y-table-left{
     position:absolute;
     top:0;
     left:0;
-    width:100%;
-    .y-table-cell{
+    z-index: 20;
+    background: #fff;
+    border-right: 1px solid #dfe3e8;
+  }
+
+  .y-table-header {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: 10;
+    .y-table-cell {
+      color: #5a6c84;
       background: #e9edf2;
     }
   }
-  .y-table-content{
-    margin-top: 35px;
-    >.y-table-row:last-child{
-      .y-table-cell{
+
+  .y-table-content {
+    margin-top:35px;
+    > .y-table-row:last-child {
+      .y-table-cell {
         border-bottom: none;
       }
     }
   }
-  .y-table-row{
+
+  .y-table-row {
     display: flex;
     flex-wrap: nowrap;
-    .y-table-cell{
-      &:last-child{
-        border-right:none;
+
+    .y-table-cell {
+      &:last-child {
+        border-right: none;
       }
     }
   }
-  .y-table-cell{
+
+  .y-table-cell {
     display: inline-block;
-    flex:1 0;
-    padding:8px 12px;
-    border-right:1px solid #dfe3e8;
-    border-bottom:1px solid #dfe3e8;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border-right: 1px solid #dfe3e8;
+    border-bottom: 1px solid #dfe3e8;
     white-space: nowrap;
     overflow: hidden;
   }
