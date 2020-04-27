@@ -1,31 +1,32 @@
-import React, {useRef, useState, useMemo, useCallback} from 'react';
+import React, {useRef, useState} from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
 
 function Cell(props) {
-    const {data, value} = props;
+    const {data, value,rowSpan} = props;
     const {width, align} = data;
-    return <span className="y-table-cell" style={{width, textAlign: align}}>{value}</span>;
+    return <td className="y-table-cell" style={{minWidth:width,width, textAlign: align}} rowSpan={rowSpan}>{value}</td>;
 }
 
 function Table(props) {
-    const {columns, dataSource} = props;
+    const {columns, dataSource,className} = props;
     // const [hoverNode, setHoverNode] = useState();
     const headerRef = useRef();
     const InnerRef = useRef();
     const leftTableRef = useRef();
 
+    const rowSpanData = getRowSpanData(columns,dataSource);
     const leftLockCount = getLeftLockCount(columns);
     const leftColumns = columns.slice(0, leftLockCount);
     const centerColumns = columns.slice(leftLockCount);
-    const leftWidth = getLeftWidth(leftColumns) + 1;//加1是因为有左侧有额外的border
+    const leftWidth = getLeftWidth(leftColumns);
 
     const scrollHandle = () => {
         headerRef.current.style.transform = `translateX(-${InnerRef.current.scrollLeft}px)`;
         leftTableRef.current.style.transform = `translateY(-${InnerRef.current.scrollTop}px)`;
     };
 
-    return (<div className='y-table'>
+    return (<div className={clsx('y-table',className)}>
         <div className="y-table-inner" onScroll={scrollHandle} ref={InnerRef}>
             {leftRender(leftColumns)}
             {centerRender(centerColumns, leftWidth)}
@@ -33,41 +34,51 @@ function Table(props) {
     </div>);
 
     function leftRender(columns) {
-        return <div className="y-table-left">
-            {headerRender({columns})}
-            {contentRender({columns, isRef: leftTableRef, onWheel})}
+        return <div className="y-table-left-wrap">
+            <table className="y-table-left">
+                {headerRender({columns})}
+                {contentRender({columns, isRef: leftTableRef, onWheel})}
+            </table>
         </div>;
     }
 
-    function centerRender(columns, leftWidth) {
-        return <div className='y-table-center'>
-            {headerRender({columns, isRef: headerRef, leftWidth})}
-            {contentRender({columns, leftWidth,onWheel})}
-        </div>
+    function centerRender(columns, leftWidth=0) {
+        return <table className='y-table-center' style={{marginLeft: leftWidth}}>
+            {headerRender({columns, isRef: headerRef, leftWidth:leftWidth})}
+            {contentRender({columns,onWheel})}
+        </table>
     }
 
     function contentRender(props) {
-        const {columns, isRef, leftWidth = 0} = props;
-        return <div className="y-table-content" ref={isRef || undefined} style={{marginLeft: leftWidth}}>
+        const {columns, isRef} = props;
+        return <tbody className="y-table-content" ref={isRef || undefined}>
             {
                 _.map(dataSource, (d, i) => {
-                    return <div className={clsx('y-table-row')}
-                                onWheel={onWheel}
-                                // onMouseOver={() => setHoverNode(d)}
-                                // onMouseOut={() => setHoverNode(null)}
+                    return <tr onWheel={onWheel}
+                               className={clsx('y-table-row')}
+                               //  className={clsx('y-table-row',{hover:hoverNode===d})}
+                               //  onMouseOver={() => setHoverNode(d)}
+                               //  onMouseOut={() => setHoverNode(null)}
+                                data-index={i}
                                 key={i}>
                         {
                             _.map(columns, (c, i2) => {
+                                if(c.rowSpan){
+                                    const item = rowSpanData.find(x=>x.index===i);
+                                    if(item) return <Cell data={c} value={item.value} key={i2} rowSpan={item.count}/>;
+                                    return null;
+                                }
+
                                 const code = c.code;
                                 let value = _.isString(code) ? d[code] : null;
                                 if (_.isFunction(c.render)) value = c.render(value, d, i);
                                 return <Cell data={c} value={value} key={i2}/>
                             })
                         }
-                    </div>
+                    </tr>
                 })
             }
-        </div>;
+        </tbody>;
     }
 
     function onWheel(e) {
@@ -108,14 +119,29 @@ function getLeftWidth(columns) {
 
 function headerRender(props) {
     const {columns, isRef = false, leftWidth = 0} = props;
-    return <div className="y-table-header" ref={isRef || undefined} style={{left: leftWidth}}>
-        <div className="y-table-row">
+    return <thead className="y-table-header" ref={isRef || undefined} style={{left: leftWidth}}>
+        <tr className="y-table-row">
             {
                 _.map(columns, (c, i) => {
                     return <Cell data={c} value={c.name} key={i}/>
                 })
             }
-        </div>
-    </div>;
+        </tr>
+    </thead>;
 }
 
+function getRowSpanData(columns,data) {
+    // const rowSpanList = _.filter(columns,x=>x.rowSpan).map(x=>x.code);
+    const code = _.get(_.find(columns,x=>x.rowSpan),'code');
+    const res = [];
+    _.forEach(data,(o,i)=>{
+        let item = res.find(x=>x.value===o[code]);
+        if(item){
+            item.count++;
+        }else{
+            res.push({value:o[code],count:1,index:i})
+        }
+    });
+
+    return res;
+}

@@ -6,27 +6,32 @@
   overflow: hidden;
 
   .y-table-inner {
-    max-height: 720px; //临时
+    //max-height: 720px; //临时
     overflow: auto;
-    //overflow-y: auto;
-    //overflow-x: hidden;
   }
 
   .y-table-left{
-    position:absolute;
-    top:0;
-    left:0;
-    bottom:8px;
-    z-index: 20;
-    background: #fff;
-    border-right: 1px solid #dfe3e8;
-    overflow: hidden;
+    &-wrap{
+      position:absolute;
+      top:0;
+      left:0;
+      bottom:8px;
+      z-index: 20;
+      background: #fff;
+      border-right: 1px solid #dfe3e8;
+      overflow: hidden;
+    }
+    .y-table-row{
+      display: table-row;
+    }
+    .y-table-cell{
+      display: table-cell;
+    }
   }
 
   .y-table-header {
     position:absolute;
     top:0;
-    left:0;
     z-index: 10;
     .y-table-cell {
       color: #5a6c84;
@@ -47,7 +52,7 @@
     &.hover{
       background-color: rgba(0,0,0,0.04);
     }
-    
+
     display: flex;
     flex-wrap: nowrap;
 
@@ -63,12 +68,16 @@
     align-items: center;
     box-sizing: border-box;
     flex: 0 0 auto;
-    //padding: 10px 12px;
-    height:40px;
-    padding:0 12px;
+    padding: 10px 12px;
     border-right: 1px solid #dfe3e8;
     border-bottom: 1px solid #dfe3e8;
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  table{
+    margin-top:40px;
+    border-spacing:0;
+    border-collapse: collapse;
   }
 }
