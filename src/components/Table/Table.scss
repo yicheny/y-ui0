@@ -6,7 +6,7 @@
   overflow: hidden;
 
   .y-table-inner {
-    max-height: 960px; //临时
+    max-height: 720px; //临时
     overflow: auto;
     //overflow-y: auto;
     //overflow-x: hidden;
@@ -16,9 +16,11 @@
     position:absolute;
     top:0;
     left:0;
+    bottom:8px;
     z-index: 20;
     background: #fff;
     border-right: 1px solid #dfe3e8;
+    overflow: hidden;
   }
 
   .y-table-header {
@@ -57,10 +59,13 @@
   }
 
   .y-table-cell {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding: 10px 12px;
+    //padding: 10px 12px;
+    height:40px;
+    padding:0 12px;
     border-right: 1px solid #dfe3e8;
     border-bottom: 1px solid #dfe3e8;
     white-space: nowrap;
