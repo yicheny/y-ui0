@@ -1,11 +1,38 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
+
+// function Tooltip(props) {
+//     const {children,style,className} = props;
+//     const tooltipRef = useRef();
+//     const [tooltipBox,setTooltipBox] = useState(false);
+//
+//     useEffect(()=>{
+//         const tooltip = tooltipRef.current;
+//         const tooltipSW = tooltip.scrollWidth;
+//         const tooltipParent = tooltip.parentElement;
+//         if(tooltipParent && tooltipParent.clientWidth < tooltipSW){
+//             setTooltipBox(true);
+//         }else{
+//             setTooltipBox(false);
+//         }
+//     },[]);
+//
+//     return <div ref={tooltipRef} style={style} className={clsx('y-tooltip',{tooltipBox},className)}>
+//         <div className="y-tooltip-box">{children}</div>
+//         {children}
+//     </div>
+// }
 
 function Cell(props) {
     const {data, value,rowSpan} = props;
     const {width, align} = data;
-    return <td className="y-table-cell" style={{minWidth:width,width, textAlign: align}} rowSpan={rowSpan}>{value}</td>;
+
+    return <td className="y-table-cell" rowSpan={rowSpan}>
+        <div className="y-table-cell-inner" style={{width, textAlign: align}}>
+            {value}
+        </div>
+    </td>;
 }
 
 function Table(props) {

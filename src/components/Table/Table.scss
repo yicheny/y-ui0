@@ -66,13 +66,16 @@
   .y-table-cell {
     display: inline-flex;
     align-items: center;
-    box-sizing: border-box;
     flex: 0 0 auto;
-    padding: 10px 12px;
     border-right: 1px solid #dfe3e8;
     border-bottom: 1px solid #dfe3e8;
     white-space: nowrap;
     overflow: hidden;
+    &-inner{
+      padding: 10px 12px;
+      overflow:hidden;
+      box-sizing: border-box;
+    }
   }
 
   table{
@@ -81,3 +84,24 @@
     border-collapse: collapse;
   }
 }
+
+//.y-tooltip{
+//  position:relative;
+//  &-box{
+//    position:absolute;
+//    top:0;
+//    left:0;
+//    height:40px;
+//    padding: 10px 12px;
+//    box-sizing: border-box;
+//    box-shadow: 3px 3px 4px rgba(0,0,0,0.42);
+//    background: rgba(0,0,0,0.32);
+//    visibility: hidden;
+//  }
+//  &.tooltipBox:hover{
+//    &-box{
+//      visibility: visible;
+//      color:red;
+//    }
+//  }
+//}
