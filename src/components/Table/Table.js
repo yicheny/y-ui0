@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState} from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
 
@@ -37,7 +37,7 @@ function Cell(props) {
 
 function Table(props) {
     const {columns, dataSource,className} = props;
-    // const [hoverNode, setHoverNode] = useState();
+    const [hoverNode, setHoverNode] = useState();
     const headerRef = useRef();
     const InnerRef = useRef();
     const leftTableRef = useRef();
@@ -82,10 +82,9 @@ function Table(props) {
             {
                 _.map(dataSource, (d, i) => {
                     return <tr onWheel={onWheel}
-                               className={clsx('y-table-row')}
-                               //  className={clsx('y-table-row',{hover:hoverNode===d})}
-                               //  onMouseOver={() => setHoverNode(d)}
-                               //  onMouseOut={() => setHoverNode(null)}
+                                className={clsx('y-table-row',{hover:hoverNode===d})}
+                                onMouseOver={() => setHoverNode(d)}
+                                onMouseOut={() => setHoverNode(null)}
                                 data-index={i}
                                 key={i}>
                         {
