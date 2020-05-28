@@ -8,3 +8,4 @@ export { default as DatePicker,Calendar} from './components/DatePicker';
 export { default as List} from './components/List';
 export { default as Modal} from './components/Modal';
 export { default as Table} from './components/Table';
+export { default as message} from './components/Message';
