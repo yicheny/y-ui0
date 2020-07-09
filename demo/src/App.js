@@ -11,7 +11,6 @@ import DatePickerView from "./view/DatePickerView";
 import TableView from "./view/TableView";
 import ListView from "./view/ListView";
 import ModalView from "./view/ModalView";
-import TableDemoView from "./demoView/TableDemoView";
 import MessageView from "./view/MessageView";
 
 const Menu_option = {
@@ -33,20 +32,12 @@ const Menu_option = {
     ]
 };
 
-const Demo_Menu_option = {
-    details:[
-        {text:'demo-table'}
-    ]
-};
-
 function App(props) {
     return (<div className='app'>
         <Menu option={Menu_option}/>
         {/*<Menu option={Demo_Menu_option}/>*/}
         <div className="app-content">
             <Switch>
-                <Route path='/demo-table' component={TableDemoView}/>
-
                 <Route path='/button' component={ButtonView}/>
                 <Route path='/input' component={InputView}/>
                 <Route path='/date_picker' component={DatePickerView}/>

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Card,Calendar,DatePicker} from '../lib';
-import {printCbParams} from "../utils/commonFun";
 
 function DatePickerView(props) {
     return <div>
@@ -10,8 +9,8 @@ function DatePickerView(props) {
         </Card>
 
         <Card title='日期选择器-DatePicker' contentStyle={{display:'flex',minHeight:348}}>
-            <DatePicker onChange={printCbParams}/>
-            <DatePicker value={new Date(2030,6,1)} onChange={printCbParams}/>
+            <DatePicker onChange={console.log}/>
+            <DatePicker value={new Date(2030,6,1)} onChange={console.log}/>
         </Card>
     </div>;
 }

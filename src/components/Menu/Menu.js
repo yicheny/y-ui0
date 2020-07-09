@@ -6,6 +6,40 @@ import Icon from '../Icon';
 
 const MenuContext = createContext({});
 
+//UI组件
+function Menu(props) {
+    const {option: {details, indent = 20},history} = props;
+    const [expands,setExpands] = useState(findExpanded(details));
+    const [path,setPath] = useState(history.location.pathname);
+    const contextData = {indent, action, path};
+
+    useEffect(()=>{
+        let unListen = history.listen(()=>setPath(history.location.pathname));
+        return ()=>{
+            unListen();
+            unListen = undefined;
+        };
+    },[history]);
+
+    return <MenuContext.Provider value={contextData}>
+        <div className="y-menu">
+            {details.map((e, i) => <MenuItem key={i} data={e} level={1} expands={expands}/>)}
+        </div>
+    </MenuContext.Provider>;
+
+    function action(x) {
+        if (arrayHasData(x.children)) {
+            if (_.includes(expands, x)) _.pull(expands, x);
+            else expands.push(x);
+            return setExpands([...expands]);
+        }
+        if(targetFor(x)) return history.push(targetFor(x));
+    }
+}
+
+const Menu_ = withRouter(Menu);//通过withRouter为Menu传递路由参数
+export default Menu_;
+
 function MenuItem(props) {
     const {data, data: {text, children}, level, expands} = props;
     const sub = useRef();
@@ -57,39 +91,7 @@ function MenuItem(props) {
     }
 }
 
-function Menu(props) {
-    const {option: {details, indent = 20},history} = props;
-    const [expands,setExpands] = useState(findExpanded(details));
-    const [path,setPath] = useState(history.location.pathname);
-    const contextData = {indent, action, path};
-
-    useEffect(()=>{
-        let unListen = history.listen(()=>setPath(history.location.pathname));
-        return ()=>{
-            unListen();
-            unListen = undefined;
-        };
-    },[history]);
-
-    return <MenuContext.Provider value={contextData}>
-        <div className="y-menu">
-            {details.map((e, i) => <MenuItem key={i} data={e} level={1} expands={expands}/>)}
-        </div>
-    </MenuContext.Provider>;
-
-    function action(x) {
-        if (arrayHasData(x.children)) {
-            if (_.includes(expands, x)) _.pull(expands, x);
-            else expands.push(x);
-            return setExpands([...expands]);
-        }
-        if(targetFor(x)) return history.push(targetFor(x));
-    }
-}
-
-const Menu_ = withRouter(Menu);//通过withRouter为Menu传递路由参数
-export default Menu_;
-
+//逻辑函数
 function findExpanded(data, array = []) {
     if (!Array.isArray(array)) array = [];
     _.forEach(data, o => {

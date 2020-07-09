@@ -8,6 +8,7 @@ function ButtonView(props) {
         <Button text>text按钮</Button>
         <Button disabled>disabled按钮</Button>
         <Button cancel>cancel按钮</Button>
+        <Button danger>danger按钮</Button>
     </div>;
 }
 
