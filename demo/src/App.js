@@ -12,6 +12,7 @@ import TableView from "./view/TableView";
 import ListView from "./view/ListView";
 import ModalView from "./view/ModalView";
 import MessageView from "./view/MessageView";
+import DropdownView from "./view/DropdownView";
 
 const Menu_option = {
     details:[
@@ -26,7 +27,8 @@ const Menu_option = {
                 {text:'Table',to:'table'},
                 {text:'List',to:'list'},
                 {text:'Modal',to:'modal'},
-                {text:'Message',to:'message'}
+                {text:'Message',to:'message'},
+                {text:'Dropdown',to:'dropdown'}
             ]
         }
     ]
@@ -45,6 +47,7 @@ function App(props) {
                 <Route path='/list' component={ListView}/>
                 <Route path='/modal' component={ModalView}/>
                 <Route path='/message' component={MessageView}/>
+                <Route path='/dropdown' component={DropdownView}/>
                 <Route component={HomeView}/>
             </Switch>
         </div>

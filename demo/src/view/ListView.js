@@ -7,7 +7,7 @@ const data = Array.from(Array(6),(x,i)=>{
 function ListView(props) {
     return <div>
         <Card title='ListView'>
-            <List data={data} header='列表标题' footer='列表腿部'/>
+            <List data={data} header='列表标题' footer='列表底部'/>
         </Card>
     </div>
 }
