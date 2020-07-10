@@ -4,7 +4,9 @@ import {Card,Dropdown} from '../lib';
 function DropdownView(props) {
     const options = Array.from(Array(700),(o,i)=>({value:i,text:`第${i}项`}));
     return <Card title={'DropdownView'} contentStyle={{minHeight:480}}>
-        <Dropdown options={options} defaultValue={4} onChange={console.log}/>
+        <Dropdown options={options} onChange={console.log} search placeholder='这里支持模糊筛选'/>
+        <Dropdown options={options} defaultValue={4} disabled/>
+        <Dropdown options={options} defaultValue={4} />
         <Dropdown />
     </Card>
 }

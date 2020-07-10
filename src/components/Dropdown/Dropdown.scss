@@ -8,6 +8,24 @@
       }
     }
   }
+
+  &.disabled{
+    &:hover{
+      .input-box{
+        .search{
+          border:1px solid #d9d9d9;
+          input{
+            cursor: not-allowed;
+          }
+        }
+        .status{
+          cursor: not-allowed;
+        }
+      }
+    }
+    background-color: rgb(235, 235, 228);
+  }
+
   &.unfold{
     .popup{
       display: block;
@@ -25,6 +43,7 @@
       }
     }
   }
+
   position:relative;
   width:210px;
   .input-box{
