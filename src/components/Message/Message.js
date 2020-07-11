@@ -6,7 +6,7 @@ function Notice(props) {
     const {info,icon} = props;
 
     return <div className='notice'>
-        {icon && <Icon name={icon} />}
+        {icon && <Icon name={icon} size={18}/>}
         {info}
     </div>
 }
@@ -18,23 +18,16 @@ Notice.defaultProps={
 class Message{
     constructor(){
         this.box = null;
-        // this.timeId = null;
+        this.timeId = null;
         this.destoryTime = 3200;
-        this.infos = [];
-        this.divQueue = [];
-        // this.infoMaxLen = 10;
+        this.infoQueue = [];
     }
 
     autoDestory = ()=>{
         this.timeId = setTimeout(()=>{
-            this.destory()
+            const div = this.infoQueue.shift();
+            div.parentNode.removeChild(div);
         },this.destoryTime);
-    };
-
-    destory = ()=>{
-        const div = this.divQueue.shift();
-        this.infos.shift();
-        div.parentNode.removeChild(div);
     };
 
     addBox = ()=>{
@@ -45,27 +38,18 @@ class Message{
         }
     };
 
-    addDivQueue = (div)=>{
-        this.divQueue.push(div);
-    };
-
-    addDiv = (info)=>{
+    addEle = (option)=>{
         this.addBox();
         const div = document.createElement('div');
         div.className = 'y-message';
         this.box.appendChild(div);
-        this.addDivQueue(div);
-        ReactDOM.render(Notice(info),div);
+        this.infoQueue.push(div);
+        ReactDOM.render(<Notice {...option}/>,div);
     };
 
-    addInfo = (info)=>{
-        this.infos.push(info)
-    };
-
-    show = (info,destoryTime)=>{
+    show = (option,destoryTime)=>{
         if(destoryTime) this.destoryTime=destoryTime;
-        this.addInfo(info);
-        this.addDiv(info);
+        this.addEle(option);
         this.autoDestory();
     };
 }
