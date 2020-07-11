@@ -1,6 +1,6 @@
 {
   "name": "y-ui0",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "y-ui0 React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -39,10 +39,16 @@
     "y-markdown": "0.0.10"
   },
   "author": "ylf",
-  "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yicheny/y-ui0.git"
+  },
   "keywords": [
     "react-component"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/yicheny/y-ui0/issues"
+  },
+  "homepage": "https://github.com/yicheny/y-ui0#readme"
 }
