@@ -3,5 +3,19 @@ module.exports = {
   npm: {
     esModules: false,
     umd: false
+  },
+  webpack: {
+    extra:{
+      module: {
+        rules: [{
+          test: /\.md$/,
+          use: [
+            {
+              loader: "raw-loader",
+            }
+          ]
+        }]
+      }
+    }
   }
 }

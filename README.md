@@ -118,3 +118,12 @@
         - [x] `style`{Object} 样式
     - 后续更新内容
         - [ ] 动画效果
+10. `Dropdown`：下拉选择器
+    - API
+        - [x] `options` {Array} 下拉选项 <br/>
+               示例:`[{text:'显示内容',value:'绑定值‘}]`
+        - [x] `defaultValue` {Number | String} 默认值
+        - [x] `onChange` {Function} 仅点击选择时触发
+        - [x] `search` {Boolean} 是否开启模糊筛选
+        - [x] `disabled` {Boolean} 是否禁止选择
+        - [x] `placeholder` {String} 占位符
