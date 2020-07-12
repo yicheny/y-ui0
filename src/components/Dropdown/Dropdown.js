@@ -19,7 +19,7 @@ function Dropdown(props) {
     })
 
     useLayoutEffect(() => {
-        updateHeight(unfold)
+        return updateHeight(unfold)
     }, [unfold, updateHeight])
 
     useEffect(() => {

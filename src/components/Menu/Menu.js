@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom';
 import _ from 'lodash';
 import cls from 'clsx';
 import Icon from '../Icon';
+import {useExactHeight} from "../../utils/hook";
 
 const MenuContext = createContext({});
 
@@ -42,28 +43,14 @@ export default Menu_;
 
 function MenuItem(props) {
     const {data, data: {text, children}, level, expands} = props;
-    const sub = useRef();
-    const container = useRef();
     const {indent, action, path} = useContext(MenuContext);
     const expanded = useMemo(() =>_.includes(expands, data), [data, expands]);
 
-    useLayoutEffect(() => {
-        if(expanded && sub.current && container.current){
-            if(isInit()) sub.current.style.height='auto';//初始化时必须将高度设置为`auto`，否则父级将不能响应子级的高度变化
-            else sub.current.style.height = `${container.current.offsetHeight}px`;
-        }else{
-            if(sub.current){
-                if(isInit()) sub.current.style.height = '0px';//用于解决初始化页面闪烁的问题
-                else setTimeout(()=>sub.current.style.height = '0px',0)
-            }
-        }
+    const [exactContainerRef,containerRef,updateHeight] = useExactHeight();
 
-        return ()=>{
-            if (expanded && sub.current && container.current) {
-                sub.current.style.height = `${container.current.offsetHeight}px`;
-            }
-        }
-    }, [expanded]);
+    useLayoutEffect(()=>{
+       return updateHeight(expanded);
+    },[expanded,updateHeight])
 
     return <div className='y-menu-item'>
         <div className={cls('y-menu-item-header', {expanded, active: activeFor()})} style={{paddingLeft: level * indent}}
@@ -71,19 +58,15 @@ function MenuItem(props) {
             <span className="y-menu-item-text">{text}</span>
             {children && <Icon name='arrowDown' size={16}/>}
         </div>
-        {children && <div className="y-menu-sub" ref={sub} onTransitionEnd={transitionEnd}>
-            <div className="y-menu-item-container" ref={container}>
+        {children && <div className="y-menu-sub" ref={exactContainerRef} onTransitionEnd={transitionEnd}>
+            <div className="y-menu-item-container" ref={containerRef}>
                 {children.map((e, i) => <MenuItem key={i} data={e} level={level + 1} expands={expands}/>)}
             </div>
         </div>}
     </div>;
 
     function transitionEnd() {
-        if(expanded) sub.current.style.height = 'auto';//设置为`auto`的原因是需要保证子级菜单展开时，父级菜单的高度响应变化
-    }
-
-    function isInit() {
-        return sub.current.style.height==='';
+        if(expanded) exactContainerRef.current.style.height = 'auto';//设置为`auto`的原因是需要保证子级菜单展开时，父级菜单的高度响应变化
     }
 
     function activeFor() {

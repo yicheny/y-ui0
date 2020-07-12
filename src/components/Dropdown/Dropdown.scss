@@ -28,7 +28,8 @@
 
   &.unfold{
     .popup{
-      display: block;
+      border:1px solid #40a9ff;
+      border-top:none;
     }
     .input-box{
       .search{
@@ -76,14 +77,12 @@
     }
   }
   .popup{
-    display: none;
     position:absolute;
     top:32px;
     left:0;
     width: 100%;
     box-sizing: border-box;
-    border:1px solid #40a9ff;
-    border-top:none;
+
     border-radius:0 0 4px 4px;
     //border-radius: 4px;
     overflow: hidden;
