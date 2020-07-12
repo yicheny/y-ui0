@@ -4,6 +4,7 @@ import clsx from "clsx";
 import {Calendar} from "./Calendar";
 import {maxDaysFor,eventExecute} from "./utils";
 import {Icon} from "../../index";
+import {useOnClickOutside} from "../../utils/hook";
 
 //UI组件部分
 function DateInput(props) {
@@ -93,18 +94,4 @@ function dateFormat(date,symbol) {
     const m = date.getMonth()+1;
     const d = date.getDate();
     return [y,m,d].join(symbol);
-}
-
-function useOnClickOutside(ref,handler) {
-    useEffect(()=>{
-        function listen(e){
-            // console.log('useOnClickOutside',e.target,ref.current,ref.current.contains(e.target));
-            if(ref.current && e.target!==ref.current && !ref.current.contains(e.target)) handler();
-        }
-        document.addEventListener('click',listen);
-
-        return ()=>{
-            document.removeEventListener('click',listen);
-        }
-    },[ref,handler])
 }
