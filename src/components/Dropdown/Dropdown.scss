@@ -86,9 +86,13 @@
     border-top:none;
     border-radius:0 0 4px 4px;
     //border-radius: 4px;
-    max-height: 300px;
-    overflow-y: auto;
+    overflow: hidden;
     background: #fff;
+    transition: height 450ms ease-in-out;
+    &-inner{
+      max-height: 300px;
+      overflow-y: auto;
+    }
     .list{
       .noList{
         padding:8px 13px;

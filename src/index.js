@@ -10,3 +10,4 @@ export { default as Modal} from './components/Modal';
 export { default as Table} from './components/Table';
 export { default as message} from './components/Message';
 export { default as Dropdown} from './components/Dropdown';
+export { default as Anchor} from './components/Anchor';
