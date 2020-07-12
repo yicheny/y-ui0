@@ -1,107 +1,19 @@
-.y-table {
-  position: relative;
-  box-sizing: border-box;
-  border: 1px solid #dfe3e8;
-  font-size: 14px;
-  overflow: hidden;
-
-  .y-table-inner {
-    //max-height: 720px; //临时
-    overflow: auto;
+.y-table{
+  background: #fff;
+  &-header{
+    background: #fafafa;
   }
 
-  .y-table-left{
-    &-wrap{
-      position:absolute;
-      top:0;
-      left:0;
-      bottom:8px;
-      z-index: 20;
-      background: #fff;
-      border-right: 1px solid #dfe3e8;
-      overflow: hidden;
-    }
-    .y-table-row{
-      display: table-row;
-    }
-    .y-table-cell{
-      display: table-cell;
-    }
-  }
-
-  .y-table-header {
-    position:absolute;
-    top:0;
-    z-index: 10;
-    .y-table-cell {
-      color: #5a6c84;
-      background: #e9edf2;
-    }
-  }
-
-  .y-table-content {
-    margin-top:40px;
-    > .y-table-row:last-child {
-      .y-table-cell {
-        border-bottom: none;
-      }
-    }
-  }
-
-  .y-table-row {
-    &.hover{
-      background-color: rgba(0,0,0,0.04);
-    }
-
+  &-row{
     display: flex;
-    flex-wrap: nowrap;
-
-    .y-table-cell {
-      &:last-child {
-        border-right: none;
-      }
-    }
+    border-bottom:1px solid #f0f0f0;
   }
 
-  .y-table-cell {
-    display: inline-flex;
-    align-items: center;
-    flex: 0 0 auto;
-    border-right: 1px solid #dfe3e8;
-    border-bottom: 1px solid #dfe3e8;
-    white-space: nowrap;
+  &-cell{
+    padding: 8px;
+    box-sizing: border-box;
     overflow: hidden;
-    &-inner{
-      padding: 10px 12px;
-      overflow:hidden;
-      box-sizing: border-box;
-    }
-  }
-
-  table{
-    margin-top:40px;
-    border-spacing:0;
-    border-collapse: collapse;
+    text-overflow:ellipsis;
+    white-space:nowrap;
   }
 }
-
-//.y-tooltip{
-//  position:relative;
-//  &-box{
-//    position:absolute;
-//    top:0;
-//    left:0;
-//    height:40px;
-//    padding: 10px 12px;
-//    box-sizing: border-box;
-//    box-shadow: 3px 3px 4px rgba(0,0,0,0.42);
-//    background: rgba(0,0,0,0.32);
-//    visibility: hidden;
-//  }
-//  &.tooltipBox:hover{
-//    &-box{
-//      visibility: visible;
-//      color:red;
-//    }
-//  }
-//}

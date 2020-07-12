@@ -28,6 +28,7 @@
 
   &.unfold{
     .popup{
+      display: block;
       border:1px solid #40a9ff;
       border-top:none;
     }
@@ -77,6 +78,7 @@
     }
   }
   .popup{
+    display: none;
     position:absolute;
     top:32px;
     left:0;
