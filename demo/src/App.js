@@ -13,6 +13,7 @@ import ListView from "./view/ListView";
 import ModalView from "./view/ModalView";
 import MessageView from "./view/MessageView";
 import DropdownView from "./view/DropdownView";
+import RadioView from "./view/RadioView";
 
 const Menu_option = {
     details:[
@@ -28,7 +29,8 @@ const Menu_option = {
                 {text:'List',to:'list'},
                 {text:'Modal',to:'modal'},
                 {text:'Message',to:'message'},
-                {text:'Dropdown',to:'dropdown'}
+                {text:'Dropdown',to:'dropdown'},
+                {text:'Radio',to:'radio'}
             ]
         }
     ]
@@ -48,6 +50,7 @@ function App(props) {
                 <Route path='/modal' component={ModalView}/>
                 <Route path='/message' component={MessageView}/>
                 <Route path='/dropdown' component={DropdownView}/>
+                <Route path='/radio' component={RadioView}/>
                 <Route component={HomeView}/>
             </Switch>
         </div>

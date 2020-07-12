@@ -127,3 +127,17 @@
         - [x] `search` {Boolean} 是否开启模糊筛选
         - [x] `disabled` {Boolean} 是否禁止选择
         - [x] `placeholder` {String} 占位符
+11. `Table`：表格
+    - API
+        - `columns`
+            - [x] `header` {String}
+            - [x] `bind` {String}
+            - [x] `width` {Number} 默认值`100`
+            - [x] `align` {`'left'` | `'center'` | `'right'`} 默认值`'left'`
+12. `Radio`：单选框
+    - `RadioGruop`
+        - `active` {String | Number}
+        - `onChange` {Function}
+    - `Radio`
+        - `children` {element | String}
+        - `value` {String | Number}

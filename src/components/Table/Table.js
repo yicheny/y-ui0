@@ -7,7 +7,7 @@ function Table(props) {
     return (<div className={'y-table'}>
         <div className="y-table-header y-table-row">
             {
-                _.map(columns,(col,i)=><Cell key={i} text={col.header} width={col.width} align={col.align}/>)
+                _.map(columns,(col,i)=><Cell key={i} {...col} text={col.header}/>)
             }
         </div>
 
@@ -27,7 +27,7 @@ function Row(props) {
     return <div className="y-table-row">
         {
             _.map(columns,(col,i)=>{
-                return <Cell key={i} text={data[col.bind]} width={col.width} align={col.align}/>
+                return <Cell key={i}  {...col} text={data[col.bind]}/>
             })
         }
     </div>

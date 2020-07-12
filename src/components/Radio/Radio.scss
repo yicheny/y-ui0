@@ -1,0 +1,40 @@
+.y-radio{
+  display: flex;
+  align-items: center;
+  margin-right:18px;
+  cursor: pointer;
+  &:hover{
+    .y-radio-box{
+      border:solid 1px #1890ff;
+    }
+  }
+  &-box{
+    display: inline-block;
+    position:relative;
+    width:16px;
+    height:16px;
+    border-radius: 50%;
+    border:solid 1px #d9d9d9;
+    &.checked{
+      border:solid 1px #1890ff;
+      &::before{
+        content:'';
+        display: table;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 8px;
+        height: 8px;
+        background-color: #1890ff;
+        border-radius: 50%;
+      }
+    }
+  }
+  &-value{
+    padding:0 6px;
+  }
+}
+
+.y-radioGroup{
+  display: flex;
+}
