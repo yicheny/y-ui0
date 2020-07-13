@@ -23,6 +23,7 @@
       box-shadow: 0 4px 16px 0 rgba(0,0,0,0.16);
       transform: translateY(0%);
       user-select: none;
+
       .iconfont{
         padding-right:8px;
         margin-bottom:-2px;
@@ -40,7 +41,7 @@
         }
       }
 
-      animation: 4500ms linear 0s 1 normal none running spin;
+      //animation: 4500ms linear 0s 1 normal none running spin;
       @keyframes spin{
         0% {
           opacity: 1;

@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import {Icon} from "../../index";
 
 function Notice(props) {
-    const {info,icon} = props;
+    const {info,icon,duration} = props;
 
-    return <div className='notice'>
+    return <div className='notice' style={{animation:`${duration}ms linear 0s 1 normal none running spin`}}>
         {icon && <Icon name={icon} size={18}/>}
         {info}
     </div>
@@ -19,7 +19,7 @@ Notice.defaultProps={
 class Message{
     constructor(){
         this.box = null;
-        this.destroyTime = 4500;
+        this.duration = 3500;
         this.infoQueue = [];
         this.maxLength = 15;
     }
@@ -30,7 +30,7 @@ class Message{
             const div = this.infoQueue.shift();
             div.parentNode.removeChild(div);
             clearTimeout(timeId);
-        },this.destroyTime);
+        },this.duration);
     };
 
     addBox = ()=>{
@@ -48,11 +48,11 @@ class Message{
         div.className = 'y-message';
         this.box.appendChild(div);
         this.infoQueue.push(div);
-        ReactDOM.render(<Notice {...option}/>,div);
+        ReactDOM.render(<Notice {...option} duration={this.duration}/>,div);
     };
 
-    show = (option,destroyTime)=>{
-        if(destroyTime) this.destroyTime=destroyTime;
+    show = (option,duration)=>{
+        if(duration) this.duration=duration;
         this.addEle(option);
         this.autoDestroy();
     };

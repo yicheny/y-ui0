@@ -118,7 +118,16 @@
         - [x] `style`{Object} 样式
     - 后续更新内容
         - [ ] 动画效果
-10. `Dropdown`：下拉选择器
+10. `Message`：全局提示
+    - 使用范例
+        - `message.show({info:'提示信息',icon:'info'},3000)`
+    - API
+        - [x] `message.show(option,duration)`
+            - `option`
+                - `info` {String} 提示信息
+                - `icon` {`'info'` | `'success'` | `'warn'` | `'error'`}
+            - `duration` {Number} 自动关闭的延时 默认`3500ms`
+11. `Dropdown`：下拉选择器
     - API
         - [x] `options` {Array} 下拉选项 <br/>
                示例:`[{text:'显示内容',value:'绑定值'}]`
@@ -127,17 +136,17 @@
         - [x] `search` {Boolean} 是否开启模糊筛选
         - [x] `disabled` {Boolean} 是否禁止选择
         - [x] `placeholder` {String} 占位符
-11. `Table`：表格
+12. `Table`：表格
     - API
         - `columns`
             - [x] `header` {String}
             - [x] `bind` {String}
             - [x] `width` {Number} 默认值`100`
             - [x] `align` {`'left'` | `'center'` | `'right'`} 默认值`'left'`
-12. `Radio`：单选框
+13. `Radio`：单选框
     - `RadioGruop`
-        - `active` {String | Number}
-        - `onChange` {Function}
+        - [x] `active` {String | Number}
+        - [x] `onChange` {Function}
     - `Radio`
-        - `children` {element | String}
-        - `value` {String | Number}
+        - [x] `children` {element | String}
+        - [x] `value` {String | Number}

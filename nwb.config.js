@@ -1,7 +1,7 @@
 module.exports = {
   type: 'react-component',
   npm: {
-    esModules: false,
+    esModules: true,
     umd: false
   },
   webpack: {
@@ -17,5 +17,13 @@ module.exports = {
         }]
       }
     }
+  },
+  babel:{
+    "plugins": [
+      [
+        "styled-jsx/babel",
+        { "plugins": ["styled-jsx-plugin-sass"] }
+      ]
+    ]
   }
 }
