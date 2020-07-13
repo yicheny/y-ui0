@@ -19,7 +19,7 @@ class Message{
     constructor(){
         this.box = null;
         this.timeId = null;
-        this.destoryTime = 3200;
+        this.destoryTime = 4500;
         this.infoQueue = [];
     }
 
