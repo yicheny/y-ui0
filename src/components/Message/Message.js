@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import ReactDOM from 'react-dom';
 import {Icon} from "../../index";
 
@@ -18,16 +19,18 @@ Notice.defaultProps={
 class Message{
     constructor(){
         this.box = null;
-        this.timeId = null;
-        this.destoryTime = 4500;
+        this.destroyTime = 4500;
         this.infoQueue = [];
+        this.maxLength = 15;
     }
 
-    autoDestory = ()=>{
-        this.timeId = setTimeout(()=>{
+    autoDestroy = ()=>{
+        const timeId = setTimeout(()=>{
+            if(_.isEmpty(this.infoQueue)) return null;
             const div = this.infoQueue.shift();
             div.parentNode.removeChild(div);
-        },this.destoryTime);
+            clearTimeout(timeId);
+        },this.destroyTime);
     };
 
     addBox = ()=>{
@@ -39,6 +42,7 @@ class Message{
     };
 
     addEle = (option)=>{
+        if(this.infoQueue.length >= this.maxLength) return ;
         this.addBox();
         const div = document.createElement('div');
         div.className = 'y-message';
@@ -47,10 +51,10 @@ class Message{
         ReactDOM.render(<Notice {...option}/>,div);
     };
 
-    show = (option,destoryTime)=>{
-        if(destoryTime) this.destoryTime=destoryTime;
+    show = (option,destroyTime)=>{
+        if(destroyTime) this.destroyTime=destroyTime;
         this.addEle(option);
-        this.autoDestory();
+        this.autoDestroy();
     };
 }
 
