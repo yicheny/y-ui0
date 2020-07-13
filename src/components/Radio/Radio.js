@@ -1,12 +1,17 @@
-import React from 'react';
+import React,{createContext,useContext} from 'react';
 import clsx from "clsx";
 import './Radio.scss';
 
+//数据
+const RadioContext = createContext({});
+
+//UI组件
 function Radio(props) {
-    const {onChange,value} = props;
+    const {value} = props;
+    const {onChange,active} = useContext(RadioContext);
 
     return <span className="y-radio" onClick={handleChange}>
-        <span className={clsx('y-radio-box',{checked:value===props.active})}/>
+        <span className={clsx('y-radio-box',{checked:value===active})}/>
         <span className="y-radio-value">{props.children}</span>
     </span>;
 
@@ -19,16 +24,12 @@ Radio.defaultProps={
 };
 
 function RadioGroup(props) {
-    return <div className="y-radioGroup">
-        {
-            React.Children.map(props.children,child=>{
-                return React.cloneElement(child,{
-                    active:props.active,
-                    onChange:props.onChange,
-                })
-            })
-        }
-    </div>;
+    const {children,...rest} = props;
+    return <RadioContext.Provider value={rest}>
+        <div className="y-radioGroup">
+            {children}
+        </div>
+    </RadioContext.Provider>;
 }
 
 export {Radio,RadioGroup};

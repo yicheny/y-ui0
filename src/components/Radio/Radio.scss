@@ -9,14 +9,7 @@
     }
   }
   &-box{
-    display: inline-block;
-    position:relative;
-    width:16px;
-    height:16px;
-    border-radius: 50%;
-    border:solid 1px #d9d9d9;
     &.checked{
-      border:solid 1px #1890ff;
       &::before{
         content:'';
         display: table;
@@ -28,7 +21,17 @@
         background-color: #1890ff;
         border-radius: 50%;
       }
+      border:solid 1px #1890ff;
+      box-shadow: 0 0 0 3px rgba(24,144,255,.08);
+      transition: all 350ms ease-in;
     }
+    display: inline-block;
+    position:relative;
+    width:16px;
+    height:16px;
+    border-radius: 50%;
+    border:solid 1px #d9d9d9;
+    transition: border 350ms ease-in;
   }
   &-value{
     padding:0 6px;

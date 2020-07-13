@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState,useMemo, useRef, useLayoutEffect,useEffect} from 'react';
+import React, {createContext, useContext, useState,useMemo, useLayoutEffect,useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
 import _ from 'lodash';
 import cls from 'clsx';
@@ -50,7 +50,7 @@ function MenuItem(props) {
 
     useLayoutEffect(()=>{
        return updateHeight(expanded);
-    },[expanded,updateHeight])
+    },[expanded,updateHeight]);
 
     return <div className='y-menu-item'>
         <div className={cls('y-menu-item-header', {expanded, active: activeFor()})} style={{paddingLeft: level * indent}}
