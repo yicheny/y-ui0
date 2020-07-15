@@ -32,8 +32,9 @@ $primary-color:#1890ff;
     }
   }
   &.disabled {
-    background-color: #D8DAE2;
     color: white;
+    border-color:#D8DAE2;
+    background-color: #D8DAE2;
     pointer-events: none;
   }
   &.danger{

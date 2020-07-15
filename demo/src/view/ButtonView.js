@@ -6,7 +6,7 @@ function ButtonView(props) {
         <Button>标准按钮</Button>
         <Button primary>primary按钮</Button>
         <Button text>text按钮</Button>
-        <Button disabled>disabled按钮</Button>
+        <Button primary disabled>disabled按钮</Button>
         <Button cancel>cancel按钮</Button>
         <Button danger>danger按钮</Button>
     </div>;
