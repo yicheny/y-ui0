@@ -1,6 +1,5 @@
 import React,{createContext,useContext} from 'react';
 import clsx from "clsx";
-import './Radio.scss';
 
 //数据
 const RadioContext = createContext({});

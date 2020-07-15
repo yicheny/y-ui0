@@ -21,7 +21,7 @@
     - 声明:此组件图标均来自阿里巴巴iconfont库，自定义图标见`SvgIcon`组件【后期可能会统一】
     - API:
         - [x] `name`{string}设置对应图标，可以使用的图标名称见：[workIdea图标库](https://www.iconfont.cn/manage/index?spm=a313x.7781069.1998910419.db775f1f3&manage_type=myprojects&projectId=1256398&keyword=&project_type=&page=)
-        - [x] `size`{num}设置图标大小     
+        - [x] `size`{number}设置图标大小     
 2. `Menu`：菜单
     - API：
         - `option`{object}:用于设置菜单配置
@@ -57,8 +57,8 @@
 6. `SvgIcon`: 自制图标【非文字】
     - API:
         - [x] `name`{string}：设置对应图标
-        - [x] `size`{num}：图标大小
-        - [x] `rotate`{num || string}：旋转角度
+        - [x] `size`{number}：图标大小
+        - [x] `rotate`{number || string}：旋转角度
         - [x] `color`{string}：图标颜色
 7. `DatePciker`：时间选择器
     - API:
@@ -126,15 +126,16 @@
             - `option`
                 - `info` {string} 提示信息
                 - `icon` {`'info'` | `'success'` | `'warn'` | `'error'`}
-            - `duration` {num} 自动关闭的延时 默认`3500ms`
+            - `duration` {number} 自动关闭的延时 默认`3500ms`
     - 后续更新内容
         - [ ] 过渡动画效果调整
         - [ ] 信息溢出内容区的样式问题
+        - [ ] `duration`影响全局的问题
 11. `Dropdown`：下拉选择器
     - API
         - [x] `options` {array} 下拉选项 <br/>
                示例:`[{text:'显示内容',value:'绑定值'}]`
-        - [x] `defaultValue` {num | string} 默认值
+        - [x] `defaultValue` {number | string} 默认值
         - [x] `onChange` {function} 仅点击选择时触发
         - [x] `search` {boolean} 是否开启模糊筛选
         - [x] `disabled` {boolean} 是否禁止选择
@@ -144,12 +145,21 @@
         - `columns`
             - [x] `header` {string}
             - [x] `bind` {string}
-            - [x] `width` {num} 默认值`100`
+            - [x] `width` {number} 默认值`100`
             - [x] `align` {`'left'` | `'center'` | `'right'`} 默认值`'left'`
 13. `Radio`：单选框
     - `RadioGruop`
-        - [x] `active` {string | num}
-        - [x] `onChange` {function}
+        - [x] `active` {string | number}
+        - [x] `onChange` {function} 仅点击单选框时触发
+            - 参数：`value` {string | number} 当前选择单选框的`value`
     - `Radio`
         - [x] `children` {element | string}
-        - [x] `value` {string | num}
+        - [x] `value` {string | number}
+14.`Checkbox`：单选框
+    - `CheckboxGruop`
+       - [x] `defaultValues` {array}
+       - [x] `onChange` {function} 仅点击多选框时触发
+            - 参数：`values` {array} 当前选择的多选框的`value`值组成的数组
+    - `Checkbox`
+       - [x] `children` {element | string}
+       - [x] `value` {string | number}
