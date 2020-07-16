@@ -1,11 +1,12 @@
 import React from 'react';
+import {Card} from '../lib';
 import {Markdown} from "y-markdown/lib";
 import doc from '../../../README.md';
 
 function HomeView(props) {
-    return (<div className='box'>
+    return (<Card>
         <Markdown>{doc}</Markdown>
-    </div>);
+    </Card>);
 }
 
 export default HomeView;

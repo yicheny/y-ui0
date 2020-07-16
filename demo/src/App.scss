@@ -7,6 +7,10 @@
   .app-content{
     position:relative;
     flex:1;
+    display: flex;
     overflow: auto;
+    >div{
+      flex:1;
+    }
   }
 }
