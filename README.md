@@ -149,7 +149,7 @@
             - [x] `align` {`'left'` | `'center'` | `'right'`} 默认值`'left'`
 13. `Radio`：单选框
     - `RadioGruop`
-        - [x] `active` {string | number}
+        - [x] `defaultValue` {string | number} 初始值
         - [x] `onChange` {function} 仅点击单选框时触发
             - 参数：`value` {string | number} 当前选择单选框的`value`
     - `Radio`

@@ -2,9 +2,8 @@ import React,{useState} from 'react';
 import {Card,Radio,RadioGroup} from '../lib';
 
 function RadioView(props) {
-    const [active,setActive] = useState(3);
     return <Card title='RadioView'>
-        <RadioGroup active={active} onChange={setActive}>
+        <RadioGroup defaultValue={2} onChange={console.log}>
             <Radio value={1}>A</Radio>
             <Radio value={2}>B</Radio>
             <Radio value={3}>C</Radio>
