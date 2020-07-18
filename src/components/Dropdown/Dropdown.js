@@ -1,4 +1,4 @@
-import React, {createRef, useState, useEffect, useLayoutEffect} from 'react';
+import React, {useRef, useState, useEffect, useLayoutEffect} from 'react';
 import clsx from "clsx";
 import Icon from "../Icon";
 import {useExactHeight, useOnClickOutside} from "../../utils/hook";
@@ -9,7 +9,7 @@ function Dropdown(props) {
     const [currentItem, setCurrentItem] = useState(_.find(props.options, o => o.value === defaultValue));
     const [unfold, setUnfold] = useState(false);//是否展开
     const [inputKey, updateInput] = useState(0);
-    const ref = createRef();
+    const ref = useRef(null);
 
     const [exactContainerRef, containerRef, updateHeight] = useExactHeight();
 

@@ -15,6 +15,7 @@ import MessageView from "./view/MessageView";
 import DropdownView from "./view/DropdownView";
 import RadioView from "./view/RadioView";
 import CheckboxView from "./view/CheckboxView";
+import TooltipView from "./view/TooltipView";
 
 const Menu_option = {
     details:[
@@ -32,7 +33,8 @@ const Menu_option = {
                 {text:'Message',to:'message'},
                 {text:'Dropdown',to:'dropdown'},
                 {text:'Radio',to:'radio'},
-                {text:'Checkbox',to:'checkbox'}
+                {text:'Checkbox',to:'checkbox'},
+                {text:'Tooltip',to:'tooltip'}
             ]
         }
     ]
@@ -54,6 +56,7 @@ function App(props) {
                 <Route path='/dropdown' component={DropdownView}/>
                 <Route path='/radio' component={RadioView}/>
                 <Route path='/checkbox' component={CheckboxView}/>
+                <Route path='/tooltip' component={TooltipView}/>
                 <Route component={HomeView}/>
             </Switch>
         </div>
