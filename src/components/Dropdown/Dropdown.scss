@@ -29,14 +29,12 @@
   &.unfold{
     .popup{
       display: block;
-      border:1px solid #40a9ff;
-      border-top:none;
     }
     .input-box{
       .search{
-        border-radius:4px 4px 0 0;
         border:1px solid #40a9ff;
-        border-bottom:none;
+        box-shadow: 0 0 0 3px rgba(64,169,255,.18);
+        transition: all 350ms ease-in;
       }
       .status{
         .iconfont{
@@ -82,11 +80,11 @@
     margin-top:-2px;
     width: 100%;
     box-sizing: border-box;
-
-    border-radius:0 0 4px 4px;
+    border-radius:2px;
     overflow: hidden;
     background: #fff;
     transition: height 450ms ease-in-out;
+    box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.25);
     &-inner{
       max-height: 300px;
       overflow-y: auto;
