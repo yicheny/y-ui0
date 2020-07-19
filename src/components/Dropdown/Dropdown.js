@@ -6,7 +6,6 @@ import Popup from "../../utils/Popup";
 
 function Dropdown(props) {
     const {onChange, defaultValue, search, disabled, placeholder} = props;
-    // const [owner, setOwner] = useState(null);
     const [options, setOptions] = useState(props.options);
     const [currentItem, setCurrentItem] = useState(_.find(props.options, o => o.value === defaultValue));
     const [unfold, setUnfold] = useState(false);//是否展开
@@ -60,26 +59,6 @@ function Dropdown(props) {
                 </div>
             </div>
         </Popup>
-
-        {/*
-            <div className="popup" ref={exactContainerRef}>
-                <div className="popup-inner" ref={containerRef}>
-                    <div className="list">
-                        {
-                            _.isEmpty(options)
-                                ? <div className="noList">没有可选内容</div>
-                                : _.map(options, (o, i) => {
-                                    return <div key={i}
-                                                className={clsx({selected: o.text === _.get(currentItem, 'text')}, "item")}
-                                                onClick={(e) => handleClick(e, o, o.value)}>
-                                        {o.text}
-                                    </div>
-                                })
-                        }
-                    </div>
-                </div>
-            </div>
-        */}
     </div>;
 
     function handleClick(e, o, v) {
