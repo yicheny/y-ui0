@@ -163,3 +163,9 @@
     - `Checkbox`
        - [x] `children` {element | string}
        - [x] `value` {string | number}
+15. `Tooltip`：文字提示
+    - API
+        - [x] `arrow` {boolean} 是否显示箭头 默认`true`
+        - [x] `placement` { `'top'` | `'right'` | `'bottom'` | `'left'` } 放置方向 默认`'top'`
+        - [x] `tilte` {string || element} 悬浮显示内容 默认`null`
+        - [x] `children` {string || element}

@@ -53,6 +53,7 @@ function Tooltip(props) {
 }
 
 Tooltip.defaultProps = {
+    title:null,
     arrow: true,
     placement:"top"
 }
