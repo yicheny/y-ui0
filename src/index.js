@@ -13,4 +13,5 @@ export { default as Dropdown} from './components/Dropdown';
 export { Radio,RadioGroup} from './components/Radio';
 export { Checkbox,CheckboxGroup} from './components/Checkbox';
 export { default as Tooltip} from './components/Tooltip';
+export { default as TextTooltip} from './components/TextTooltip';
 export { default as Anchor} from './components/Anchor';
