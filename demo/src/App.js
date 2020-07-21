@@ -16,6 +16,7 @@ import DropdownView from "./view/DropdownView";
 import RadioView from "./view/RadioView";
 import CheckboxView from "./view/CheckboxView";
 import TooltipView from "./view/TooltipView";
+import AnchorView from "./view/AnchorView";
 
 const Menu_option = {
     details:[
@@ -34,7 +35,8 @@ const Menu_option = {
                 {text:'Dropdown',to:'dropdown'},
                 {text:'Radio',to:'radio'},
                 {text:'Checkbox',to:'checkbox'},
-                {text:'Tooltip',to:'tooltip'}
+                {text:'Tooltip',to:'tooltip'},
+                {text:'Anchor',to:'anchor'}
             ]
         }
     ]
@@ -57,6 +59,7 @@ function App(props) {
                 <Route path='/radio' component={RadioView}/>
                 <Route path='/checkbox' component={CheckboxView}/>
                 <Route path='/tooltip' component={TooltipView}/>
+                <Route path='/anchor' component={AnchorView}/>
                 <Route component={HomeView}/>
             </Switch>
         </div>

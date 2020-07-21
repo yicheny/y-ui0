@@ -1,0 +1,30 @@
+.y-anchor{
+  display: flex;
+  flex-direction: column;
+  &-item{
+    &.selected{
+      color:#5477ff;
+      border-color:#5477ff;
+    }
+    padding-left: 8px;
+    border-left:2px solid #E9EAF2;
+    line-height: 40px;
+    transition: all .3s ease;
+    >div{
+      cursor:pointer;
+      user-select: none;
+    }
+
+
+    .y-tooltip{
+      background: #fff;
+      color: #15171F;
+      line-height: 32px;
+      &-arrow{
+        &::before{
+          background: #fff;
+        }
+      }
+    }
+  }
+}
