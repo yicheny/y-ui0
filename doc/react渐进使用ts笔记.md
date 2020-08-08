@@ -9,11 +9,42 @@ $ npx create-react-app my-app --typescript
 $ yarn create react-app my-app --typescript
 ```
 
-## 就项目使用
+## 已有项目使用
+### 安装`ts`和`ts-loader`
 ```
-$ npm install --save typescript @types/node @types/react @types/react-dom @types/jest
-或者
-$ yarn add typescript @types/node @types/react @types/react-dom @types/jest
+npm install typescript
+npm install ts-loader
+```
+
+### 配置`webpack`
+```js
+rules:[
+    {
+        test: /\.(ts|tsx)?$/,
+        use: [
+            {
+                loader: 'ts-loader'
+            }
+        ]
+    }
+]
+```
+
+### 配置`tsconfig.json`
+```json
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "target": "es5",
+    "jsx": "react"
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"]
+}
 ```
 
 # 踩坑记录

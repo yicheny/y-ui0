@@ -1,7 +1,13 @@
 import * as React from 'react';
-import _ from 'lodash';
+import * as _ from 'lodash';
 
-function List(props) {
+interface ListProps{
+    data?: Array<object>;
+    header?: string;
+    footer?: string;
+}
+
+function List(props:ListProps) {
     const {data,header,footer} = props;
 
     return (<div className='y-list'>
