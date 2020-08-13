@@ -1,15 +1,16 @@
 import React from 'react';
-import {Button,Card} from "../lib";
+import {Button} from '../lib';
+import MarkdownContainer from "../component/MarkdownContainer";
 
-function ButtonView(props) {
-    return <Card title='Button'>
-        <Button>标准按钮</Button>
-        <Button primary>primary按钮</Button>
-        <Button text>text按钮</Button>
-        <Button primary disabled>disabled按钮</Button>
-        <Button cancel>cancel按钮</Button>
-        <Button danger>danger按钮</Button>
-    </Card>;
+const options = [
+    {
+        title:'README',
+        source:require('../../doc/Button/基础用法.md'),
+    }
+]
+
+function HomeView(props) {
+    return <MarkdownContainer options={options} dependencies={Button}/>
 }
 
-export default ButtonView;
+export default HomeView;

@@ -1,12 +1,16 @@
 import React from 'react';
-import {Card} from '../lib';
-import {Markdown} from "y-markdown/lib";
 import doc from '../../../README.md';
+import MarkdownContainer from "../component/MarkdownContainer";
+
+const options = [
+    {
+        title:'README',
+        source:doc,
+    }
+]
 
 function HomeView(props) {
-    return (<Card>
-        <Markdown>{doc}</Markdown>
-    </Card>);
+    return <MarkdownContainer options={options}/>
 }
 
 export default HomeView;
