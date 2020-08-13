@@ -1,3 +1,6 @@
+# `0.0.12`
+- `List.tsx` build异常，临时使用`List.js`替代
+
 # `0.0.11`
 - `Dropdown`组件新增下拉动画
 - 新增`Table`组件
