@@ -26,7 +26,7 @@ function Popup(props) {
     }, [props.owner]);
 
     function handleMouseDown(e) {
-        console.log(e.button);
+        // console.log(e.button);
         if (e.button !== 0) return;
         e.preventDefault();
         if (props.owner) props.owner.focus();
