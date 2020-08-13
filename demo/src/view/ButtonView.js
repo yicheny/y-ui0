@@ -10,7 +10,7 @@ const options = [
 ]
 
 function HomeView(props) {
-    return <MarkdownContainer options={options} dependencies={Button}/>
+    return <MarkdownContainer options={options} commonDependencies={{Button}}/>
 }
 
 export default HomeView;

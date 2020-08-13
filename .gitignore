@@ -7,3 +7,4 @@
 npm-debug.log*
 /.idea
 /package-lock.json
+/demo/src/utils/babel.min.js

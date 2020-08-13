@@ -5,6 +5,9 @@ import App from "./App";
 import './index.scss';
 import './common.scss';
 import 'y-code-view/lib/index.css';
+import * as Babel from './utils/babel.min.js';
+
+window.Babel = Babel;
 
 render(<HashRouter>
     <Route component={App}/>
