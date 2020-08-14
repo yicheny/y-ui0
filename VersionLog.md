@@ -1,3 +1,7 @@
+# `0.0.14`
+- `Input` 删除API`type`
+- `Input` 添加默认`placeholder`为`'请输入……'`
+
 # `0.0.13`
 - `Popup` 去除多余打印
 

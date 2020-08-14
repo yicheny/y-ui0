@@ -1,11 +1,14 @@
 import React from 'react';
-import doc from '../../../README.md';
 import MarkdownContainer from "../component/MarkdownContainer";
 
 const options = [
     {
         title:'README',
-        source:doc,
+        source:require('../../../README.md'),
+    },
+    {
+        title:'版本更新记录',
+        source:require('../../../VersionLog.md'),
     }
 ]
 

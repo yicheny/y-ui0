@@ -13,8 +13,8 @@ const options = [
     }
 ]
 
-function HomeView(props) {
+function View(props) {
     return <MarkdownContainer options={options} commonDependencies={{Button}}/>
 }
 
-export default HomeView;
+export default View;
