@@ -2,6 +2,7 @@
 - `Input` 删除API`type`
 - `Input` 添加默认`placeholder`为`'请输入……'`
 - `Calendar` 支持API`className`
+- `DatePicker` 悬浮框超越区域限制
 
 # `0.0.13`
 - `Popup` 去除多余打印

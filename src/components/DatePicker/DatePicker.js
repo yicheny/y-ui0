@@ -5,6 +5,7 @@ import Calendar from "../Calendar/Calendar";
 import {maxDaysFor,eventExecute} from "./utils";
 import {Icon} from "../../index";
 import {useOnClickOutside} from "../../utils/hook";
+import Popup from "../../utils/Popup";
 
 //UI组件部分
 function DateInput(props) {
@@ -59,9 +60,11 @@ function DatePicker(props) {
                suffix={[<Icon name='calendar' key={0}/>,<Icon key={1} name='cancel' size={10} onClick={()=>{setSelected(null);handleChange(null);setFocus(false);}}/>]}
                key={id}
         />
-        <div className={"y-date-picker-panel"}>
-            <Calendar value={selected} onChange={(d)=>{setSelected(d);handleChange(d);setFocus(false);}}/>
-        </div>
+        <Popup owner={containerRef.current}>
+            <div className={"y-date-picker-panel"}>
+                <Calendar value={selected} onChange={(d)=>{setSelected(d);handleChange(d);setFocus(false);}}/>
+            </div>
+        </Popup>
     </div>;
 
     function inputChange(v) {
