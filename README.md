@@ -22,16 +22,17 @@
 3. `Button`：按钮
 4. `Input`：输入框
 5. `Card`：内容卡片
-6. `SvgIcon`: 自制图标【非文字】
-7. `DatePciker`：时间选择器
-8. `List`：列表
-9. `Modal`：对话框
-10. `Message`：全局提示
-11. `Dropdown`：下拉选择器
-12. `Table`：表格
-13. `Radio`：单选框
-14.`Checkbox`：单选框
-15. `Tooltip`：文字提示
+6. `SvgIcon`：自制图标【非文字】
+7. `Calendar`：日历
+8. `DatePciker`：时间选择器
+9. `List`：列表
+10. `Modal`：对话框
+11. `Message`：全局提示
+12. `Dropdown`：下拉选择器
+13. `Table`：表格
+14. `Radio`：单选框
+15.`Checkbox`：单选框
+16. `Tooltip`：文字提示
 
 # 后续准备添加的组件
 - `Tab`

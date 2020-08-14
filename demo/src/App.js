@@ -17,6 +17,7 @@ import RadioView from "./view/RadioView";
 import CheckboxView from "./view/CheckboxView";
 import TooltipView from "./view/TooltipView";
 import AnchorView from "./view/AnchorView";
+import CalendarView from "./view/CalendarView";
 
 const Menu_option = {
     details:[
@@ -25,18 +26,19 @@ const Menu_option = {
             text:'组件',
             expanded: true,
             children:[
-                {text:'Button',to:'button'},
-                {text:'Input',to:'input'},
-                {text:'DatePicker',to:'date_picker'},
-                {text:'Table',to:'table'},
-                {text:'List',to:'list'},
-                {text:'Modal',to:'modal'},
-                {text:'Message',to:'message'},
-                {text:'Dropdown',to:'dropdown'},
-                {text:'Radio',to:'radio'},
-                {text:'Checkbox',to:'checkbox'},
-                {text:'Tooltip',to:'tooltip'},
-                {text:'Anchor',to:'anchor'}
+                {text:'Button'},
+                {text:'Input'},
+                {text:'Calendar'},
+                {text:'DatePicker'},
+                {text:'Table'},
+                {text:'List'},
+                {text:'Modal'},
+                {text:'Message'},
+                {text:'Dropdown'},
+                {text:'Radio'},
+                {text:'Checkbox'},
+                {text:'Tooltip'},
+                {text:'Anchor'}
             ]
         }
     ]
@@ -48,18 +50,19 @@ function App(props) {
         {/*<Menu option={Demo_Menu_option}/>*/}
         <div className="app-content">
             <Switch>
-                <Route path='/button' component={ButtonView}/>
-                <Route path='/input' component={InputView}/>
-                <Route path='/date_picker' component={DatePickerView}/>
-                <Route path='/table' component={TableView}/>
-                <Route path='/list' component={ListView}/>
-                <Route path='/modal' component={ModalView}/>
-                <Route path='/message' component={MessageView}/>
-                <Route path='/dropdown' component={DropdownView}/>
-                <Route path='/radio' component={RadioView}/>
-                <Route path='/checkbox' component={CheckboxView}/>
-                <Route path='/tooltip' component={TooltipView}/>
-                <Route path='/anchor' component={AnchorView}/>
+                <Route path='/Button' component={ButtonView}/>
+                <Route path='/Input' component={InputView}/>
+                <Route path='/Calendar' component={CalendarView}/>
+                <Route path='/DatePicker' component={DatePickerView}/>
+                <Route path='/Table' component={TableView}/>
+                <Route path='/List' component={ListView}/>
+                <Route path='/Modal' component={ModalView}/>
+                <Route path='/Message' component={MessageView}/>
+                <Route path='/Dropdown' component={DropdownView}/>
+                <Route path='/Radio' component={RadioView}/>
+                <Route path='/Checkbox' component={CheckboxView}/>
+                <Route path='/Tooltip' component={TooltipView}/>
+                <Route path='/Anchor' component={AnchorView}/>
                 <Route component={HomeView}/>
             </Switch>
         </div>

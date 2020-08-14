@@ -1,7 +1,7 @@
 import React, {useMemo, useState, useEffect} from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
-import {DateBtn, maxDaysFor} from "./utils";
+import {DateBtn, maxDaysFor} from "../DatePicker/utils";
 
 //UI组件部分
 function CalendarCell(props) {
@@ -43,8 +43,8 @@ function CalendarCard(props) {
     </div>
 }
 
-export function Calendar(props) {
-    const {value, onChange, style} = props;
+export default function Calendar(props) {
+    const {value, onChange, style, className} = props;
     const [selected, setSelected] = useState(value);
     const [cardDate,setCardDate] = useState(_.isDate(value) ? value : new Date());
 
@@ -53,7 +53,7 @@ export function Calendar(props) {
         setCardDate(_.isDate(value) ? value : new Date());
     },[value]);
 
-    return <div className='y-calendar-panel' style={style}>
+    return <div className={clsx('y-calendar-panel',className)} style={style}>
         <div className="y-calendar-header">
             <div className="y-calendar-header-prev">
                 <DateBtn name='arrowDown2' rotate={90} onClick={() => offsetClick(-12)}/>
@@ -110,7 +110,3 @@ function prevDateFor(y, m) {
     prevStartIndex = (prevStartIndex - 1) * -1; //减1是需要从周一开始计算，乘-1是为了截取尾数
     return prevStartIndex ? daysFor(...setDateByMonth(y, --m)).slice(prevStartIndex) : [];
 }
-
-// function lastDayFor(y, m, d) {
-//     return d > maxDaysFor(y, m) ? maxDaysFor(y, m) : d;
-// }
