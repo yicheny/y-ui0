@@ -8,6 +8,10 @@ const options = [
         source:require('../../doc/DatePicker/基础用法.md'),
     },
     {
+        title:'设置清空',
+        source:require('../../doc/DatePicker/设置清空.md'),
+    },
+    {
         title:'API',
         source:require('../../doc/DatePicker/API.md'),
     }

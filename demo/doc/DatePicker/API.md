@@ -5,3 +5,4 @@
 `style` | object | 样式 | - 
 `value` | date | 选择日期 | -
 `onChange` | function | 日期改变时触发，参数为选择日期 | -
+`clear` | boolean | 是否开启清空 | false

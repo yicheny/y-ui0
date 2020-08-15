@@ -3,10 +3,11 @@
 - `Input` 添加默认`placeholder`为`'请输入……'`
 - `Calendar` 支持API`className`
 - `DatePicker` 悬浮框超越区域限制
-- `onChange` 触发逻辑调整
+- `DatePciker`组件的API`onChange` 触发逻辑调整
     - 点击面板选择日期修改日期，失去焦点后触发`onChange`
     - 输入框输入或清空日期，失去焦点后触发`onChange`
     - 无论是通过面板还是输入框改变日期，如果和改变前相同，则不触发`onChange`
+- `DatePicker`添加新的API`clear`，清空功能调整为默认不开启
 
 # `0.0.13`
 - `Popup` 去除多余打印

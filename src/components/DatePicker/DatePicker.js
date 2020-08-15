@@ -42,7 +42,7 @@ function DateInput(props) {
 }
 
 function DatePicker(props) {
-    const {onChange,value} = props;
+    const {onChange,value,clear} = props;
     const [id,setId] = useState(0);
     const [selected,setSelected] = useState(value);
     const [focus,setFocus] = useState(false);
@@ -74,7 +74,7 @@ function DatePicker(props) {
 
     return <div className={clsx('y-date-picker',{focus})} ref={containerRef}>
         <DateInput placeholder='请选择日期'
-               className={clsx({isClear:!_.isNil(selected)})}
+               className={clsx({isClear:clear && !_.isNil(selected)})}
                defaultValue={dateFormat(selected,'-')}
                onChange={inputChange}
                onFocus={()=>setFocus(true)}
@@ -109,6 +109,9 @@ function DatePicker(props) {
         setId(x=>++x);
         setFocus(false);
     }
+}
+DatePicker.defaultProps = {
+    clear:false
 }
 export default DatePicker;
 
