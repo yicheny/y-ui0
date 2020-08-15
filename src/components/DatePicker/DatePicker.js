@@ -24,7 +24,7 @@ function DateInput(props) {
     return <div className={clsx('y-date-input',className)} ref={containerRef} onClick={handleClick}>
         <input type={type} defaultValue={defaultValue}
                ref={inputRef}
-               onChange={inputEventExecute(onChange)}
+               onChange={handleChange}
                {...rest}/>
         {suffix && <div className='suffix'>{suffix}</div>}
     </div>;
@@ -36,8 +36,22 @@ function DateInput(props) {
         }
     }
 
-    function inputEventExecute(cb) {
-        return e => eventExecute(cb,e.target);
+    function handleChange(e) {
+        if(!_.isFunction(onChange)) return null;
+        const value = e.target.value;
+        const d = date_validate(value);
+        if(d) onChange(d);
+
+        function date_validate(v) {
+            const reg = new RegExp(/^(\d{1,4})-(\d{1,2})-(\d{1,2})$/);
+            if(reg.test(v)){
+                let [,y,m,d] = reg.exec(v);
+                m--;
+                if(m<=11 && d<=maxDaysFor(y,m)) return new Date(v)
+            }
+            if(!_.isNil(selected)) return selected;
+            return false;
+        }
     }
 }
 
@@ -76,7 +90,7 @@ function DatePicker(props) {
         <DateInput placeholder='请选择日期'
                className={clsx({isClear:clear && !_.isNil(selected)})}
                defaultValue={dateFormat(selected,'-')}
-               onChange={inputChange}
+               onChange={setSelected}
                onFocus={()=>setFocus(true)}
                suffix={suffix}
                key={id}
@@ -87,22 +101,6 @@ function DatePicker(props) {
             </div>
         </Popup>
     </div>;
-
-    function inputChange(v) {
-        const d = date_validate(v);
-        if(d) setSelected(d);
-
-        function date_validate(v) {
-            const reg = new RegExp(/^(\d{1,4})-(\d{1,2})-(\d{1,2})$/);
-            if(reg.test(v)){
-                let [,y,m,d] = reg.exec(v);
-                m--;
-                if(m<=11 && d<=maxDaysFor(y,m)) return new Date(v)
-            }
-            if(!_.isNil(selected)) return selected;
-            return false;
-        }
-    }
 
     function handleChange(d){
         setSelected(d);
