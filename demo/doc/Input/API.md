@@ -8,5 +8,5 @@
 `onBlur` | function | 失去焦点时触发，参数为输入内容 | -
 `onFocus` | function | 获取焦点时触发，参数为输入内容 | -
 `onPressEnter` | function | 按下回车时触发，参数为输入内容 | -
-`placeholder` | string | 占位符 | `'请输入……'`
+`placeholder` | string | 占位符提示 | `'请输入……'`
 

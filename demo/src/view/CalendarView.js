@@ -5,7 +5,7 @@ import MarkdownContainer from "../component/MarkdownContainer";
 const options = [
     {
         title:'基础用法',
-        source:require('../../doc/DatePicker/基础用法.md'),
+        source:require('../../doc/Calendar/基础用法.md'),
     },
     {
         title:'设置选择日期',
@@ -13,7 +13,7 @@ const options = [
     },
     {
         title:'API',
-        source:require('../../doc/DatePicker/API.md'),
+        source:require('../../doc/Calendar/API.md'),
     }
 ]
 

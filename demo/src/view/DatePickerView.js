@@ -12,6 +12,10 @@ const options = [
         source:require('../../doc/DatePicker/设置清空.md'),
     },
     {
+        title:'设置占位符',
+        source:require('../../doc/DatePicker/设置占位符.md'),
+    },
+    {
         title:'API',
         source:require('../../doc/DatePicker/API.md'),
     }

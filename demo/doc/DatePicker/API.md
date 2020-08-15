@@ -6,3 +6,4 @@
 `value` | date | 选择日期 | -
 `onChange` | function | 日期改变时触发，参数为选择日期 | -
 `clear` | boolean | 是否开启清空 | false
+`placeholder` | string | 占位符提示  | `'请选择日期'`

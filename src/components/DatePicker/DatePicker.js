@@ -56,7 +56,7 @@ function DateInput(props) {
 }
 
 function DatePicker(props) {
-    const {onChange,value,clear} = props;
+    const {onChange,value,clear,className,style,placeholder} = props;
     const [id,setId] = useState(0);
     const [selected,setSelected] = useState(value);
     const [focus,setFocus] = useState(false);
@@ -86,8 +86,8 @@ function DatePicker(props) {
         <Icon name='cancel' size={10} onClick={()=>handleChange(null)}/>
     </Fragment>
 
-    return <div className={clsx('y-date-picker',{focus})} ref={containerRef}>
-        <DateInput placeholder='请选择日期'
+    return <div className={clsx('y-date-picker',{focus},className)} ref={containerRef} style={style}>
+        <DateInput placeholder={placeholder}
                className={clsx({isClear:clear && !_.isNil(selected)})}
                defaultValue={dateFormat(selected,'-')}
                onChange={setSelected}
@@ -109,7 +109,8 @@ function DatePicker(props) {
     }
 }
 DatePicker.defaultProps = {
-    clear:false
+    clear:false,
+    placeholder:'请选择日期'
 }
 export default DatePicker;
 
