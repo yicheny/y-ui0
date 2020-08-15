@@ -14,7 +14,8 @@ export function maxDaysFor(y, m) {
     return normal_days[m];
 
     function isLeap(y) {
-        if(!_.isNumber(y)) return console.error('isLeap函数参数必须为Number');
+        y = Number(y);
+        if(isNaN(y)) return console.error('isLeap函数参数必须为Number');
         if ((y % 100)===0) return (y % 400)===0;
         return (y % 4)===0;
     }

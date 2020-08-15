@@ -1,4 +1,4 @@
-import React,{useState,useRef} from 'react';
+import React, {useState, useRef, Fragment, useEffect} from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
 import Calendar from "../Calendar/Calendar";
@@ -47,22 +47,43 @@ function DatePicker(props) {
     const [selected,setSelected] = useState(value);
     const [focus,setFocus] = useState(false);
     const containerRef = useRef();
+    const initSelectedRef = useRef(value);
 
     useOnClickOutside(containerRef,()=>setFocus(false));
+
+    useEffect(()=>{
+        if(focus) return ()=>{};
+        if(_.isUndefined(selected)) return ()=>{};
+        if(!_.isFunction(onChange)) return ()=>{};
+        if(isEqual()) return ()=>{};
+        onChange(selected);
+        initSelectedRef.current = selected;
+
+        function isEqual(){
+            const initSelect = initSelectedRef.current;
+            if(_.isEqual(initSelect,selected)) return true;
+            if([initSelect,selected].some(x=>!_.isDate(x))) return false;
+            return initSelect.getTime() === selected.getTime();
+        }
+    },[focus])
+
+    const suffix = <Fragment>
+        <Icon name='calendar'/>
+        <Icon name='cancel' size={10} onClick={()=>handleChange(null)}/>
+    </Fragment>
 
     return <div className={clsx('y-date-picker',{focus})} ref={containerRef}>
         <DateInput placeholder='请选择日期'
                className={clsx({isClear:!_.isNil(selected)})}
                defaultValue={dateFormat(selected,'-')}
-               onBlur={()=>handleChange(selected)}
                onChange={inputChange}
                onFocus={()=>setFocus(true)}
-               suffix={[<Icon name='calendar' key={0}/>,<Icon key={1} name='cancel' size={10} onClick={()=>{setSelected(null);handleChange(null);setFocus(false);}}/>]}
+               suffix={suffix}
                key={id}
         />
         <Popup owner={containerRef.current}>
             <div className={"y-date-picker-panel"}>
-                <Calendar value={selected} onChange={(d)=>{setSelected(d);handleChange(d);setFocus(false);}}/>
+                <Calendar value={selected} onChange={handleChange}/>
             </div>
         </Popup>
     </div>;
@@ -70,22 +91,23 @@ function DatePicker(props) {
     function inputChange(v) {
         const d = date_validate(v);
         if(d) setSelected(d);
-    }
 
-    function date_validate(v) {
-        const reg = new RegExp(/^(\d{1,4})-(\d{1,2})-(\d{1,2})$/);
-        if(reg.test(v)){
-            let [,y,m,d] = reg.exec(v);
-            m--;
-            if(m<=11 && d<=maxDaysFor(y,m)) return new Date(v)
+        function date_validate(v) {
+            const reg = new RegExp(/^(\d{1,4})-(\d{1,2})-(\d{1,2})$/);
+            if(reg.test(v)){
+                let [,y,m,d] = reg.exec(v);
+                m--;
+                if(m<=11 && d<=maxDaysFor(y,m)) return new Date(v)
+            }
+            if(!_.isNil(selected)) return selected;
+            return false;
         }
-        if(!_.isNil(selected)) return selected;
-        return false;
     }
 
-    function handleChange(d) {
-        if(_.isFunction(onChange)) onChange(d);
+    function handleChange(d){
+        setSelected(d);
         setId(x=>++x);
+        setFocus(false);
     }
 }
 export default DatePicker;
