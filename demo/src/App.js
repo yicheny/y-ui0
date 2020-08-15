@@ -5,7 +5,8 @@ import {Menu} from './lib';
 import './App.scss';
 import "../../src/style.scss";
 import ButtonView from "./view/ButtonView";
-import HomeView from "./view/HomeView";
+import ReadmeView from "./view/ReadmeView";
+import VersionLogView from "./view/VersionLogView";
 import InputView from "./view/InputView";
 import DatePickerView from "./view/DatePickerView";
 import TableView from "./view/TableView";
@@ -21,7 +22,8 @@ import CalendarView from "./view/CalendarView";
 
 const Menu_option = {
     details:[
-        {text:'首页'},
+        {text:'README'},
+        {text:'版本更新记录',to:'versionLog'},
         {
             text:'组件',
             expanded: true,
@@ -63,7 +65,8 @@ function App(props) {
                 <Route path='/Checkbox' component={CheckboxView}/>
                 <Route path='/Tooltip' component={TooltipView}/>
                 <Route path='/Anchor' component={AnchorView}/>
-                <Route component={HomeView}/>
+                <Route path='/VersionLog' component={VersionLogView}/>
+                <Route component={ReadmeView}/>
             </Switch>
         </div>
     </div>);
