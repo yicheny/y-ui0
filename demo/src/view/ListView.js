@@ -1,15 +1,20 @@
 import React from 'react';
-import {Card,List} from "../lib";
+import {List} from '../lib';
+import MarkdownContainer from "../component/MarkdownContainer";
 
-const data = Array.from(Array(6),(x,i)=>{
-    return {title:`第${i+1}行标题`,text:`第${i+1}行内容`}
-});
+const options = [
+    {
+        title:'基础用法',
+        source:require('../../doc/List/基础用法.md'),
+    },
+    {
+        title:'API',
+        source:require('../../doc/List/API.md'),
+    }
+]
+
 function ListView(props) {
-    return <div>
-        <Card title='ListView'>
-            <List data={data} header='列表标题' footer='列表底部'/>
-        </Card>
-    </div>
+    return <MarkdownContainer options={options} commonDependencies={{List}}/>
 }
 
 export default ListView;

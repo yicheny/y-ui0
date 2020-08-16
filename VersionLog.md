@@ -10,12 +10,13 @@
 - `DatePicker`添加新的API`clear`，清空功能调整为默认不开启
 - `DatePicker`新增API`className`、`style`、`placeholder`
 - `Table`新增API`className`、`style`
+- `Modal.visible`默认改为`false`
 
 # `0.0.13`
 - `Popup` 去除多余打印
 
 # `0.0.12`
-- `List.tsx` build异常，临时使用`List.js`替代
+- `List.js` build异常，临时使用`List.js`替代
 
 # `0.0.11`
 - `Dropdown`组件新增下拉动画

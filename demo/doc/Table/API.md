@@ -9,7 +9,8 @@
 ## `columns`
 属性|类型|说明|默认值
 ---|---|---|---
-`header` | string | 标题 | -
-`bind` | string | 绑定属性 | -
+`title` | string | 标题 | -
+`text` | string | 内容 | -
+
  
 

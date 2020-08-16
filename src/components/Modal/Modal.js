@@ -64,7 +64,7 @@ function Modal(props) {
     }
 }
 Modal.defaultProps = {
-    visible:true,
+    visible:false,
     move:false,
     header: "默认标题",
     confirm: () => {},
