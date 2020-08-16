@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import _ from 'lodash';
 import ReactDOM from 'react-dom';
 import {Icon} from "../../index";
 
 function Notice(props) {
-    const {info,icon,duration} = props;
+    const {info,icon,duration,removeEle} = props;
+
+    useEffect(()=>{
+        const timeId = setTimeout(removeEle,[duration]);
+        return ()=>clearTimeout(timeId);
+    },[duration])
 
     return <div className='notice' style={{animation:`${duration}ms linear 0s 1 normal none running spin`}}>
         {icon && <Icon name={icon} size={18}/>}
@@ -12,26 +17,21 @@ function Notice(props) {
     </div>
 }
 Notice.defaultProps={
-    info:'',
-    icon:''
+    info:null,
+    icon:null
 };
 
 class Message{
     constructor(){
         this.box = null;
-        this.duration = 3500;
         this.infoQueue = [];
         this.maxLength = 15;
     }
 
-    autoDestroy = ()=>{
-        const timeId = setTimeout(()=>{
-            if(_.isEmpty(this.infoQueue)) return null;
-            const div = this.infoQueue.shift();
-            div.parentNode.removeChild(div);
-            clearTimeout(timeId);
-        },this.duration);
-    };
+    removeEle = (ele)=>{
+        _.pull(this.infoQueue,ele);
+        ele.parentNode.removeChild(ele);
+    }
 
     addBox = ()=>{
         if(!this.box){
@@ -48,13 +48,12 @@ class Message{
         div.className = 'y-message';
         this.box.appendChild(div);
         this.infoQueue.push(div);
-        ReactDOM.render(<Notice {...option} duration={this.duration}/>,div);
+        ReactDOM.render(<Notice {...option} removeEle={()=>this.removeEle(div)}/>,div);
     };
 
-    show = (option,duration)=>{
-        if(duration) this.duration=duration;
+    show = (option)=>{
+        if(!_.isNumber(option.duration)) option.duration = 3000;
         this.addEle(option);
-        this.autoDestroy();
     };
 }
 

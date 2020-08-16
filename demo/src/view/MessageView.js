@@ -1,13 +1,28 @@
 import React from 'react';
-import {Button,message,Card} from "../lib";
+import {message,Button} from '../lib';
+import MarkdownContainer from "../component/MarkdownContainer";
+
+const options = [
+    {
+        title:'基础用法',
+        source:require('../../doc/Message/基础用法.md'),
+    },
+    {
+        title:'设置图标',
+        source:require('../../doc/Message/设置图标.md'),
+    },
+    {
+        title:'设置过渡时间',
+        source:require('../../doc/Message/设置过渡时间.md'),
+    },
+    {
+        title:'API',
+        source:require('../../doc/Message/API.md'),
+    }
+]
 
 function MessageView(props) {
-    return (<Card title='消息提示框'>
-        <Button onClick={()=>message.show({info:"提示信息",icon:'info'})}>点击出现普通信息</Button>
-        <Button onClick={()=>message.show({info:"提示信息AAAA",icon:'success'})}>点击出现成功信息</Button>
-        <Button onClick={()=>message.show({info:"提示信息BBBBBBBB",icon:'warn'})}>点击出现警告提示</Button>
-        <Button onClick={()=>message.show({info:"提示信息CCCCCCCCCCCC",icon:'error'})}>点击出现错误提示</Button>
-    </Card>);
+    return <MarkdownContainer options={options} commonDependencies={{message,Button}}/>
 }
 
 export default MessageView;

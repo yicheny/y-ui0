@@ -11,6 +11,8 @@
 - `DatePicker`新增API`className`、`style`、`placeholder`
 - `Table`新增API`className`、`style`
 - `Modal.visible`默认改为`false`
+- `Message`组件修复`duration`影响全局的问题
+- `Message`组件的API`duraiont`改为`option.duration`
 
 # `0.0.13`
 - `Popup` 去除多余打印
