@@ -1,10 +1,11 @@
 import React from 'react';
 import _ from 'lodash';
+import clsx from "clsx";
 
 function Table(props) {
-    const {columns,data} = props;
+    const {columns,data,className,style} = props;
 
-    return (<div className={'y-table'}>
+    return (<div className={clsx('y-table',className)} style={style}>
         <div className="y-table-header y-table-row">
             {
                 _.map(columns,(col,i)=><Cell key={i} {...col} text={col.header}/>)

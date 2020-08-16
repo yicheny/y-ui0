@@ -9,6 +9,7 @@
     - 无论是通过面板还是输入框改变日期，如果和改变前相同，则不触发`onChange`
 - `DatePicker`添加新的API`clear`，清空功能调整为默认不开启
 - `DatePicker`新增API`className`、`style`、`placeholder`
+- `Table`新增API`className`、`style`
 
 # `0.0.13`
 - `Popup` 去除多余打印
