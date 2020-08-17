@@ -3,7 +3,7 @@
   font-size: 14px;
   &:hover{
     .input-box{
-      .search{
+      .search-input{
         border:1px solid #40a9ff;
       }
     }
@@ -12,7 +12,7 @@
   &.disabled{
     &:hover{
       .input-box{
-        .search{
+        .search-input{
           border:1px solid #d9d9d9;
           input{
             cursor: not-allowed;
@@ -23,7 +23,11 @@
         }
       }
     }
-    background-color: rgb(235, 235, 228);
+    .input-box{
+      .search-input{
+        background-color: rgb(235, 235, 228);
+      }
+    }
   }
 
   &.unfold{
@@ -31,7 +35,7 @@
       display: block;
     }
     .input-box{
-      .search{
+      .search-input{
         border:1px solid #40a9ff;
         box-shadow: 0 0 0 3px rgba(64,169,255,.18);
         transition: all 350ms ease-in;
@@ -48,10 +52,11 @@
   width:210px;
   .input-box{
     position:relative;
-    .search{
+    .search-input{
       height:32px;
       border:1px solid #d9d9d9;
       border-radius:4px;
+      background: #fff;
       input{
         &::placeholder{
           color:#999;
@@ -61,6 +66,7 @@
         padding:4px 11px;
         border:none;
         border-radius:4px;
+        cursor: pointer;
       }
     }
     .status{

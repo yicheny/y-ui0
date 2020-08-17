@@ -13,8 +13,15 @@
 - `Modal.visible`默认改为`false`
 - `Message`组件修复`duration`影响全局的问题
 - `Message`组件的API`duraiont`改为`option.duration`
+- `Dropdown`组件`onChange`回调参数由`(e,o,v)`改为`(v,o)`
+- `Dropdown`输入框背景样式调整
+- `Dropdown`新增API`className`、`style`
+- `Dropdown`css类名`search`调整为`search-input`
+- `Dropdown`修复搜索后再次打开下拉框选项没有还原的问题
+- `Dropdown`默认不开启`search`功能
+- `Dropdown`不开启`search`时不能通过输入框输入
 
-# `0.0.13`
+`0.0.13`
 - `Popup` 去除多余打印
 
 # `0.0.12`

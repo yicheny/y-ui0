@@ -1,16 +1,36 @@
 import React from 'react';
-import {Card,Dropdown} from '../lib';
+import {Dropdown} from '../lib';
+import MarkdownContainer from "../component/MarkdownContainer";
+
+const options = [
+    {
+        title:'基础用法',
+        source:require('../../doc/Dropdown/基础用法.md'),
+    },
+    {
+        title:'设置初始值',
+        source:require('../../doc/Dropdown/设置初始值.md'),
+    },
+    {
+        title:'模糊搜索',
+        source:require('../../doc/Dropdown/模糊搜索.md'),
+    },
+    {
+        title:'禁用模式',
+        source:require('../../doc/Dropdown/禁用模式.md'),
+    },
+    {
+        title:'占位符提示',
+        source:require('../../doc/Dropdown/占位符提示.md'),
+    },
+    {
+        title:'API',
+        source:require('../../doc/Dropdown/API.md'),
+    }
+]
 
 function DropdownView(props) {
-    const options = Array.from(Array(700),(o,i)=>({value:i,text:`第${i}项`.repeat(Math.round(i/200 +1))}));
-    return <div>
-        <Card title={'DropdownView'} contentStyle={{minHeight:80,backgroundColor:'aliceblue'}}>
-            <Dropdown options={options} onChange={console.log} search placeholder='这里支持模糊筛选'/>
-            <Dropdown options={options} defaultValue={4} disabled/>
-            <Dropdown options={options} defaultValue={4} />
-            <Dropdown />
-        </Card>
-    </div>
+    return <MarkdownContainer options={options} commonDependencies={{Dropdown}}/>
 }
 
 export default DropdownView;

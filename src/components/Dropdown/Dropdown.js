@@ -5,7 +5,7 @@ import {useExactHeight, useOnClickOutside} from "../../utils/hook";
 import Popup from "../../utils/Popup";
 
 function Dropdown(props) {
-    const {onChange, defaultValue, search, disabled, placeholder} = props;
+    const {onChange, defaultValue, search, disabled, placeholder,className,style} = props;
     const [options, setOptions] = useState(props.options);
     const [currentItem, setCurrentItem] = useState(_.find(props.options, o => o.value === defaultValue));
     const [unfold, setUnfold] = useState(false);//是否展开
@@ -20,17 +20,19 @@ function Dropdown(props) {
     })
 
     useLayoutEffect(() => {
+        if(!unfold) setOptions(props.options);
         return updateHeight(unfold)
-    }, [unfold, updateHeight])
+    }, [unfold, updateHeight,props.options])
 
     useEffect(() => {
         updateInput(x => x + 1);
     }, [currentItem])
 
-    return <div className={clsx('y-dropdown', {unfold, disabled})} onFocus={open} ref={ref}>
+    return <div className={clsx('y-dropdown', {unfold, disabled},className)} style={style} onFocus={open} ref={ref}>
         <div className="input-box">
-            <div className="search">
+            <div className="search-input">
                 <input type="text" key={inputKey}
+                       readOnly={!search}
                        disabled={disabled}
                        placeholder={placeholder}
                        defaultValue={_.get(currentItem, 'text')}
@@ -63,7 +65,7 @@ function Dropdown(props) {
 
     function handleClick(e, o, v) {
         setCurrentItem(o);
-        _.isFunction(onChange) && onChange(e, o, v);
+        _.isFunction(onChange) && onChange(v,o);
         close();
     }
 
@@ -87,7 +89,6 @@ function Dropdown(props) {
 
 Dropdown.defaultProps = {
     options: [],
-    value: null,
     defaultValue: null,
     search: false,
     disabled: false,
