@@ -1,11 +1,11 @@
-import React, {useRef, useState, useEffect, useLayoutEffect} from 'react';
+import React, {useRef, useState, useEffect, useLayoutEffect, Fragment} from 'react';
 import clsx from "clsx";
 import Icon from "../Icon";
 import {useExactHeight, useOnClickOutside} from "../../utils/hook";
 import Popup from "../../utils/Popup";
 
 function Dropdown(props) {
-    const {onChange, defaultValue, search, disabled, placeholder,className,style} = props;
+    const {onChange, defaultValue, search, disabled, placeholder,className,style,clear} = props;
     const [options, setOptions] = useState(props.options);
     const [currentItem, setCurrentItem] = useState(_.find(props.options, o => o.value === defaultValue));
     const [unfold, setUnfold] = useState(false);//是否展开
@@ -38,8 +38,10 @@ function Dropdown(props) {
                        defaultValue={_.get(currentItem, 'text')}
                        onChange={e => textChange(e.target.value)}/>
             </div>
-            <div className="status" onClick={toggle}>
+            <div className={clsx('status',{clear: clear && currentItem})}
+                 onClick={toggle}>
                 <Icon name='arrowDown' size={20}/>
+                {clear && <Icon name='cancel' size={10} onClick={handleClear}/>}
             </div>
         </div>
         <Popup owner={ref.current} widthable>
@@ -85,6 +87,13 @@ function Dropdown(props) {
     function textChange(text) {
         if (search) setOptions(_.filter(props.options, x => _.includes(x.text, text)))
     }
+
+    function handleClear(e){
+        if(_.isNil(currentItem)) return ;
+        e.stopPropagation();
+        e.preventDefault();
+        handleClick(e,null,null);
+    }
 }
 
 Dropdown.defaultProps = {
@@ -92,6 +101,7 @@ Dropdown.defaultProps = {
     defaultValue: null,
     search: false,
     disabled: false,
+    clear:false,
     placeholder: '请设置任意值...'
 };
 

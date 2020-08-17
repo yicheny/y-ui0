@@ -20,6 +20,7 @@
 - `Dropdown`修复搜索后再次打开下拉框选项没有还原的问题
 - `Dropdown`默认不开启`search`功能
 - `Dropdown`不开启`search`时不能通过输入框输入
+- `Dropdown`新增API`clear`
 
 `0.0.13`
 - `Popup` 去除多余打印

@@ -7,3 +7,4 @@
 `search` | boolean | 是否开启模糊搜索 | false
 `defaultValue` | string / number | 初始值 | null
 `disabled` | boolean | 是否开启禁用模式 | false
+`clear` | boolean | 是否开启清除 | false

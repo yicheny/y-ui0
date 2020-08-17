@@ -20,6 +20,10 @@ const options = [
         source:require('../../doc/Dropdown/禁用模式.md'),
     },
     {
+        title:'清除功能',
+        source:require('../../doc/Dropdown/清除功能.md'),
+    },
+    {
         title:'占位符提示',
         source:require('../../doc/Dropdown/占位符提示.md'),
     },
