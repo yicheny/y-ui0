@@ -9,11 +9,15 @@ function Radio(props) {
     let {value,className,style,defaultChecked} = props;
     const context = useContext(RadioContext);
     const {onChange,selectedValue,setSelectedValue} = context;
-    const [checked,setChecked] = useState(defaultChecked);
+    const [checked,setChecked] = useState(defaultChecked || props.checked);
 
     useEffect(()=>{
         if(!_.isEmpty(context)) setChecked(value===selectedValue);
     },[context])
+
+    useEffect(()=>{
+        if(!_.isNil(props.checked)) setChecked(props.checked)
+    },[props.checked])
 
     return <span className={clsx("y-radio",className)} style={style} onClick={handleChange}>
         <span className={clsx('y-radio-box',{checked})}/>
@@ -29,7 +33,8 @@ function Radio(props) {
 }
 Radio.defaultProps={
     value:null,
-    defaultChecked:false,
+    checked:null,
+    defaultChecked:null,
 };
 
 function RadioGroup(props) {

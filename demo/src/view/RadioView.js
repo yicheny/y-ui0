@@ -1,5 +1,5 @@
-import React from 'react';
-import {Radio,RadioGroup} from '../lib';
+import React,{useState} from 'react';
+import {Radio,RadioGroup,Button} from '../lib';
 import MarkdownContainer from "../component/MarkdownContainer";
 
 const options = [
@@ -10,6 +10,11 @@ const options = [
     {
         title:'设置初始选中',
         source:require('../../doc/Radio/设置初始选中.md'),
+    },
+    {
+        title:'设置当前选中',
+        source:require('../../doc/Radio/设置当前选中.md'),
+        dependencies:{Button,useState}
     },
     {
         title:'单选组合',
