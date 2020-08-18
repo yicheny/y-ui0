@@ -25,7 +25,9 @@ function Radio(props) {
     </span>;
 
     function handleChange() {
-        if(_.isEmpty(context)) return setChecked(true);
+        if(_.isEmpty(context)){
+            return _.isBoolean(checked) ? null : setChecked(true);
+        }
 
         setSelectedValue(value);
         if(onChange) onChange(value);
