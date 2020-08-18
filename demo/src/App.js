@@ -13,7 +13,7 @@ import TableView from "./view/TableView";
 import ListView from "./view/ListView";
 import ModalView from "./view/ModalView";
 import MessageView from "./view/MessageView";
-import DropdownView from "./view/DropdownView";
+import SelectView from "./view/SelectView";
 import RadioView from "./view/RadioView";
 import CheckboxView from "./view/CheckboxView";
 import TooltipView from "./view/TooltipView";
@@ -36,7 +36,7 @@ const Menu_option = {
                 {text:'List'},
                 {text:'Modal'},
                 {text:'Message'},
-                {text:'Dropdown'},
+                {text:'Select'},
                 {text:'Radio'},
                 {text:'Checkbox'},
                 {text:'Tooltip'},
@@ -60,7 +60,7 @@ function App(props) {
                 <Route path='/List' component={ListView}/>
                 <Route path='/Modal' component={ModalView}/>
                 <Route path='/Message' component={MessageView}/>
-                <Route path='/Dropdown' component={DropdownView}/>
+                <Route path='/Select' component={SelectView}/>
                 <Route path='/Radio' component={RadioView}/>
                 <Route path='/Checkbox' component={CheckboxView}/>
                 <Route path='/Tooltip' component={TooltipView}/>

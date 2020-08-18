@@ -28,7 +28,7 @@
 9. `List`：列表
 10. `Modal`：对话框
 11. `Message`：全局提示
-12. `Dropdown`：下拉选择器
+12. `Select`：下拉选择器
 13. `Table`：表格
 14. `Radio`：单选框
 15.`Checkbox`：单选框

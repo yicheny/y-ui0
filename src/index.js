@@ -10,7 +10,7 @@ export { default as List} from './components/List';
 export { default as Modal} from './components/Modal';
 export { default as Table} from './components/Table';
 export { default as message} from './components/Message';
-export { default as Dropdown} from './components/Dropdown';
+export { default as Select} from './components/Select';
 export { Radio,RadioGroup} from './components/Radio';
 export { Checkbox,CheckboxGroup} from './components/Checkbox';
 export { default as Tooltip} from './components/Tooltip';

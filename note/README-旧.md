@@ -141,7 +141,7 @@
     - [ ] 信息溢出内容区的样式问题
     - [ ] `duration`影响全局的问题
     
-## 11. `Dropdown`：下拉选择器
+## 11. `Select`：下拉选择器
 - API
     - [x] `options` {array} 下拉选项 <br/>
            示例:`[{text:'显示内容',value:'绑定值'}]`

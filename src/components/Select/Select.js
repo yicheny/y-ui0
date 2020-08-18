@@ -4,7 +4,7 @@ import Icon from "../Icon";
 import {useExactHeight, useOnClickOutside} from "../../utils/hook";
 import Popup from "../../utils/Popup";
 
-function Dropdown(props) {
+function Select(props) {
     const {onChange, defaultValue, search, disabled, placeholder,className,style,clear} = props;
     const [options, setOptions] = useState(props.options);
     const [currentItem, setCurrentItem] = useState(_.find(props.options, o => o.value === defaultValue));
@@ -28,7 +28,7 @@ function Dropdown(props) {
         updateInput(x => x + 1);
     }, [currentItem])
 
-    return <div className={clsx('y-dropdown', {unfold, disabled},className)} style={style} onFocus={open} ref={ref}>
+    return <div className={clsx('y-select', {unfold, disabled},className)} style={style} onFocus={open} ref={ref}>
         <div className="input-box">
             <div className="search-input">
                 <input type="text" key={inputKey}
@@ -96,7 +96,7 @@ function Dropdown(props) {
     }
 }
 
-Dropdown.defaultProps = {
+Select.defaultProps = {
     options: [],
     defaultValue: null,
     search: false,
@@ -105,4 +105,4 @@ Dropdown.defaultProps = {
     placeholder: '请设置任意值...'
 };
 
-export default Dropdown;
+export default Select;
