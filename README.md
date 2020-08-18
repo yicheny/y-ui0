@@ -28,10 +28,10 @@
 9. `List`：列表
 10. `Modal`：对话框
 11. `Message`：全局提示
-12. `Select`：下拉选择器
+12. `Select`：选择器
 13. `Table`：表格
 14. `Radio`：单选框
-15.`Checkbox`：单选框
+15.`Checkbox`：多选框
 16. `Tooltip`：文字提示
 
 # 后续准备添加的组件

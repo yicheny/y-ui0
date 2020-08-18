@@ -28,19 +28,19 @@ const Menu_option = {
             text:'组件',
             expanded: true,
             children:[
-                {text:'Button'},
-                {text:'Input'},
-                {text:'Calendar'},
-                {text:'DatePicker'},
-                {text:'Table'},
-                {text:'List'},
-                {text:'Modal'},
-                {text:'Message'},
-                {text:'Select'},
-                {text:'Radio'},
-                {text:'Checkbox'},
-                {text:'Tooltip'},
-                {text:'Anchor'}
+                {text:'Button 按钮',to:'Button'},
+                {text:'Input 输入框',to:'Input'},
+                {text:'Calendar 日历',to:'Calendar'},
+                {text:'DatePicker 日期选择器',to:'DatePicker'},
+                {text:'Table 表格',to:'Table'},
+                {text:'List 列表',to:'List'},
+                {text:'Modal 对话框',to:'Modal'},
+                {text:'Message 全局提示',to:'Message'},
+                {text:'Select 选择器',to:'Select'},
+                {text:'Radio 单选框',to:'Radio'},
+                {text:'Checkbox 多选框',to:'Checkbox'},
+                {text:'Tooltip 文字提示',to:'Tooltip'},
+                {text:'Anchor 锚点',to:'Anchor'}
             ]
         }
     ]
