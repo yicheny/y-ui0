@@ -7,7 +7,7 @@ const CheckboxContext = createContext({});
 
 //UI组件
 export function Checkbox(props) {
-    let {value,children,style,className,onChange,defaultChecked} = props;
+    let {value,children,style,className,onChange,defaultChecked,disabled} = props;
     const context = useContext(CheckboxContext);
     const {values,setValues,groupChange} = context;
     const [checked,setChecked] = useState(defaultChecked || props.checked);
@@ -20,7 +20,7 @@ export function Checkbox(props) {
         if(!_.isNil(props.checked)) setChecked(props.checked)
     },[props.checked])
 
-    return <span className={clsx("y-checkbox",className)} style={style} onClick={handleClick}>
+    return <span className={clsx("y-checkbox",{disabled},className)} style={style} onClick={handleClick}>
         <span className={clsx('y-checkbox-box',{checked})}/>
         <span className="y-checkbox-value">{children}</span>
     </span>

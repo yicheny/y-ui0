@@ -15,18 +15,17 @@
 - `Message`组件的API`duraiont`改为`option.duration`
 - `Dropdown`组件`onChange`回调参数由`(e,o,v)`改为`(v,o)`
 - `Dropdown`输入框背景样式调整
-- `Dropdown`新增API`className`、`style`
+- `Dropdown`新增API`className`、`style`、`clear`
 - `Dropdown`css类名`search`调整为`search-input`
 - `Dropdown`修复搜索后再次打开下拉框选项没有还原的问题
 - `Dropdown`默认不开启`search`功能
-- `Dropdown`不开启`search`时不能通过输入框输入
-- `Dropdown`新增API`clear`
+- `Dropdown`必须开启`search`才能通过输入框输入
 - `Radio`新增API`className`、`style`、`defaultChecked`、`checked`、`disabled`
 - `RadioGroup`新增API`className`、`style`
 - `Radio`支持独立使用
 - `Radio`的`display`从`flex`改为`inline-flex`
 - `Dropdown`组件改为`Select`组件
-- `Checkbox`新增API`className`、`style`、`defaultChecked`、`checked`
+- `Checkbox`新增API`className`、`style`、`defaultChecked`、`checked`、`disabled`
 - `CheckboxGroup`新增API`className`、`style`、`values`
 - `Checkbox`支持独立使用
 

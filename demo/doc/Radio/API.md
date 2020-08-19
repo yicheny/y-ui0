@@ -7,6 +7,7 @@
 `children` | string / element | 内容 | -
 `checked` | boolean | 设置当前选中 | -
 `dafultChecked` | boolean | 设置初始选中 | -
+`disabled` | boolean | 是否禁用 | -
 
 ## `RadioGruop`
 属性|类型|说明|默认值

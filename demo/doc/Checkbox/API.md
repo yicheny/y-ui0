@@ -6,6 +6,9 @@
 `children` | string / element | 内容 | -
 `onChange` | function | `Bool -> void` 选项改变时触发 |  -
 `value` | any | 值 | -
+`checked` | boolean | 设置当前选中 | -
+`dafultChecked` | boolean | 设置初始选中 | -
+`disabled` | boolean | 是否禁用 | -
 
 ## `CheckGruop`
 属性|类型|说明|默认值
