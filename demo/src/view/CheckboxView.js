@@ -1,15 +1,24 @@
 import React from 'react';
-import {Card,CheckboxGroup,Checkbox} from '../lib';
+import {Checkbox,CheckboxGroup} from '../lib';
+import MarkdownContainer from "../component/MarkdownContainer";
+
+const options = [
+    {
+        title:'基础用法',
+        source:require('../../doc/Checkbox/基础用法.md'),
+    },
+    {
+        title:'组合使用',
+        source:require('../../doc/Checkbox/组合使用.md'),
+    },
+    {
+        title:'API',
+        source:require('../../doc/Checkbox/API.md'),
+    }
+]
 
 function CheckboxView(props) {
-    return <Card title='CheckboxView'>
-        <CheckboxGroup defaultValues={[2]} onChange={console.log}>
-            <Checkbox value={1}>A</Checkbox>
-            <Checkbox value={2}>B</Checkbox>
-            <Checkbox value={3}>C</Checkbox>
-            <Checkbox value={4}>D</Checkbox>
-        </CheckboxGroup>
-    </Card>
+    return <MarkdownContainer options={options} commonDependencies={{Checkbox,CheckboxGroup}}/>
 }
 
 export default CheckboxView;
