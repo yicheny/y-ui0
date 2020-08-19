@@ -14,11 +14,15 @@ const options = [
     {
         title:'设置当前选中',
         source:require('../../doc/Checkbox/设置当前选中.md'),
-        dependencies:{Button,useState}
+        dependencies:{Button}
     },
     {
         title:'组合使用',
         source:require('../../doc/Checkbox/组合使用.md'),
+    },
+    {
+        title:'全选',
+        source:require('../../doc/Checkbox/全选.md'),
     },
     {
         title:'API',
@@ -27,7 +31,7 @@ const options = [
 ]
 
 function CheckboxView(props) {
-    return <MarkdownContainer options={options} commonDependencies={{Checkbox,CheckboxGroup}}/>
+    return <MarkdownContainer options={options} commonDependencies={{Checkbox,CheckboxGroup,useState}}/>
 }
 
 export default CheckboxView;

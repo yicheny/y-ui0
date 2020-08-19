@@ -46,6 +46,10 @@ export function CheckboxGroup(props) {
     const {children,defaultValues,onChange,style,className} = props;
     const [values,setValues] = useState(defaultValues);
 
+    useEffect(()=>{
+        setValues(props.values);
+    },[props.values])
+
     return <CheckboxContext.Provider value={{values,setValues,groupChange:onChange}}>
        <div className={clsx("y-checkbox-group",className)} style={style}>
            {children}
