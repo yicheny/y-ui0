@@ -47,7 +47,7 @@ export function CheckboxGroup(props) {
     const [values,setValues] = useState(defaultValues);
 
     useEffect(()=>{
-        setValues(props.values);
+        if(Array.isArray(props.values)) setValues(props.values);
     },[props.values])
 
     return <CheckboxContext.Provider value={{values,setValues,groupChange:onChange}}>
