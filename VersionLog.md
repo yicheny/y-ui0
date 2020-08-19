@@ -21,7 +21,7 @@
 - `Dropdown`默认不开启`search`功能
 - `Dropdown`不开启`search`时不能通过输入框输入
 - `Dropdown`新增API`clear`
-- `Radio`新增API`className`、`style`、`defaultChecked`、`checked`
+- `Radio`新增API`className`、`style`、`defaultChecked`、`checked`、`disabled`
 - `RadioGroup`新增API`className`、`style`
 - `Radio`支持独立使用
 - `Radio`的`display`从`flex`改为`inline-flex`

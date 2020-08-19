@@ -6,7 +6,7 @@ const RadioContext = createContext({});
 
 //UI组件
 function Radio(props) {
-    let {value,className,style,defaultChecked} = props;
+    let {value,className,style,defaultChecked,disabled} = props;
     const context = useContext(RadioContext);
     const {onChange,selectedValue,setSelectedValue} = context;
     const [checked,setChecked] = useState(defaultChecked || props.checked);
@@ -19,7 +19,7 @@ function Radio(props) {
         if(!_.isNil(props.checked)) setChecked(props.checked)
     },[props.checked])
 
-    return <span className={clsx("y-radio",className)} style={style} onClick={handleChange}>
+    return <span className={clsx("y-radio",{disabled},className)} style={style} onClick={handleChange}>
         <span className={clsx('y-radio-box',{checked})}/>
         <span className="y-radio-value">{props.children}</span>
     </span>;

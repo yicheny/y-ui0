@@ -8,6 +8,10 @@ const options = [
         source:require('../../doc/Radio/基础用法.md'),
     },
     {
+        title:'禁用',
+        source:require('../../doc/Radio/禁用.md'),
+    },
+    {
         title:'设置初始选中',
         source:require('../../doc/Radio/设置初始选中.md'),
     },
