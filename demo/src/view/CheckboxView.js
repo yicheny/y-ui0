@@ -1,11 +1,20 @@
-import React from 'react';
-import {Checkbox,CheckboxGroup} from '../lib';
+import React,{useState} from 'react';
+import {Checkbox,CheckboxGroup,Button} from '../lib';
 import MarkdownContainer from "../component/MarkdownContainer";
 
 const options = [
     {
         title:'基础用法',
         source:require('../../doc/Checkbox/基础用法.md'),
+    },
+    {
+        title:'设置初始选中',
+        source:require('../../doc/Checkbox/设置初始选中.md'),
+    },
+    {
+        title:'设置当前选中',
+        source:require('../../doc/Checkbox/设置当前选中.md'),
+        dependencies:{Button,useState}
     },
     {
         title:'组合使用',

@@ -3,7 +3,7 @@
 ---|---|---|---
 `className` | string | 类名 | -
 `style` | object | 样式 | -
-`value` | string / number | 值 | -
+`value` | any | 值 | -
 `children` | string / element | 内容 | -
 `checked` | boolean | 设置当前选中 | -
 `dafultChecked` | boolean | 设置初始选中 | -

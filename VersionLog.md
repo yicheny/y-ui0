@@ -26,7 +26,7 @@
 - `Radio`支持独立使用
 - `Radio`的`display`从`flex`改为`inline-flex`
 - `Dropdown`组件改为`Select`组件
-- `Checkbox`新增API`className`、`style`
+- `Checkbox`新增API`className`、`style`、`defaultChecked`、`checked`
 - `CheckboxGroup`新增API`className`、`style`
 - `Checkbox`支持独立使用
 

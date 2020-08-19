@@ -7,14 +7,18 @@ const CheckboxContext = createContext({});
 
 //UI组件
 export function Checkbox(props) {
-    let {value,children,style,className,onChange} = props;
+    let {value,children,style,className,onChange,defaultChecked} = props;
     const context = useContext(CheckboxContext);
     const {values,setValues,groupChange} = context;
-    const [checked,setChecked] = useState(null);
+    const [checked,setChecked] = useState(defaultChecked || props.checked);
 
     useEffect(()=>{
         if(values) setChecked(_.includes(values,value));
     },[values]);
+
+    useEffect(()=>{
+        if(!_.isNil(props.checked)) setChecked(props.checked)
+    },[props.checked])
 
     return <span className={clsx("y-checkbox",className)} style={style} onClick={handleClick}>
         <span className={clsx('y-checkbox-box',{checked})}/>
@@ -23,6 +27,8 @@ export function Checkbox(props) {
 
     function handleClick(){
         if(_.isEmpty(context)) {
+            if(_.isBoolean(props.checked)) return null;
+
             const nextChecked = !checked;
             setChecked(nextChecked);
             if(onChange) onChange(nextChecked);
@@ -47,5 +53,5 @@ export function CheckboxGroup(props) {
     </CheckboxContext.Provider>
 }
 CheckboxGroup.defaultProps={
-    defaultProps:[]
+    defaultValues:[]
 }
