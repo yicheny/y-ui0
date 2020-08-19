@@ -1,5 +1,6 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import clsx from "clsx";
+import {withNext} from "../../utils/fun";
 
 //数据
 const RadioContext = createContext({});
@@ -19,7 +20,7 @@ function Radio(props) {
         if(!_.isNil(props.checked)) setChecked(props.checked)
     },[props.checked])
 
-    return <span className={clsx("y-radio",{disabled},className)} style={style} onClick={handleChange}>
+    return <span className={clsx("y-radio",{disabled},className)} style={style} onClick={withNext(!disabled,handleChange)}>
         <span className={clsx('y-radio-box',{checked})}/>
         <span className="y-radio-value">{props.children}</span>
     </span>;

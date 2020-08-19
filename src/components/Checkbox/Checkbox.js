@@ -1,6 +1,7 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
+import {withNext} from "../../utils/fun";
 
 //数据
 const CheckboxContext = createContext({});
@@ -20,7 +21,7 @@ export function Checkbox(props) {
         if(!_.isNil(props.checked)) setChecked(props.checked)
     },[props.checked])
 
-    return <span className={clsx("y-checkbox",{disabled},className)} style={style} onClick={handleClick}>
+    return <span className={clsx("y-checkbox",{disabled},className)} style={style} onClick={withNext(!disabled,handleClick)}>
         <span className={clsx('y-checkbox-box',{checked})}/>
         <span className="y-checkbox-value">{children}</span>
     </span>
