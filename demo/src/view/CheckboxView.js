@@ -29,6 +29,10 @@ const options = [
         source:require('../../doc/Checkbox/全选.md'),
     },
     {
+        title:'全部禁用',
+        source:require('../../doc/Checkbox/全部禁用.md'),
+    },
+    {
         title:'API',
         source:require('../../doc/Checkbox/API.md'),
     }

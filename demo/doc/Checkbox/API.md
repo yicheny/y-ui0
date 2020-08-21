@@ -19,3 +19,4 @@
 `dafaultValues` | array | 初始值 | `[]`
 `values` | array | 实时选项 | -
 `onChange` | function | `array -> void` 选项改变时触发 | -
+`disabled` | boolean | 全部禁用 | false
