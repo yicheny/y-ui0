@@ -11,6 +11,7 @@ export function Checkbox(props) {
     let {value,children,style,className,onChange,defaultChecked} = props;
     const context = useContext(CheckboxContext);
     const {values,setValues,groupChange} = context;
+    const [indeterminate,setIndeterminate] = useState(props.indeterminate);
     const [checked,setChecked] = useState(defaultChecked || props.checked);
 
     useEffect(()=>{
@@ -21,14 +22,19 @@ export function Checkbox(props) {
         if(!_.isNil(props.checked)) setChecked(props.checked)
     },[props.checked]);
 
+    useEffect(()=>{
+        setIndeterminate(props.indeterminate);
+    },[props.indeterminate])
+
     const disabled = context.disabled || props.disabled;
 
-    return <span className={clsx("y-checkbox",{disabled},className)} style={style} onClick={withNext(!disabled,handleClick)}>
+    return <span className={clsx("y-checkbox",{indeterminate,disabled},className)} style={style} onClick={withNext(!disabled,handleClick)}>
         <span className={clsx('y-checkbox-box',{checked})}/>
         <span className="y-checkbox-value">{children}</span>
     </span>
 
     function handleClick(){
+        indeterminate && setIndeterminate(false);
         if(_.isEmpty(context)) {
             if(_.isBoolean(props.checked)) return null;
 
@@ -43,6 +49,9 @@ export function Checkbox(props) {
         setValues(nextValues);
         if(groupChange) groupChange(nextValues);
     }
+}
+Checkbox.defaultProps={
+    indeterminate:false
 }
 
 export function CheckboxGroup(props) {

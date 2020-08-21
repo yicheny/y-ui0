@@ -12,6 +12,10 @@ const options = [
         source:require('../../doc/Checkbox/禁用.md'),
     },
     {
+        title:'不定状态',
+        source:require('../../doc/Checkbox/不定状态.md'),
+    },
+    {
         title:'设置初始选中',
         source:require('../../doc/Checkbox/设置初始选中.md'),
     },

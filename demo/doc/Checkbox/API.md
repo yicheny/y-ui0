@@ -9,6 +9,7 @@
 `checked` | boolean | 设置当前选中 | -
 `dafultChecked` | boolean | 设置初始选中 | -
 `disabled` | boolean | 是否禁用 | -
+`indeterminate` | boolean | 不定状态 | false
 
 ## `CheckGruop`
 属性|类型|说明|默认值
