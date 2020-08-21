@@ -28,6 +28,8 @@
 - `Checkbox`新增API`className`、`style`、`defaultChecked`、`checked`、`disabled`、`indeterminate`
 - `CheckboxGroup`新增API`className`、`style`、`values`
 - `Checkbox`支持独立使用
+- `Input`添加`hover`时的`border`变化
+- `Input`、`Select`添加过渡动画
 
 # `0.0.13`
 - `Popup` 去除多余打印
