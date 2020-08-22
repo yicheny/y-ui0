@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, { createContext, Fragment, useContext, useEffect, useState } from 'react';
 import _ from 'lodash';
 import clsx from "clsx";
 import {withNext} from "../../utils/fun";
@@ -55,7 +55,7 @@ Checkbox.defaultProps={
 }
 
 export function CheckboxGroup(props) {
-    const {children,defaultValues,onChange,style,className,disabled} = props;
+    const {children,defaultValues,onChange,style,className,disabled,options} = props;
     const [values,setValues] = useState(defaultValues);
 
     useEffect(()=>{
@@ -64,11 +64,22 @@ export function CheckboxGroup(props) {
 
     return <CheckboxContext.Provider value={{values,setValues,groupChange:onChange,disabled}}>
        <div className={clsx("y-checkbox-group",className)} style={style}>
-           {children}
+           {options ? renderOptions(options) : children}
        </div>
     </CheckboxContext.Provider>
 }
 CheckboxGroup.defaultProps={
     defaultValues:[],
     disabled:false
+}
+
+function renderOptions(options){
+    return <Fragment>
+        {
+            _.map(options,(x,i)=>{
+                const {label,...rest} = x || {};
+                return <Checkbox key={i} {...rest}>{label}</Checkbox>
+            })
+        }
+    </Fragment>
 }

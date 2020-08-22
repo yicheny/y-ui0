@@ -26,7 +26,7 @@
 - `Radio`的`display`从`flex`改为`inline-flex`
 - `Dropdown`组件改为`Select`组件
 - `Checkbox`新增API`className`、`style`、`defaultChecked`、`checked`、`disabled`、`indeterminate`
-- `CheckboxGroup`新增API`className`、`style`、`values`
+- `CheckboxGroup`新增API`className`、`style`、`values`、`options`
 - `Checkbox`支持独立使用
 - `Input`添加`hover`时的`border`变化
 - `Input`、`Select`添加过渡动画

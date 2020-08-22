@@ -34,6 +34,13 @@
     }
   }
   &.disabled{
+    &.indeterminate{
+      .y-checkbox-box{
+        &::after{
+          background-color:rgba(0,0,0,0.25);
+        }
+      }
+    }
     .y-checkbox-box{
       &.checked{
         &::before{
