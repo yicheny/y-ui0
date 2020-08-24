@@ -1,15 +1,20 @@
 import React from 'react';
-import {Card, Tooltip} from "../lib";
+import {Tooltip} from '../lib';
+import MarkdownContainer from "../component/MarkdownContainer";
 
-const info = '这是一段测试信息'.repeat(1);
+const options = [
+    {
+        title:'基础用法',
+        source:require('../../doc/Tooltip/基础用法.md'),
+    },
+    {
+        title:'API',
+        source:require('../../doc/Tooltip/API.md'),
+    }
+]
 
 function TooltipView(props) {
-    return <Card title='TooltipView'>
-        <Tooltip title={info}>Top</Tooltip> <br/>
-        <Tooltip title={info} placement='right'>Right</Tooltip> <br/>
-        <Tooltip title={info} placement='bottom'>Bottom</Tooltip> <br/>
-        <Tooltip title={info} placement='left'>Left</Tooltip> <br/>
-    </Card>
+    return <MarkdownContainer options={options} commonDependencies={{Tooltip}}/>
 }
 
 export default TooltipView;
