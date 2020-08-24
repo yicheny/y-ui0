@@ -17,12 +17,13 @@ export default function TextTooltip(props) {
     const content = <span className='y-text-tooltip-inner' onClick={onClick} ref={contentRef}>{children}</span>;
 
     return <div className={ clsx(className, 'y-text-tooltip') } ref={ containerRef } { ...rest }>
-        { active ? <Tooltip title={ children }>{ content }</Tooltip> : content }
+        { active ? <Tooltip title={ children } style={{flex:1}}>{ content }</Tooltip> : content }
         <style jsx>{`
         .y-text-tooltip{
             overflow:hidden;
             text-overflow:ellipsis;
             white-space:nowrap;
+            display:flex;
         }
         `}</style>
     </div>
