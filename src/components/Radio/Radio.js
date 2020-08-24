@@ -1,6 +1,7 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, {createContext, Fragment, useContext, useEffect, useState} from 'react';
 import clsx from "clsx";
 import {withNext} from "../../utils/fun";
+import _ from "lodash";
 
 //数据
 const RadioContext = createContext({});
@@ -41,13 +42,24 @@ Radio.defaultProps={
 };
 
 function RadioGroup(props) {
-    const {children,defaultValue,onChange,style,className} = props;
+    const {children,defaultValue,onChange,style,className,options} = props;
     const [selectedValue,setSelectedValue] = useState(defaultValue);
     return <RadioContext.Provider value={{selectedValue,setSelectedValue,onChange}}>
         <div className={clsx("y-radioGroup",className)} style={style}>
-            {children}
+            {options ? renderOptions(options) : children}
         </div>
     </RadioContext.Provider>;
 }
 
 export {Radio,RadioGroup};
+
+function renderOptions(options){
+    return <Fragment>
+        {
+            _.map(options,(x,i)=>{
+                const {label,...rest} = x || {};
+                return <Radio key={i} {...rest}>{label}</Radio>
+            })
+        }
+    </Fragment>
+}

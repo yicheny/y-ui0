@@ -1,9 +1,9 @@
 ## `Check`
 属性|类型|说明|默认值
 ---|---|---|---
+`children` | string / element | 内容 | -
 `className` | string | 类名 | -
 `style` | object | 样式 | -
-`children` | string / element | 内容 | -
 `onChange` | function | `Bool -> void` 选项改变时触发 |  -
 `value` | any | 值 | -
 `checked` | boolean | 设置当前选中 | -
@@ -26,7 +26,7 @@
 # `options`
 属性|类型|说明|默认值
 ---|---|---|---
-`label` | string / element | 内容（文字） | -
+`label` | string / element | 内容 | -
 `className` | string | 类名 | -
 `style` | object | 样式 | -
 `onChange` | function | `Bool -> void` 选项改变时触发 |  -

@@ -25,6 +25,10 @@ const options = [
         source:require('../../doc/Radio/单选组合.md'),
     },
     {
+        title:'options',
+        source:require('../../doc/Radio/options.md'),
+    },
+    {
         title:'API',
         source:require('../../doc/Radio/API.md'),
     }
