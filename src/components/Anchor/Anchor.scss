@@ -15,10 +15,8 @@
       user-select: none;
     }
 
-
-    .y-tooltip{
-      background: #fff;
-      color: #15171F;
+    .y-text-tooltip{
+      display: flex;
       line-height: 32px;
       &-arrow{
         &::before{
