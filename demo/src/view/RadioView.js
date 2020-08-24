@@ -25,6 +25,10 @@ const options = [
         source:require('../../doc/Radio/单选组合.md'),
     },
     {
+        title:'全部禁用',
+        source:require('../../doc/Radio/全部禁用.md'),
+    },
+    {
         title:'options',
         source:require('../../doc/Radio/options.md'),
     },

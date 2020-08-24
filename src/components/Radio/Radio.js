@@ -8,7 +8,7 @@ const RadioContext = createContext({});
 
 //UI组件
 function Radio(props) {
-    let {value,className,style,defaultChecked,disabled} = props;
+    let {value,className,style,defaultChecked} = props;
     const context = useContext(RadioContext);
     const {onChange,selectedValue,setSelectedValue} = context;
     const [checked,setChecked] = useState(defaultChecked || props.checked);
@@ -20,6 +20,8 @@ function Radio(props) {
     useEffect(()=>{
         if(!_.isNil(props.checked)) setChecked(props.checked)
     },[props.checked])
+
+    const disabled = context.disabled || props.disabled;
 
     return <span className={clsx("y-radio",{disabled},className)} style={style} onClick={withNext(!disabled,handleChange)}>
         <span className={clsx('y-radio-box',{checked})}/>
@@ -42,9 +44,9 @@ Radio.defaultProps={
 };
 
 function RadioGroup(props) {
-    const {children,defaultValue,onChange,style,className,options} = props;
+    const {children,defaultValue,onChange,style,className,options,disabled} = props;
     const [selectedValue,setSelectedValue] = useState(defaultValue);
-    return <RadioContext.Provider value={{selectedValue,setSelectedValue,onChange}}>
+    return <RadioContext.Provider value={{selectedValue,setSelectedValue,onChange,disabled}}>
         <div className={clsx("y-radioGroup",className)} style={style}>
             {options ? renderOptions(options) : children}
         </div>
