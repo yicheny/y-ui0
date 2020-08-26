@@ -31,6 +31,7 @@
 - `Input`添加`hover`时的`border`变化
 - `Input`、`Select`添加过渡动画
 - `Select` 在`disabled`下的样式调整
+- `Select` 下拉图标遮挡文字修复
 
 # `0.0.13`
 - `Popup` 去除多余打印

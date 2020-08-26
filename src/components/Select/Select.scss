@@ -1,6 +1,4 @@
 .y-select{
-  display: inline-block;
-  font-size: 14px;
   &:hover{
     .input-box{
       .search-input{
@@ -52,10 +50,15 @@
   }
 
   position:relative;
+  display: inline-block;
+  font-size: 14px;
   width:210px;
   .input-box{
     position:relative;
+    display: flex;
     .search-input{
+      flex:1;
+      display: flex;
       height:32px;
       border:1px solid #d9d9d9;
       border-radius:4px;
@@ -66,8 +69,10 @@
           color:#999;
         }
         outline: none;
+        flex:1;
+        width:0;
         height:24px;
-        padding:4px 11px;
+        padding:4px 35px 4px 11px;
         border:none;
         border-radius:4px;
         cursor: pointer;
@@ -88,10 +93,8 @@
           }
         }
       }
-      position:absolute;
-      top:0;
-      right:0;
       padding:5px 7px;
+      margin-left:-35px;
       cursor: pointer;
       .iconfont{
         &.icon-cancel{
