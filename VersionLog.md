@@ -33,6 +33,7 @@
 - `Select` 在`disabled`下的样式调整
 - `Select` 下拉图标遮挡文字修复
 - 新增`Switch`组件
+- 新增`Tab`组件
 
 # `0.0.13`
 - `Popup` 去除多余打印

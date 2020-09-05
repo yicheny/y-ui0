@@ -33,7 +33,7 @@
 14. `Radio`：单选框
 15.`Checkbox`：多选框
 16. `Tooltip`：文字提示
+17. `Tab`：标签页
 
 # 后续准备添加的组件
-- `Tab`
 - `Anchor`

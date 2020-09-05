@@ -20,6 +20,7 @@ import TooltipView from "./view/TooltipView";
 import AnchorView from "./view/AnchorView";
 import CalendarView from "./view/CalendarView";
 import SwitchView from "./view/SwitchView";
+import TabView from "./view/TabView";
 
 const Menu_option = {
     details:[
@@ -29,7 +30,7 @@ const Menu_option = {
             text:'组件',
             expanded: true,
             children:[
-                {text:'Anchor 锚点',to:'Anchor'},
+                // {text:'Anchor 锚点',to:'Anchor'},
                 {text:'Button 按钮',to:'Button'},
                 {text:'Calendar 日历',to:'Calendar'},
                 {text:'Checkbox 多选框',to:'Checkbox'},
@@ -41,6 +42,7 @@ const Menu_option = {
                 {text:'Radio 单选框',to:'Radio'},
                 {text:'Select 选择器',to:'Select'},
                 {text:'Switch 开关',to:'Switch'},
+                {text:'Tab 标签页',to:'Tab'},
                 {text:'Table 表格',to:'Table'},
                 {text:'Tooltip 文字提示',to:'Tooltip'},
             ]
@@ -66,6 +68,7 @@ function App(props) {
                 <Route path='/Radio' component={RadioView}/>
                 <Route path='/Select' component={SelectView}/>
                 <Route path='/Switch' component={SwitchView}/>
+                <Route path='/Tab' component={TabView}/>
                 <Route path='/Table' component={TableView}/>
                 <Route path='/Tooltip' component={TooltipView}/>
 
