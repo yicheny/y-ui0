@@ -21,6 +21,7 @@ import AnchorView from "./view/AnchorView";
 import CalendarView from "./view/CalendarView";
 import SwitchView from "./view/SwitchView";
 import TabView from "./view/TabView";
+import TextAreaView from "./view/TextAreaView";
 
 const Menu_option = {
     details:[
@@ -44,6 +45,7 @@ const Menu_option = {
                 {text:'Switch 开关',to:'Switch'},
                 {text:'Tab 标签页',to:'Tab'},
                 {text:'Table 表格',to:'Table'},
+                {text:'TextArea 文本域',to:'TextArea'},
                 {text:'Tooltip 文字提示',to:'Tooltip'},
             ]
         }
@@ -70,8 +72,8 @@ function App(props) {
                 <Route path='/Switch' component={SwitchView}/>
                 <Route path='/Tab' component={TabView}/>
                 <Route path='/Table' component={TableView}/>
+                <Route path='/TextArea' component={TextAreaView}/>
                 <Route path='/Tooltip' component={TooltipView}/>
-
                 <Route path='/VersionLog' component={VersionLogView}/>
                 <Route component={ReadmeView}/>
             </Switch>
