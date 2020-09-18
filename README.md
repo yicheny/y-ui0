@@ -34,6 +34,7 @@
 15.`Checkbox`：多选框
 16. `Tooltip`：文字提示
 17. `Tab`：标签页
+18. `TextArea`：文本域
 
 # 后续准备添加的组件
 - `Anchor`
