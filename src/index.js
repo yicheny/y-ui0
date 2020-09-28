@@ -19,3 +19,4 @@ export { default as Anchor} from './components/Anchor';
 export { default as Switch} from './components/Switch';
 export { default as Tab,TabItem} from './components/Tab';
 export { default as TextArea} from './components/TextArea/TextArea';
+export { Steps,Step} from './components/Steps/Steps';

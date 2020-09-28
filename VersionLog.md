@@ -1,3 +1,8 @@
+# `0.0.15`
+- `Input` 字体大小调整为`12px`
+- `Textarea` 字体颜色调整为默认颜色【原生】
+- 新增`Stpes`组件
+
 # `0.0.14`
 - `Input` 删除API`type`
 - `Input` 添加默认`placeholder`为`'请输入……'`

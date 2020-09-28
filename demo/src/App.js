@@ -22,6 +22,7 @@ import CalendarView from "./view/CalendarView";
 import SwitchView from "./view/SwitchView";
 import TabView from "./view/TabView";
 import TextAreaView from "./view/TextAreaView";
+import StepsView from "./view/StepsView";
 
 const Menu_option = {
     details:[
@@ -43,6 +44,7 @@ const Menu_option = {
                 {text:'Radio 单选框',to:'Radio'},
                 {text:'Select 选择器',to:'Select'},
                 {text:'Switch 开关',to:'Switch'},
+                {text:'Steps 步骤条',to:'Steps'},
                 {text:'Tab 标签页',to:'Tab'},
                 {text:'Table 表格',to:'Table'},
                 {text:'TextArea 文本域',to:'TextArea'},
@@ -70,6 +72,7 @@ function App(props) {
                 <Route path='/Radio' component={RadioView}/>
                 <Route path='/Select' component={SelectView}/>
                 <Route path='/Switch' component={SwitchView}/>
+                <Route path='/Steps' component={StepsView}/>
                 <Route path='/Tab' component={TabView}/>
                 <Route path='/Table' component={TableView}/>
                 <Route path='/TextArea' component={TextAreaView}/>
