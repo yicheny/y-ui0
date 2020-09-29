@@ -23,11 +23,13 @@ import SwitchView from "./view/SwitchView";
 import TabView from "./view/TabView";
 import TextAreaView from "./view/TextAreaView";
 import StepsView from "./view/StepsView";
+import CodeBoxView from "./view/CodeBoxView";
 
 const Menu_option = {
     details:[
         {text:'README'},
         {text:'版本更新记录',to:'versionLog'},
+        {text:'代码测试沙盒',to:'CodeBox'},
         {
             text:'组件',
             expanded: true,
@@ -78,6 +80,7 @@ function App(props) {
                 <Route path='/TextArea' component={TextAreaView}/>
                 <Route path='/Tooltip' component={TooltipView}/>
                 <Route path='/VersionLog' component={VersionLogView}/>
+                <Route path='/CodeBox' component={CodeBoxView}/>
                 <Route component={ReadmeView}/>
             </Switch>
         </div>

@@ -1,1 +1,7 @@
+/.git
+/.idea
 /demo
+/note
+/src
+/tests
+/package-lock.json
