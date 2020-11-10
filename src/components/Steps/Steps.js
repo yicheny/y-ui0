@@ -12,9 +12,7 @@ Steps.defaultProps={
     current:0
 }
 
-export function Step(props){
-    const {current,index,title,description,maxCount,className,style} = props;
-
+export function Step({current,index,title,description,maxCount,className,style}){
     const finish = current > index;
     const active = current === index;
     const wait = current < index;
@@ -29,4 +27,8 @@ export function Step(props){
         </div>
         <div className="y-Step-tail"/>
     </div>
+}
+Step.defaultProps = {
+    title:null,
+    description:null,
 }
