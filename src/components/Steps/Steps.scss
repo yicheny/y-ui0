@@ -1,63 +1,148 @@
 .y-Steps{
-  .y-Step{
-    &.finish{
-      >.mark{
-        color:#1890ff;
-      }
-      >.tail{
-        background:#1890ff ;
-      }
-    }
-    &.active{
-      >.mark{
-        background: #1890ff;
-        color:#fff;
-      }
-    }
-    &.wait{
-      >.mark{
-        border-color:rgba(0,0,0,.25);
-        color:rgba(0,0,0,.25);
-      }
-    }
-    &.last{
-      >.tail{
-        height:0;
-      }
-    }
-
+  &.horizontal{
     display: flex;
-    position:relative;
-    background-color: #fff;
-
-    >.mark{
-      width: 24px;
-      height: 24px;
-      margin: 0 8px 0 0;
-      font-size: 12px;
-      line-height: 24px;
-      text-align: center;
-      border-radius: 24px;
-      border:1px solid #1890ff;
-    }
-    >.tail{
-      position:absolute;
-      background: rgba(0,0,0,.25);
-      bottom:8px;
-      left: 13px;
-      width: 1px;
-      height: 27px;
-    }
-    >.main{
-      >.title{
-        font-size: 16px;
-        line-height: 32px;
-        color:rgba(0,0,0,0.85);
+    justify-content: space-between;
+    .y-Step{
+      &.finish{
+        .y-Step-mark{
+          color:#1890ff;
+        }
+        .y-Step-tail{
+          background:#1890ff ;
+        }
       }
-      >.description{
-        padding-bottom: 12px;
+      &.active{
+        .y-Step-mark{
+          background: #1890ff;
+          color:#fff;
+        }
+      }
+      &.wait{
+        .y-Step-mark{
+          border-color:rgba(0,0,0,.25);
+          color:rgba(0,0,0,.25);
+        }
+      }
+      &.last{
+        .y-Step-tail{
+          height:0;
+        }
+      }
+
+      flex:1;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+
+      >.left{
+        display: flex;
+        align-items: center;
+        margin: 0 0 0 12px;
+        background: #fff;
+      }
+      .y-Step-mark{
+        flex-shrink: 0;
+        margin-bottom:8px;
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
         line-height: 24px;
-        color: rgba(0,0,0,.45);
+        text-align: center;
+        border-radius: 24px;
+        border:1px solid #1890ff;
+      }
+      .y-Step-tail{
+        height:1px;
+        width:100%;
+        background: #d4d4d4;
+      }
+      >.main{
+        align-self: flex-end;
+        padding:0 8px;
+        >.title{
+          font-size: 16px;
+          line-height: 32px;
+          color:rgba(0,0,0,0.85);
+          white-space: nowrap;
+        }
+        >.description{
+          padding-bottom: 12px;
+          line-height: 24px;
+          color: rgba(0,0,0,.45);
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  &.vertical{
+    .y-Step{
+      &.finish{
+        .y-Step-mark{
+          color:#1890ff;
+        }
+        .y-Step-tail{
+          background:#1890ff ;
+        }
+      }
+      &.active{
+        .y-Step-mark{
+          background: #1890ff;
+          color:#fff;
+        }
+      }
+      &.wait{
+        .y-Step-mark{
+          border-color:rgba(0,0,0,.25);
+          color:rgba(0,0,0,.25);
+        }
+      }
+      &.last{
+        .y-Step-tail{
+          height:0;
+        }
+      }
+
+      display: flex;
+      background-color: #fff;
+      position:relative;
+
+      >.left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 8px 0 0;
+        background: #fff;
+      }
+      .y-Step-mark{
+        margin:8px 0 8px;
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 24px;
+        border:1px solid #1890ff;
+      }
+      .y-Step-tail{
+        position: absolute;
+        top: 42px;
+        left: 13px;
+        width: 1px;
+        height:100%;
+        background-color:#d4d4d4;
+      }
+      >.main{
+        padding:6px 8px 0;
+        >.title{
+          font-size: 16px;
+          line-height: 32px;
+          color:rgba(0,0,0,0.85);
+        }
+        >.description{
+          padding-bottom: 12px;
+          line-height: 24px;
+          color: rgba(0,0,0,.45);
+        }
       }
     }
   }
