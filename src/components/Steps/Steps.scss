@@ -1,3 +1,10 @@
+$active-color:#5477FF;
+$wait-color:#7A8199;
+$title-color:#15171F;
+$border-color:#CFD3E3;
+$line-color:#E9EAF2;
+$transition:all 300ms ease;
+
 .y-Steps{
   //水平
   &.horizontal{
@@ -37,24 +44,39 @@
 
   //公用
   .y-Step{
+    &.wait:hover{
+      .y-Step-mark{
+        border-color:$active-color;
+        color:$active-color;
+      }
+      >.main>.title{
+        color:$active-color;
+      }
+    }
     &.finish{
       .y-Step-mark{
-        color:#1890ff;
+        color:$active-color;
       }
       .y-Step-tail{
-        background:#1890ff ;
+        background:$active-color ;
       }
     }
     &.active{
       .y-Step-mark{
-        background: #1890ff;
+        background:$active-color;
         color:#fff;
       }
     }
     &.wait{
+      cursor:pointer;
       .y-Step-mark{
-        border-color:rgba(0,0,0,.25);
-        color:rgba(0,0,0,.25);
+        border-color:$border-color;
+        color:$wait-color;
+      }
+      >.main{
+        >.title{
+          color:$wait-color;
+        }
       }
     }
     &.last{
@@ -66,6 +88,7 @@
     display: flex;
     background-color: #fff;
     position:relative;
+    cursor:default;
 
     >.left{
       display: flex;
@@ -82,24 +105,25 @@
       line-height: 24px;
       text-align: center;
       border-radius: 24px;
-      border:1px solid #1890ff;
+      border:1px solid $active-color;
+      transition: $transition;
     }
     .y-Step-tail{
-      background-color:#d4d4d4;
+      background-color:$line-color;
     }
     >.main{
       padding:6px 8px 0;
+      font-size: 14px;
+      line-height: 24px;
+      white-space: nowrap;
+      font-family: SourceHanSansCN-Medium;
       >.title{
-        font-size: 16px;
-        line-height: 32px;
-        color:rgba(0,0,0,0.85);
-        white-space: nowrap;
+        color:$title-color;
+        transition: $transition;
       }
       >.description{
         padding-bottom: 12px;
-        line-height: 24px;
-        color: rgba(0,0,0,.45);
-        white-space: nowrap;
+        color: $wait-color;
       }
     }
   }
