@@ -16,6 +16,10 @@ const options = [
         source:require('../../doc/Steps/可点击.md'),
     },
     {
+        title:'控制步骤状态',
+        source:require('../../doc/Steps/控制步骤状态.md'),
+    },
+    {
         title:'API',
         source:require('../../doc/Steps/API.md'),
     },

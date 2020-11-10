@@ -15,7 +15,7 @@ export default function MarkdownContainer(props) {
                     return <div id={title} key={i}>
                         <Card title={title}>
                             <CodeView source={source}
-                                      delay={300}
+                                      delay={750}
                                       // theme='neo'
                                       dependencies={{...dependencies,...commonDependencies}}
                                       showCode={showCode}/>

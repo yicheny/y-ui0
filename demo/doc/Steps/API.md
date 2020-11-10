@@ -15,3 +15,4 @@
 `style` | object | 样式 | - 
 `title` | string | 标题 | `null`
 `description` | string | 描述 | `null`
+`status` | `'wait'` / `'active'`/`'finish'` | 指定状态。当不配置该属性时，会使用`Steps`的`current`来自动指定状态。 | -

@@ -13,10 +13,10 @@ Steps.defaultProps={
     onChange:undefined
 }
 
-export function Step({current,index,title,description,maxCount,className,style,onChange}){
-    const finish = current > index;
-    const active = current === index;
-    const wait = current < index;
+export function Step({current,index,title,description,maxCount,className,style,onChange,status}){
+    const finish = getStatus(current > index,'finish');
+    const active = getStatus(current === index,'active');
+    const wait = getStatus(current < index,'wait');
     const last = index === maxCount-1;
     return <div className={clsx('y-Step',{finish,active,wait,last},className)} style={style}
                 onClick={()=>(onChange && onChange(index))}>
@@ -29,6 +29,11 @@ export function Step({current,index,title,description,maxCount,className,style,o
         </div>
         <div className="y-Step-tail"/>
     </div>
+
+    function getStatus(defaultRes,value){
+        if(!status) return defaultRes;
+        return status === value;
+    }
 }
 Step.defaultProps = {
     title:null,
