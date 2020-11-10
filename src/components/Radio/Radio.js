@@ -11,14 +11,14 @@ function Radio(props) {
     let {value,className,style,defaultChecked} = props;
     const context = useContext(RadioContext);
     const {onChange,selectedValue,setSelectedValue} = context;
-    const [checked,setChecked] = useState(defaultChecked || props.checked);
+    const [checked,setChecked] = useState(props.checked === undefined ? defaultChecked : props.checked );
 
     useEffect(()=>{
         if(!_.isEmpty(context)) setChecked(value===selectedValue);
     },[context])
 
     useEffect(()=>{
-        if(!_.isNil(props.checked)) setChecked(props.checked)
+        if(props.checked !== undefined) setChecked(props.checked)
     },[props.checked])
 
     const disabled = context.disabled || props.disabled;

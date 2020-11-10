@@ -4,6 +4,7 @@
 - 新增`Stpes`组件
 - `Card`新增API`className`、`style`
 - `CheckboxGroup`内部函数`renderOption`改为组件`RenderOption`
+- `Radio`组件的`defaultChecked`生效逻辑修改【仅当`checked`为`undefined`时生效】
 
 # `0.0.14`
 - `Input` 删除API`type`
