@@ -8,16 +8,16 @@ $transition:all 300ms ease;
 .y-Steps{
   &.canClick{
     .y-Step{
-      &.wait:hover{
-        .y-Step-mark{
-          border-color:$active-color;
-          color:$active-color;
-        }
-        >.main>.title{
-          color:$active-color;
-        }
-      }
       &.wait,&.finish{
+        &:hover{
+          .y-Step-mark{
+            border-color:$active-color;
+            color:$active-color;
+          }
+          >.main>.title{
+            color:$active-color;
+          }
+        }
         cursor:pointer;
       }
       cursor:default;
