@@ -5,7 +5,8 @@
 `style` | object | 样式 | - 
 `children` | string / element | 内容 | -
 `direction` | string | `'horizontal'` / `"vertical"` | `'horizontal'`
-`current` | number | 当前进行的步骤 | `0`
+`value` | number | 当前进行的步骤 | -
+`defaultValue` | number | 初始步骤（仅当value为`undefined`时生效） | - 
 `onChange` | `(current) => void` | 点击切换步骤时触发 | -
 
 ## `Step.props`

@@ -1,15 +1,24 @@
-import React,{Children,cloneElement} from 'react';
+import React, { Children, cloneElement, useEffect, useState } from 'react';
 import clsx from "clsx";
 import { Icon } from "../../index";
 
-export function Steps({current,children,className,style,direction,onChange}) {
+export function Steps({value,defaultValue,children,className,style,direction,onChange}) {
+    const [current,setCurrent] = useState(value === undefined ? defaultValue : value);
+
+    useEffect(()=>{
+        if(value!==undefined) setCurrent(value);
+    },[value])
+
     return <div className={clsx("y-Steps",className,direction,{canClick:_.isFunction(onChange)})} style={style}>
-        {Children.map(children,(child,index,list)=>cloneElement(child,{current,index,maxCount:children.length,onChange}))}
+        {Children.map(children,(child,index)=>{
+            return cloneElement(child,{current,index,maxCount:children.length,onChange});
+        })}
     </div>
 }
 Steps.defaultProps={
     direction:'horizontal',
-    current:0,
+    value:undefined,
+    defaultValue:undefined,
     onChange:undefined
 }
 

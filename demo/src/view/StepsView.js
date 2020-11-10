@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Steps,Step} from '../lib';
+import {Steps,Step,message} from '../lib';
 import MarkdownContainer from "../component/MarkdownContainer";
 
 const options = [
@@ -16,6 +16,10 @@ const options = [
         source:require('../../doc/Steps/可点击.md'),
     },
     {
+        title:'设置初始值',
+        source:require('../../doc/Steps/设置初始值.md'),
+    },
+    {
         title:'控制步骤状态',
         source:require('../../doc/Steps/控制步骤状态.md'),
     },
@@ -26,7 +30,7 @@ const options = [
 ]
 
 function StepsView(props) {
-    return <MarkdownContainer options={options} commonDependencies={{Steps,Step,useState}}/>
+    return <MarkdownContainer options={options} commonDependencies={{Steps,Step,useState,message}}/>
 }
 
 export default StepsView;
