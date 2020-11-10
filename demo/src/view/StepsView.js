@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Steps,Step} from '../lib';
 import MarkdownContainer from "../component/MarkdownContainer";
 
@@ -22,7 +22,7 @@ const options = [
 ]
 
 function StepsView(props) {
-    return <MarkdownContainer options={options} commonDependencies={{Steps,Step}}/>
+    return <MarkdownContainer options={options} commonDependencies={{Steps,Step,useState}}/>
 }
 
 export default StepsView;
