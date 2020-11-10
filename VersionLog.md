@@ -3,6 +3,7 @@
 - `Textarea` 字体颜色调整为默认颜色【原生】
 - 新增`Stpes`组件
 - `Card`新增API`className`、`style`
+- `CheckboxGroup`内部函数`renderOption`改为组件`RenderOption`
 
 # `0.0.14`
 - `Input` 删除API`type`

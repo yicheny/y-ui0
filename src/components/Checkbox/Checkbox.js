@@ -64,7 +64,7 @@ export function CheckboxGroup(props) {
 
     return <CheckboxContext.Provider value={{values,setValues,groupChange:onChange,disabled}}>
        <div className={clsx("y-checkbox-group",className)} style={style}>
-           {options ? renderOptions(options) : children}
+           {options ? <RenderOptions options={options}/> : children}
        </div>
     </CheckboxContext.Provider>
 }
@@ -73,7 +73,7 @@ CheckboxGroup.defaultProps={
     disabled:false
 }
 
-function renderOptions(options){
+function RenderOptions({options}){
     return <Fragment>
         {
             _.map(options,(x,i)=>{

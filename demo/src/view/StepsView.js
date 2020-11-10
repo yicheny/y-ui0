@@ -12,6 +12,10 @@ const options = [
         source:require('../../doc/Steps/竖直方向.md'),
     },
     {
+        title:'可点击',
+        source:require('../../doc/Steps/可点击.md'),
+    },
+    {
         title:'API',
         source:require('../../doc/Steps/API.md'),
     },
