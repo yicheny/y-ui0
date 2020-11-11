@@ -83,7 +83,7 @@ function DatePicker(props) {
 
     const suffix = <Fragment>
         <Icon name='calendar'/>
-        <Icon name='cancel' size={10} onClick={()=>handleChange(null)}/>
+        <Icon name='cancel' size={10} onClick={(e)=>handleChange(null,e)}/>
     </Fragment>
 
     return <div className={clsx('y-date-picker',{focus},className)} ref={containerRef} style={style}>
@@ -102,7 +102,11 @@ function DatePicker(props) {
         </Popup>
     </div>;
 
-    function handleChange(d){
+    function handleChange(d,e){
+        if(e){
+            e.preventDefault();
+            e.stopPropagation();
+        }
         setSelected(d);
         setId(x=>++x);
         setFocus(false);
