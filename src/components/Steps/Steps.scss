@@ -88,6 +88,7 @@ $transition:all 300ms ease;
       }
     }
     &.last{
+      flex:0;
       .y-Step-tail{
         height:0;
       }
