@@ -5,18 +5,23 @@ import {DateBtn, maxDaysFor} from "../DatePicker/utils";
 
 //UI组件部分
 function CalendarCell(props) {
-    const {item, selected, setSelected, cardDate} = props;
+    const {item, selected, setSelected, cardDate,dateCellRender} = props;
     const {y, m, d} = item;
     const now = new Date();
     const currMonth = m === cardDate.getMonth();
     const isSelected = _.isDate(selected) && y===selected.getFullYear() && m===selected.getMonth() && d === selected.getDate();
     const isNow = y === now.getFullYear() && m === now.getMonth() && d === now.getDate();
     return <div className={clsx('cell', {currMonth, isSelected, isNow})}
-                onClick={() => setSelected(new Date(y, m, d))}>{d}</div>;
+                onClick={() => setSelected(new Date(y, m, d))}>
+        <div className="cell-day">{d}</div>
+        {
+            dateCellRender && <div className="cell-dateCellRender">{dateCellRender(new Date(y,m,d))}</div>
+        }
+    </div>;
 }
 
 function CalendarCard(props) {
-    const {cardDate,selected,setSelected} = props;
+    const {cardDate,selected,setSelected,dateCellRender} = props;
 
     const data = useMemo(() => {
         const y = cardDate.getFullYear();
@@ -35,7 +40,7 @@ function CalendarCard(props) {
             {
                 _.chunk(data, 7).map((x, i) => {
                     return <div key={i} className="week">
-                        {x.map((x2, i2) => <CalendarCell key={i2} cardDate={cardDate} selected={selected} setSelected={setSelected} item={x2}/>)}
+                        {x.map((x2, i2) => <CalendarCell key={i2} cardDate={cardDate} selected={selected} setSelected={setSelected} item={x2} dateCellRender={dateCellRender}/>)}
                     </div>
                 })
             }
@@ -44,7 +49,7 @@ function CalendarCard(props) {
 }
 
 export default function Calendar(props) {
-    const {value, onChange, style, className} = props;
+    const {value, onChange, style, className,fullscreen,dateCellRender} = props;
     const [selected, setSelected] = useState(value);
     const [cardDate,setCardDate] = useState(_.isDate(value) ? value : new Date());
 
@@ -53,7 +58,7 @@ export default function Calendar(props) {
         setCardDate(_.isDate(value) ? value : new Date());
     },[value]);
 
-    return <div className={clsx('y-calendar-panel',className)} style={style}>
+    return <div className={clsx('y-calendar-panel',className,{fullscreen})} style={style}>
         <div className="y-calendar-header">
             <div className="y-calendar-header-prev">
                 <DateBtn name='arrowDown2' rotate={90} onClick={() => offsetClick(-12)}/>
@@ -68,7 +73,7 @@ export default function Calendar(props) {
             </div>
         </div>
         <div className="y-calendar-body">
-            <CalendarCard cardDate={cardDate} selected={selected} setSelected={dateClick}/>
+            <CalendarCard cardDate={cardDate} selected={selected} setSelected={dateClick} dateCellRender={dateCellRender}/>
         </div>
         <div className="y-calendar-footer">
             <a className='y-calendar-today-btn' onClick={() => dateClick(new Date())}>今天</a>
@@ -85,7 +90,7 @@ export default function Calendar(props) {
         setSelected(date);
         if (_.isFunction(onChange)) onChange(date);
     }
-}
+};
 
 //逻辑函数部分
 function setDateByMonth(y, m, offset = 0) {

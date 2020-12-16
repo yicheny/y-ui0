@@ -4,6 +4,10 @@ import MarkdownContainer from "../component/MarkdownContainer";
 
 const options = [
     {
+        title:'通知事项日历',
+        source:require('../../doc/Calendar/通知事项日历.md'),
+    },
+    {
         title:'基础用法',
         source:require('../../doc/Calendar/基础用法.md'),
     },

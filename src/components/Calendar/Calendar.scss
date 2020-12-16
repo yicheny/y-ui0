@@ -1,4 +1,4 @@
-.y-calendar-panel {
+.y-calendar-panel{
   width: 280px;
   font-size: 14px;
   background: #fff;
@@ -26,7 +26,7 @@
   .y-calendar-body {
     box-sizing: border-box;
     padding: 8px 12px;
-    height: 226px;
+    //height: 226px;
   }
 
   .y-calendar-footer {
@@ -102,6 +102,60 @@
         border-radius: 2px;
         transition: background .3s,border .3s;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+//全屏样式
+.y-calendar-panel.fullscreen{
+  display: block;
+  width: 100%;
+  text-align: right;
+  background: #fff;
+  border: 0;
+  .y-calendar-header{
+    width:320px;
+  }
+  .y-calendar-card{
+    &-content{
+      .cell{
+        &.isSelected{
+          color:rgba(0,0,0,.65);
+        }
+        &.isNow{
+          border-bottom:none;
+          border-right:none;
+          border-left:none;
+          border-top:2px solid #1890ff;
+          background:rgba(115, 215, 255, 0.5);
+          .cell-day{
+            color:#fff;
+            padding:0 6px;
+          }
+        }
+        &.isSelected{
+          background: #1890ff;
+        }
+        &:hover{
+          border-top-color:#1890ff;
+        }
+        width:100%;
+        height:120px;
+        //display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        border-top:2px solid #f0f0f0;
+        margin-right:12px;
+        overflow: hidden;
+        &-day{
+          padding:0 6px;
+        }
+        &-dateCellRender{
+          overflow: auto;
+        }
       }
     }
   }
