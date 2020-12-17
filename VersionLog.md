@@ -1,4 +1,4 @@
-# `0.0.15`
+# `0.0.15`【未发布】
 - `Input` 字体大小调整为`12px`
 - `Textarea` 字体颜色调整为默认颜色【原生】
 - 新增`Stpes`组件
@@ -6,6 +6,7 @@
 - `CheckboxGroup`内部函数`renderOption`改为组件`RenderOption`
 - `Radio`组件的`defaultChecked`生效逻辑修改【仅当`checked`为`undefined`时生效】
 - `DatePciker` 修复点击清除图标会冒出面板的问题
+- `Canlendar`添加API`fullScreen`、`dateCellRender`
 
 # `0.0.14`
 - `Input` 删除API`type`
