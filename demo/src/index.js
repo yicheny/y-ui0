@@ -4,8 +4,8 @@ import {render} from 'react-dom'
 import 'y-code-view/lib/index.css';
 import './index.scss';
 import './common.scss';
-import * as Babel from './utils/babel.min.js';
 import App from "./App";
+import Babel from 'ybabel';
 
 window.Babel = Babel;
 

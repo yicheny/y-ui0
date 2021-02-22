@@ -45,7 +45,8 @@
     "raw-loader": "^4.0.1",
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
-    "y-code-view": "0.0.15"
+    "y-code-view": "0.0.15",
+    "ybabel": "^0.0.4"
   },
   "author": "ylf",
   "license": "MIT",
